@@ -12,7 +12,8 @@ namespace ECS.Systems
     public class PlayerInputSystem : ComponentSystem
     {
         private EntityQuery _bootstrapQuery;
-        private EntityQuery _inputQuery;
+        private EntityQuery _moveInputQuery;
+        private EntityQuery _attackInputQuery;
         private EntityQuery _moveQuery;
         private EntityQuery _rotateQuery;
         private EntityQuery _moveAnimationQuery;
@@ -21,14 +22,16 @@ namespace ECS.Systems
         private EntityQuery _crouchQuery;
         private EntityQuery _gravityQuery;
         private EntityQuery _controllerQuery;
+        private EntityQuery _attackQuery;
+        private EntityQuery _specialAttackQuery;
 
         protected override void OnCreate()
         {
             _bootstrapQuery = GetEntityQuery(new EntityQueryDesc
             {
-                All = new []
+                All = new[]
                 {
-                    ComponentType.ReadWrite<CharacterController>(), 
+                    ComponentType.ReadWrite<CharacterController>(),
                 },
                 None = new[]
                 {
@@ -37,11 +40,13 @@ namespace ECS.Systems
                     ComponentType.ReadOnly<PlayerJumpInput>(),
                     ComponentType.ReadOnly<PlayerCrouchInput>(),
                     ComponentType.ReadOnly<PlayerIsGrounded>(),
-                    ComponentType.ReadOnly<PlayerFeetPoint>(), 
+                    ComponentType.ReadOnly<PlayerFeetPoint>(),
+                    ComponentType.ReadOnly<PlayerAttackInput>(),
+                    ComponentType.ReadOnly<PlayerSpecialAttackInput>(), 
                 }
             });
 
-            _inputQuery = GetEntityQuery(new EntityQueryDesc
+            _moveInputQuery = GetEntityQuery(new EntityQueryDesc
             {
                 All = new[]
                 {
@@ -50,6 +55,16 @@ namespace ECS.Systems
                     ComponentType.ReadWrite<PlayerJumpInput>(),
                     ComponentType.ReadWrite<PlayerCrouchInput>(),
                     ComponentType.ReadOnly<PlayerIsGrounded>(),
+                }
+            });
+
+            _attackInputQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new[]
+                {
+                    ComponentType.ReadWrite<PlayerInput>(),
+                    ComponentType.ReadWrite<PlayerAttackInput>(),
+                    ComponentType.ReadWrite<PlayerSpecialAttackInput>(),
                 }
             });
 
@@ -106,8 +121,8 @@ namespace ECS.Systems
                 {
                     ComponentType.ReadWrite<MecanimSetBool>(),
                     ComponentType.ReadOnly<MecanimIsJumpingParameter>(),
-                    ComponentType.ReadOnly<PlayerFeetPoint>(), 
-                    ComponentType.ReadOnly<PlayerIsGrounded>(), 
+                    ComponentType.ReadOnly<PlayerFeetPoint>(),
+                    ComponentType.ReadOnly<PlayerIsGrounded>(),
                 }
             });
 
@@ -139,7 +154,27 @@ namespace ECS.Systems
                     ComponentType.ReadOnly<PlayerMoveDirection>(),
                     ComponentType.ReadWrite<PlayerIsGrounded>(),
                     ComponentType.ReadWrite<PlayerFeetPoint>(),
-                    ComponentType.ReadOnly<Translation>(), 
+                    ComponentType.ReadOnly<Translation>(),
+                }
+            });
+
+            _attackQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new[]
+                {
+                    ComponentType.ReadWrite<MecanimTrigger>(),
+                    ComponentType.ReadOnly<MecanimAttackParameter>(),
+                    ComponentType.ReadOnly<PlayerAttackInput>(),
+                }
+            });
+            
+            _specialAttackQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new[]
+                {
+                    ComponentType.ReadWrite<MecanimTrigger>(),
+                    ComponentType.ReadOnly<MecanimSpecialAttackParameter>(),
+                    ComponentType.ReadOnly<PlayerSpecialAttackInput>(),
                 }
             });
         }
@@ -155,11 +190,13 @@ namespace ECS.Systems
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveInput());
                     PostUpdateCommands.AddComponent(entity, new PlayerJumpInput());
                     PostUpdateCommands.AddComponent(entity, new PlayerCrouchInput());
-                    PostUpdateCommands.AddComponent(entity, new PlayerIsGrounded{value = true});
+                    PostUpdateCommands.AddComponent(entity, new PlayerIsGrounded {value = true});
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveDirection());
+                    PostUpdateCommands.AddComponent(entity, new PlayerAttackInput());
+                    PostUpdateCommands.AddComponent(entity, new PlayerSpecialAttackInput());
                 });
 
-            Entities.With(_inputQuery)
+            Entities.With(_moveInputQuery)
                 .ForEach((PlayerInput playerInput,
                     ref PlayerMoveInput moveInput,
                     ref PlayerJumpInput jumpInput,
@@ -167,13 +204,21 @@ namespace ECS.Systems
                     ref PlayerIsGrounded playerIsGrounded) =>
                 {
                     crouchInput.value = playerInput.actions["Crouch"].ReadValue<float>() > 0;
-                    
-                    if(playerIsGrounded.value && crouchInput.value == false)
+
+                    if (playerIsGrounded.value && crouchInput.value == false)
                     {
                         moveInput.value = playerInput.actions["Move"].ReadValue<float>();
                         jumpInput.value = playerInput.actions["Jump"].triggered;
                     }
                 });
+            
+            Entities.With(_attackInputQuery).ForEach((PlayerInput playerInput,
+                ref PlayerAttackInput playerAttackInput,
+                ref PlayerSpecialAttackInput playerSpecialAttackInput) =>
+            {
+                playerAttackInput.value = playerInput.actions["Attack"].triggered;
+                playerSpecialAttackInput.value = playerInput.actions["SpecialAttack"].triggered;
+            });
 
             Entities.With(_moveQuery)
                 .ForEach((DynamicBuffer<MecanimSetBool> mecanimSetBoolBuffer,
@@ -188,27 +233,29 @@ namespace ECS.Systems
                         playerMoveDirection.value = new Vector3(playerMoveInput.value * playerMoveSpeed.value, 0f, 0f);
                     }
                 });
-            
-            Entities.With(_rotateQuery).ForEach((Transform transform, ref PlayerMoveInput playerMoveInput) =>
-            {
-                if(playerMoveInput.value != 0f)
+
+            Entities.With(_rotateQuery)
+                .ForEach((Transform transform, ref PlayerMoveInput playerMoveInput) =>
                 {
-                    transform.rotation = Quaternion.LookRotation(new Vector3(playerMoveInput.value, 0f, 0f), Vector3.up);
-                }
-            });
-            
-            Entities.With(_moveAnimationQuery).ForEach((DynamicBuffer<MecanimSetFloat> mecanimSetFloatBuffer,
-                ref MecanimMoveDirectionParameter mecanimMoveDirectionParameter,
-                ref MecanimMoveSpeedParameter mecanimMoveSpeedParameter,
-                ref PlayerMoveSpeed playerMoveSpeed,
-                ref PlayerMoveInput playerMoveInput) =>
-            {
-                mecanimSetFloatBuffer.Add(new MecanimSetFloat(mecanimMoveDirectionParameter.value, playerMoveInput.value));
-                
-                mecanimSetFloatBuffer.Add(playerMoveInput.value != 0f
-                    ? new MecanimSetFloat(mecanimMoveSpeedParameter.value, playerMoveSpeed.value)
-                    : new MecanimSetFloat(mecanimMoveSpeedParameter.value, 1f));
-            });
+                    if (playerMoveInput.value != 0f)
+                    {
+                        transform.rotation = Quaternion.LookRotation(new Vector3(playerMoveInput.value, 0f, 0f), Vector3.up);
+                    }
+                });
+
+            Entities.With(_moveAnimationQuery)
+                .ForEach((DynamicBuffer<MecanimSetFloat> mecanimSetFloatBuffer,
+                    ref MecanimMoveDirectionParameter mecanimMoveDirectionParameter,
+                    ref MecanimMoveSpeedParameter mecanimMoveSpeedParameter,
+                    ref PlayerMoveSpeed playerMoveSpeed,
+                    ref PlayerMoveInput playerMoveInput) =>
+                {
+                    mecanimSetFloatBuffer.Add(new MecanimSetFloat(mecanimMoveDirectionParameter.value, playerMoveInput.value));
+
+                    mecanimSetFloatBuffer.Add(playerMoveInput.value != 0f
+                        ? new MecanimSetFloat(mecanimMoveSpeedParameter.value, playerMoveSpeed.value)
+                        : new MecanimSetFloat(mecanimMoveSpeedParameter.value, 1f));
+                });
 
             Entities.With(_jumpQuery)
                 .ForEach((DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer,
@@ -224,9 +271,9 @@ namespace ECS.Systems
                         playerMoveDirection.value.y += playerJumpSpeed.value;
                     }
                 });
-            
+
             float deltaTime = Time.deltaTime;
-            
+
             Entities.With(_isJumpingQuery)
                 .ForEach((DynamicBuffer<MecanimSetBool> mecanimSetBoolBuffer,
                     ref MecanimIsJumpingParameter mecanimIsJumpingParameter,
@@ -239,6 +286,7 @@ namespace ECS.Systems
                     {
                         isJumping = !Physics.Raycast(playerFeetPoint.value, Vector3.down, playerGravity.value * deltaTime * 2f);
                     }
+
                     mecanimSetBoolBuffer.Add(new MecanimSetBool(mecanimIsJumpingParameter.value, isJumping));
                 });
 
@@ -266,10 +314,32 @@ namespace ECS.Systems
                 {
                     characterController.Move(playerMoveDirection.value * deltaTime);
                     playerIsGrounded.value = characterController.isGrounded;
-                    
-                    var feetPoint = translation.Value + (float3)characterController.center;
-                    feetPoint.y -= characterController.height / 2f;
-                    playerFeetPoint.value = feetPoint;
+
+                    var feetPoint = translation.Value + (float3) characterController.center;
+                    feetPoint.y           -= characterController.height / 2f;
+                    playerFeetPoint.value =  feetPoint;
+                });
+
+            Entities.With(_attackQuery)
+                .ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger,
+                    ref MecanimAttackParameter mecanimAttackParameter,
+                    ref PlayerAttackInput playerAttackInput) =>
+                {
+                    if (playerAttackInput.value)
+                    {
+                        mecanimTrigger.Add(new MecanimTrigger(mecanimAttackParameter.value));
+                    }
+                });
+
+            Entities.With(_specialAttackQuery)
+                .ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger,
+                    ref MecanimSpecialAttackParameter mecanimSpecialAttackParameter,
+                    ref PlayerSpecialAttackInput playerSpecialAttackInput) =>
+                {
+                    if (playerSpecialAttackInput.value)
+                    {
+                        mecanimTrigger.Add(new MecanimTrigger(mecanimSpecialAttackParameter.value));
+                    }
                 });
         }
     }

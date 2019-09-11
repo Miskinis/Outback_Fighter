@@ -17,24 +17,12 @@
             </e>
           </e>
         </e>
-        <e p="Samples" t="Include">
-          <e p="Input System" t="Include">
-            <e p="0.9.5-preview" t="Include">
-              <e p="SimpleDemo" t="Include">
-                <e p="SimpleController_UsingActionAsset.cs" t="Include" />
-                <e p="SimpleController_UsingActions.cs" t="Include" />
-                <e p="SimpleController_UsingPlayerInput.cs" t="Include" />
-                <e p="SimpleController_UsingState.cs" t="Include" />
-                <e p="SimpleControls.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="ECS" t="Include">
             <e p="Components" t="Include">
               <e p="CustomCopyTransformFromGameObject.cs" t="Include" />
               <e p="Mecanim" t="Include">
+                <e p="MecanimAttackParameterComponent.cs" t="Include" />
                 <e p="MecanimIsCrouchingParameterComponent.cs" t="Include" />
                 <e p="MecanimIsJumpingParameterComponent.cs" t="Include" />
                 <e p="MecanimIsWalkingParameterComponent.cs" t="Include" />
@@ -44,16 +32,19 @@
                 <e p="MecanimSetBool.cs" t="Include" />
                 <e p="MecanimSetFloat.cs" t="Include" />
                 <e p="MecanimSetInteger.cs" t="Include" />
+                <e p="MecanimSpecialAttackParameterComponent.cs" t="Include" />
                 <e p="MecanimTrigger.cs" t="Include" />
               </e>
               <e p="PlayerGravityComponent.cs" t="Include" />
               <e p="PlayerInputs" t="Include">
+                <e p="PlayerAttackInput.cs" t="Include" />
                 <e p="PlayerCrouchInput.cs" t="Include" />
                 <e p="PlayerFeetPoint.cs" t="Include" />
                 <e p="PlayerIsGrounded.cs" t="Include" />
                 <e p="PlayerJumpInput.cs" t="Include" />
                 <e p="PlayerMoveDirection.cs" t="Include" />
                 <e p="PlayerMoveInput.cs" t="Include" />
+                <e p="PlayerSpecialAttackInput.cs" t="Include" />
               </e>
               <e p="PlayerJumpSpeedComponent.cs" t="Include" />
               <e p="PlayerMoveSpeedComponent.cs" t="Include" />
