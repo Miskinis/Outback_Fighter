@@ -2,8 +2,7 @@ using Unity.Entities;
 
 namespace ECS.Components.PlayerInputs
 {
-    public struct PlayerCrouchInput : IComponentData
+    public struct PlayerIsCrouching : IComponentData
     {
-        public bool value;
     }
 }

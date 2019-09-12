@@ -2,8 +2,7 @@ using Unity.Entities;
 
 namespace ECS.Components.PlayerInputs
 {
-    public struct PlayerJumpInput : IComponentData
+    public struct PlayerIsJumping : IComponentData
     {
-        public bool value;
     }
 }

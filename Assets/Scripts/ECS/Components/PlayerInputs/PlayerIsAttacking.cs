@@ -2,8 +2,7 @@ using Unity.Entities;
 
 namespace ECS.Components.PlayerInputs
 {
-    public struct PlayerAttackInput : IComponentData
+    public struct PlayerIsAttacking : IComponentData
     {
-        public bool value;
     }
 }
