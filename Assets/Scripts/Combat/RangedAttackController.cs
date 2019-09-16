@@ -10,8 +10,8 @@ public class RangedAttackController : MonoBehaviour
     public Transform spawnPoint;
     public ConvertHierarchyToEntities rootEntityObject;
     public Animator animator;
-    public float maxHitDistance = 100f;
-    public ushort damage;
+    //public float maxHitDistance = 100f;
+    //public ushort damage;
     public GameObject projectilePrefab;
 
     private RangedAttackBehavior[] _rangedAttackBehaviors;

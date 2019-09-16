@@ -31,7 +31,12 @@
                 <e p="DealDamage.cs" t="Include" />
                 <e p="HealthComponent.cs" t="Include" />
               </e>
-              <e p="CustomCopyTransformFromGameObject.cs" t="Include" />
+              <e p="Hybrid" t="Include">
+                <e p="AnimatorProxy.cs" t="Include" />
+                <e p="CharacterControllerProxy.cs" t="Include" />
+                <e p="CustomCopyTransformFromGameObject.cs" t="Include" />
+                <e p="PlayerInputProxy.cs" t="Include" />
+              </e>
               <e p="Mecanim" t="Include">
                 <e p="MecanimAttackParameterComponent.cs" t="Include" />
                 <e p="MecanimDieParameterComponent.cs" t="Include" />
@@ -92,7 +97,6 @@
               <e p="ZeroWeightWhileInState.cs" t="Include" />
             </e>
           </e>
-          <e p="PlayerCharacterController.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
       </e>
