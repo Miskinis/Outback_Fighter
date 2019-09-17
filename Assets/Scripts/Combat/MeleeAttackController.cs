@@ -29,6 +29,9 @@ public class MeleeAttackController : MonoBehaviour
                 _weaponCollider.enabled = false;
             };
         }
+
+        _weaponCollider.enabled = false;
+        trailRenderer.enabled = false;
     }
 
     private void OnDestroy()

@@ -190,7 +190,6 @@ namespace ECS.Systems
                     PostUpdateCommands.AddComponent(entity, new PlayerFeetPoint(feetPoint));
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveInput());
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveDirection());
-                    PostUpdateCommands.AddComponent(entity, new PlayerIsSpecialAttacking());
                 });
 
             Entities.With(_inputQuery)
