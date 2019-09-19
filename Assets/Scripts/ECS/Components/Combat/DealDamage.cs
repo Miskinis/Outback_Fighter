@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace ECS.Components
+namespace ECS.Components.Combat
 {
     public struct DealDamage : IComponentData
     {

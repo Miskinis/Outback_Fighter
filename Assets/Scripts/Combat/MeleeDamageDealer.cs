@@ -1,5 +1,6 @@
 using ECS;
 using ECS.Components;
+using ECS.Components.Combat;
 using Unity.Entities;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ using UnityEngine;
 public class MeleeDamageDealer : MonoBehaviour
 {
     public ConvertHierarchyToEntities rootEntityObject;
-    public ushort damage = 1;
+    public ushort damage = 10;
+    public GameObject hitEffect;
 
     private Entity _entity;
     private EntityManager _entityManager;
@@ -33,5 +35,6 @@ public class MeleeDamageDealer : MonoBehaviour
         var otherEntity = otherEntityObject.HierarchyRootEntity;
 
         _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
+        Instantiate(hitEffect, other.transform.position, Quaternion.identity);
     }
 }

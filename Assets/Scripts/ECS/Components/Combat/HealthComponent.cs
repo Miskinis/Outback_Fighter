@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using UnityEngine;
 
-namespace ECS.Components
+namespace ECS.Components.Combat
 {
     public struct Health : IComponentData
     {
@@ -27,7 +27,7 @@ namespace ECS.Components
     [DisallowMultipleComponent]
     public class HealthComponent : MonoBehaviour, IConvertGameObjectToEntity
     {
-        public ushort health = 5;
+        public ushort health = 100;
 
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {

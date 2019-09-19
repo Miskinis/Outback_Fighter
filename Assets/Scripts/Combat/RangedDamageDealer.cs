@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using ECS;
 using ECS.Components;
+using ECS.Components.Combat;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
@@ -9,8 +11,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class RangedDamageDealer : MonoBehaviour
 {
-    public ushort damage = 1;
-    public float impulseForce = 600f;
+    public ushort damage = 10;
+    public float impulseForce = 10f;
     public float selfDestructDelay = 5f;
     public GameObject spawnEffect;
     public GameObject hitEffect;
@@ -30,6 +32,8 @@ public class RangedDamageDealer : MonoBehaviour
         thisTransform.parent = null;
         _rigidbody.AddForce(thisTransform.forward * impulseForce, ForceMode.Impulse);
         Instantiate(spawnEffect, thisTransform.position, quaternion.identity);
+        
+        StartCoroutine(SelfDestruct(selfDestructDelay));
     }
 
     private IEnumerator SelfDestruct(float delay)
@@ -37,23 +41,23 @@ public class RangedDamageDealer : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        StartCoroutine(SelfDestruct(selfDestructDelay));
-
+        if (enabled == false) return;
         if (_entityManager == null || _entityManager.Exists(_entity) == false)
         {
             Destroy(this);
             return;
         }
-
-        var otherEntityObject = other.GetComponent<ConvertHierarchyToEntities>();
-        if (otherEntityObject == null || other.GetComponent<HealthComponent>() == null) return;
+        var otherGameObject = other.gameObject;
+        var otherEntityObject = otherGameObject.GetComponent<ConvertHierarchyToEntities>();
+        if (otherEntityObject == null || otherGameObject.GetComponent<HealthComponent>() == null) return;
 
         var otherEntity = otherEntityObject.HierarchyRootEntity;
-
         _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
-        Instantiate(hitEffect, other.transform.position, Quaternion.identity);
+        Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
+        StopCoroutine(nameof(SelfDestruct));
+        enabled = false;
+        Destroy(gameObject);
     }
 }

@@ -1,7 +1,7 @@
-using ECS.Components;
+using ECS.Components.Combat;
 using Unity.Entities;
 
-namespace ECS.Systems
+namespace ECS.Systems.Combat
 {
     public class DamageSystem : ComponentSystem
     {

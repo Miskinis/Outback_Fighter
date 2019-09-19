@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 1067199677037988084}
   - component: {fileID: 1067199677037988086}
   m_Layer: 0
-  m_Name: Scarycrow (1)
+  m_Name: Scarycrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,7 +634,7 @@ Animator:
   m_GameObject: {fileID: 9074358961698450484}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5f533ae077319fe47b1179dabc2779c0, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e629bd2d2629b504389a6f31ef6d6972, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

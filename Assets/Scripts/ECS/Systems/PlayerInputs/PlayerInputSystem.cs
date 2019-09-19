@@ -7,7 +7,7 @@ using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ECS.Systems
+namespace ECS.Systems.PlayerInputs
 {
     public class PlayerInputSystem : ComponentSystem
     {
