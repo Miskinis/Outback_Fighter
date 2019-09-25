@@ -18,11 +18,28 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Combat" t="Include">
+            <e p="MeleeAttackController.cs" t="Include" />
+            <e p="MeleeDamageDealer.cs" t="Include" />
+            <e p="RangedAttackController.cs" t="Include" />
+            <e p="RangedDamageDealer.cs" t="Include" />
+          </e>
           <e p="ECS" t="Include">
             <e p="Components" t="Include">
-              <e p="CustomCopyTransformFromGameObject.cs" t="Include" />
+              <e p="Combat" t="Include">
+                <e p="Dead.cs" t="Include" />
+                <e p="DealDamage.cs" t="Include" />
+                <e p="HealthComponent.cs" t="Include" />
+              </e>
+              <e p="Hybrid" t="Include">
+                <e p="AnimatorProxy.cs" t="Include" />
+                <e p="CharacterControllerProxy.cs" t="Include" />
+                <e p="CustomCopyTransformFromGameObject.cs" t="Include" />
+                <e p="PlayerInputProxy.cs" t="Include" />
+              </e>
               <e p="Mecanim" t="Include">
                 <e p="MecanimAttackParameterComponent.cs" t="Include" />
+                <e p="MecanimDieParameterComponent.cs" t="Include" />
                 <e p="MecanimIsCrouchingParameterComponent.cs" t="Include" />
                 <e p="MecanimIsJumpingParameterComponent.cs" t="Include" />
                 <e p="MecanimIsWalkingParameterComponent.cs" t="Include" />
@@ -37,38 +54,49 @@
               </e>
               <e p="PlayerGravityComponent.cs" t="Include" />
               <e p="PlayerInputs" t="Include">
-                <e p="PlayerAttackInput.cs" t="Include" />
-                <e p="PlayerCrouchInput.cs" t="Include" />
                 <e p="PlayerFeetPoint.cs" t="Include" />
+                <e p="PlayerIsAttacking.cs" t="Include" />
+                <e p="PlayerIsCrouching.cs" t="Include" />
                 <e p="PlayerIsGrounded.cs" t="Include" />
-                <e p="PlayerJumpInput.cs" t="Include" />
+                <e p="PlayerisJumping.cs" t="Include" />
+                <e p="PlayerisSpecialAttacking.cs" t="Include" />
                 <e p="PlayerMoveDirection.cs" t="Include" />
                 <e p="PlayerMoveInput.cs" t="Include" />
-                <e p="PlayerSpecialAttackInput.cs" t="Include" />
               </e>
               <e p="PlayerJumpSpeedComponent.cs" t="Include" />
               <e p="PlayerMoveSpeedComponent.cs" t="Include" />
             </e>
+            <e p="ConvertHierarchyToEntities.cs" t="Include" />
             <e p="Systems" t="Include">
+              <e p="Combat" t="Include">
+                <e p="DamageSystem.cs" t="Include" />
+              </e>
               <e p="CustomCopyTransformFromGameObjectSystem.cs" t="Include" />
               <e p="Mecanim" t="Include">
                 <e p="SetMecanimParametersSystem.cs" t="Include" />
               </e>
-              <e p="PlayerInputSystem.cs" t="Include" />
+              <e p="PlayerInputs" t="Include">
+                <e p="PlayerInputSystem.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="MecanimBehaviors" t="Include">
-            <e p="ActionBetweenFrames.cs" t="Include" />
-            <e p="ActionOnFrame.cs" t="Include" />
-            <e p="ActionOnStateEnter.cs" t="Include" />
-            <e p="ActionOnStateExit.cs" t="Include" />
-            <e p="ActionsBetweenFrames.cs" t="Include" />
-            <e p="ChangeBoolFramesDuration.cs" t="Include" />
-            <e p="RandomAnimationSelector.cs" t="Include" />
-            <e p="ResetTriggerOnStateEnter.cs" t="Include" />
-            <e p="ZeroWeightWhileInState.cs" t="Include" />
+            <e p="Combat" t="Include">
+              <e p="MeleeAttackBehavior.cs" t="Include" />
+              <e p="RangedAttackBehavior.cs" t="Include" />
+            </e>
+            <e p="Generic" t="Include">
+              <e p="ActionBetweenFrames.cs" t="Include" />
+              <e p="ActionOnFrame.cs" t="Include" />
+              <e p="ActionOnStateEnter.cs" t="Include" />
+              <e p="ActionOnStateExit.cs" t="Include" />
+              <e p="ActionsBetweenFrames.cs" t="Include" />
+              <e p="ChangeBoolFramesDuration.cs" t="Include" />
+              <e p="RandomAnimationSelector.cs" t="Include" />
+              <e p="ResetTriggerOnStateEnter.cs" t="Include" />
+              <e p="ZeroWeightWhileInState.cs" t="Include" />
+            </e>
           </e>
-          <e p="PlayerCharacterController.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
         </e>
       </e>

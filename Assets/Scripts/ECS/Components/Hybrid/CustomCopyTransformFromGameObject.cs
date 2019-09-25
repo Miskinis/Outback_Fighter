@@ -2,7 +2,7 @@ using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace ECS.Components
+namespace ECS.Components.Hybrid
 {
     [DisallowMultipleComponent]
     public class CustomCopyTransformFromGameObject : MonoBehaviour, IConvertGameObjectToEntity

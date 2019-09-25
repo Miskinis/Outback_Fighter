@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6677731315702313722, guid: 7b9e75449be84d244b445e611070f838,
         type: 3}
       propertyPath: m_Name
-      value: KPOW
+      value: KPOW Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6677731315702313727, guid: 7b9e75449be84d244b445e611070f838,
         type: 3}
@@ -72,5 +72,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e5053671d0fa52248925cb1db1b002fe, type: 2}
+    - target: {fileID: 6677731314971935884, guid: 7b9e75449be84d244b445e611070f838,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b9e75449be84d244b445e611070f838, type: 3}
