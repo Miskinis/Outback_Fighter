@@ -32,6 +32,7 @@ namespace ECS.Systems.PlayerInputs
                 All = new[]
                 {
                     ComponentType.ReadWrite<CharacterController>(),
+                    ComponentType.ReadWrite<PlayerInput>(),
                 },
                 None = new[]
                 {
@@ -47,6 +48,7 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<PlayerInput>(),
                     ComponentType.ReadWrite<PlayerMoveInput>(),
+                    ComponentType.ReadOnly<CameraHorizontalAxis>(), 
                 }
             });
 
@@ -183,23 +185,32 @@ namespace ECS.Systems.PlayerInputs
         protected override void OnUpdate()
         {
             Entities.With(_bootstrapQuery)
-                .ForEach((Entity entity, CharacterController characterController) =>
+                .ForEach((Entity entity,
+                    CharacterController characterController,
+                    PlayerInput playerInput) =>
                 {
                     var feetPoint = characterController.center;
                     feetPoint.y -= characterController.height / 2f;
                     PostUpdateCommands.AddComponent(entity, new PlayerFeetPoint(feetPoint));
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveInput());
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveDirection());
+                    PostUpdateCommands.AddComponent(entity, new CameraHorizontalAxis(Camera.main.transform.right.x));
+                    
+                    if (playerInput.currentControlScheme == null)
+                    {
+                        playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex+1}_Keyboard", Keyboard.current);
+                    }
                 });
 
             Entities.With(_inputQuery)
                 .ForEach((Entity entity,
                     PlayerInput playerInput,
-                    ref PlayerMoveInput moveInput) =>
+                    ref PlayerMoveInput moveInput,
+                    ref CameraHorizontalAxis cameraHorizontalAxis) =>
                 {
-                    moveInput.value = playerInput.actions["Move"].ReadValue<float>(); 
+                    moveInput.value = playerInput.currentActionMap.asset["Move"].ReadValue<float>() * cameraHorizontalAxis.value;
                     
-                    if (playerInput.actions["Crouch"].ReadValue<float>() > 0)
+                    if (playerInput.currentActionMap.asset["Crouch"].ReadValue<float>() > 0)
                     {
                         PostUpdateCommands.AddComponent<PlayerIsCrouching>(entity);
                     }
@@ -208,7 +219,7 @@ namespace ECS.Systems.PlayerInputs
                         PostUpdateCommands.RemoveComponent<PlayerIsCrouching>(entity);
                     }
 
-                    if (playerInput.actions["Jump"].triggered)
+                    if (playerInput.currentActionMap.asset["Jump"].triggered)
                     {
                         PostUpdateCommands.AddComponent<PlayerIsJumping>(entity);
                     }
@@ -217,7 +228,7 @@ namespace ECS.Systems.PlayerInputs
                         PostUpdateCommands.RemoveComponent<PlayerIsJumping>(entity);
                     }
                     
-                    if (playerInput.actions["Attack"].triggered)
+                    if (playerInput.currentActionMap.asset["Attack"].triggered)
                     {
                         PostUpdateCommands.AddComponent<PlayerIsAttacking>(entity);
                     }
@@ -226,7 +237,7 @@ namespace ECS.Systems.PlayerInputs
                         PostUpdateCommands.RemoveComponent<PlayerIsAttacking>(entity);
                     }
                     
-                    if (playerInput.actions["SpecialAttack"].triggered)
+                    if (playerInput.currentActionMap.asset["SpecialAttack"].triggered)
                     {
                         PostUpdateCommands.AddComponent<PlayerIsSpecialAttacking>(entity);
                     }

@@ -54,6 +54,7 @@
               </e>
               <e p="PlayerGravityComponent.cs" t="Include" />
               <e p="PlayerInputs" t="Include">
+                <e p="CameraHorizontalAxis.cs" t="Include" />
                 <e p="PlayerFeetPoint.cs" t="Include" />
                 <e p="PlayerIsAttacking.cs" t="Include" />
                 <e p="PlayerIsCrouching.cs" t="Include" />

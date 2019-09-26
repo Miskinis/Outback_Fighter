@@ -811,6 +811,27 @@ MonoBehaviour:
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ea1b6109-cebe-46d2-8382-7758f70b9051
+    m_ActionName: Player/Jump[/Keyboard/w,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d622e16f-d7a3-4165-99f4-6b57f48fa56c
+    m_ActionName: Player/Crouch[/Keyboard/s,/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c65f2115-705c-4741-bcc4-2f227c1b3a74
+    m_ActionName: Player/Move[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c98c976c-b2bd-4a91-9ce7-8623a04b4b90
+    m_ActionName: Player/Attack[/Keyboard/e,/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 534da72f-c341-4764-981b-4456d6f65b08
+    m_ActionName: Player/SpecialAttack[/Keyboard/q,/Keyboard/2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 44e5c360-39be-4a90-90e3-385777086dc8
@@ -1050,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d6a3b9d00c5764dbcd51f5eacc50ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &8542789898423822930
 MonoBehaviour:
   m_ObjectHideFlags: 0
