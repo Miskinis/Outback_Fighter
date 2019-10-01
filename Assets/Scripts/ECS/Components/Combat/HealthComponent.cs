@@ -5,19 +5,9 @@ namespace ECS.Components.Combat
 {
     public struct Health : IComponentData
     {
-        public ushort value;
+        public short value;
 
-        public Health(ushort value)
-        {
-            this.value = value;
-        }
-    }
-
-    public struct PreviousHealth : IComponentData
-    {
-        public ushort value;
-
-        public PreviousHealth(ushort value)
+        public Health(short value)
         {
             this.value = value;
         }
@@ -27,7 +17,7 @@ namespace ECS.Components.Combat
     [DisallowMultipleComponent]
     public class HealthComponent : MonoBehaviour, IConvertGameObjectToEntity
     {
-        public ushort health = 100;
+        public short health = 100;
 
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {

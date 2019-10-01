@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fcd530a48c22d41a614891f479c487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   impulseForce: 10
   selfDestructDelay: 5
   spawnEffect: {fileID: 3522553381193638255, guid: 00543989da4419e4aaa5328114cb04b1,

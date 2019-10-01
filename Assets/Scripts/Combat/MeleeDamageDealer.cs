@@ -9,7 +9,7 @@ using UnityEngine;
 public class MeleeDamageDealer : MonoBehaviour
 {
     public ConvertHierarchyToEntities rootEntityObject;
-    public ushort damage = 10;
+    public short damage = 10;
     public GameObject hitEffect;
 
     private Entity _entity;

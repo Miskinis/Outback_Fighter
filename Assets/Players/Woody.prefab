@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2108264637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2108264638}
-  m_Layer: 0
-  m_Name: ProjectileSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2108264638
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108264637}
-  m_LocalRotation: {x: 0.7424039, y: 0.24240385, z: -0.3461886, w: 0.5198368}
-  m_LocalPosition: {x: -0.0000017996903, y: 0.000010697318, z: -0.00002498336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1047026843772683054}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 110, y: 50, z: 0}
 --- !u!1 &140037803042255186
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,13 +503,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547938664794072158}
-  m_LocalRotation: {x: -0.015626587, y: 0.31696984, z: 0.018493144, w: 0.94812655}
+  m_LocalRotation: {x: 0.6499497, y: -0.2380136, z: -0.22672822, w: -0.6852074}
   m_LocalPosition: {x: -0.00016586854, y: 0.15232036, z: -0.00043484714}
   m_LocalScale: {x: 0.818004, y: 0.81800395, z: 0.8180039}
   m_Children: []
   m_Father: {fileID: 108703060436234369}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 273, y: 36.941, z: 1.4430001}
 --- !u!1 &1648588574730871907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca77ddf164ee1f4d90beed1715880e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2108264638}
+  spawnPoint: {fileID: 8020018672427564344}
   rootEntityObject: {fileID: 7633863837687305334}
   animator: {fileID: 4755899860836945914}
   projectilePrefab: {fileID: 6928327975657020464, guid: c7820ad656671084ca4ee8724507a3a9,
@@ -2062,7 +2032,6 @@ Transform:
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children:
   - {fileID: 2211986294656098380}
-  - {fileID: 2108264638}
   m_Father: {fileID: 380038640503171040}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2452,8 +2421,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootEntityObject: {fileID: 7633863837687305334}
-  damage: 1
-  hitEffect: {fileID: 0}
+  damage: 10
+  hitEffect: {fileID: 621561927876683170, guid: 8626e3f47e441324b8c62daf5bf770d6,
+    type: 3}
 --- !u!96 &568278284
 TrailRenderer:
   serializedVersion: 2

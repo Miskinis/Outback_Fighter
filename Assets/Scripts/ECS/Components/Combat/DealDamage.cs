@@ -4,9 +4,9 @@ namespace ECS.Components.Combat
 {
     public struct DealDamage : IComponentData
     {
-        public ushort damage;
+        public short damage;
 
-        public DealDamage(ushort damage)
+        public DealDamage(short damage)
         {
             this.damage = damage;
         }
