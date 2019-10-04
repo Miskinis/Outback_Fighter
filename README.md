@@ -1,5 +1,5 @@
-#Outback_Fighter
-##Dueling Game
+# Outback_Fighter
+## Dueling Game
 
 2D style game in 3D enviroment. Players fight eachother locally using keyboard, gamepads, joysticks, whatever...
 

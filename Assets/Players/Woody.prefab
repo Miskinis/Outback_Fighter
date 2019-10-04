@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 375621568}
   - component: {fileID: 3459896683075915234}
   - component: {fileID: 8542789898423822930}
+  - component: {fileID: 1476652237}
   m_Layer: 0
   m_Name: Woody
   m_TagString: Untagged
@@ -1055,6 +1056,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameter: Die
+--- !u!114 &1476652237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932329703012978835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4b7dddc261439db8f63015a4132572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2005029168959323055
 GameObject:
   m_ObjectHideFlags: 0

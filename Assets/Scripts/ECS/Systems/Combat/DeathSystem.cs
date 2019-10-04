@@ -1,6 +1,7 @@
 using ECS.Components.Combat;
 using ECS.Components.Mecanim;
 using Unity.Entities;
+using UnityEngine;
 
 namespace ECS.Systems.Combat
 {
@@ -24,6 +25,15 @@ namespace ECS.Systems.Combat
                     ComponentType.ReadWrite<Dead>()
                 }
             });
+
+            _gameOverQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new[]
+                {
+                    ComponentType.ReadWrite<Transform>(),
+                    ComponentType.ReadOnly<Dead>(),
+                }
+            });
         }
 
         protected override void OnUpdate()
@@ -38,6 +48,12 @@ namespace ECS.Systems.Combat
                     mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimDieParameter.hashedParameter));
                     PostUpdateCommands.AddComponent(entity, new Dead());
                 }
+            });
+
+            Entities.With(_gameOverQuery).ForEach((Entity entity, Transform transform) =>
+            {
+                PostUpdateCommands.DestroyEntity(entity);
+                PlayerManager.instance.PlayerKilled(transform);
             });
         }
     }

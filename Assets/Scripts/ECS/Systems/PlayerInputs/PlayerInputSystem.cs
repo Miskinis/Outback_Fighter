@@ -1,4 +1,5 @@
 using ECS.Components;
+using ECS.Components.Combat;
 using ECS.Components.Mecanim;
 using ECS.Components.PlayerInputs;
 using Unity.Entities;
@@ -14,7 +15,6 @@ namespace ECS.Systems.PlayerInputs
         private EntityQuery _bootstrapQuery;
         private EntityQuery _inputQuery;
         private EntityQuery _moveQuery;
-        private EntityQuery _rotateQuery;
         private EntityQuery _moveAnimationQuery;
         private EntityQuery _jumpQuery;
         private EntityQuery _isJumpingQuery;
@@ -33,6 +33,7 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<CharacterController>(),
                     ComponentType.ReadWrite<PlayerInput>(),
+                    ComponentType.ReadWrite<Transform>(), 
                 },
                 None = new[]
                 {
@@ -49,6 +50,10 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<PlayerInput>(),
                     ComponentType.ReadWrite<PlayerMoveInput>(),
                     ComponentType.ReadOnly<CameraHorizontalAxis>(), 
+                },
+                None = new[]
+                {
+                    ComponentType.ReadWrite<Dead>(),
                 }
             });
 
@@ -67,15 +72,6 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadOnly<PlayerIsJumping>(),
                     ComponentType.ReadOnly<PlayerIsCrouching>(), 
-                }
-            });
-
-            _rotateQuery = GetEntityQuery(new EntityQueryDesc
-            {
-                All = new[]
-                {
-                    ComponentType.ReadWrite<Transform>(),
-                    ComponentType.ReadOnly<PlayerMoveInput>(),
                 }
             });
 
@@ -187,7 +183,8 @@ namespace ECS.Systems.PlayerInputs
             Entities.With(_bootstrapQuery)
                 .ForEach((Entity entity,
                     CharacterController characterController,
-                    PlayerInput playerInput) =>
+                    PlayerInput playerInput,
+                    Transform transform) =>
                 {
                     var feetPoint = characterController.center;
                     feetPoint.y -= characterController.height / 2f;
@@ -200,6 +197,8 @@ namespace ECS.Systems.PlayerInputs
                     {
                         playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex+1}_Keyboard", Keyboard.current);
                     }
+                    
+                    PlayerManager.instance.RegisterPlayer(transform);
                 });
 
             Entities.With(_inputQuery)
@@ -256,15 +255,6 @@ namespace ECS.Systems.PlayerInputs
                 {
                     playerMoveDirection.value.x = playerMoveInput.value * playerMoveSpeed.value;
                     playerMoveDirection.value.y = 0f;
-                });
-
-            Entities.With(_rotateQuery)
-                .ForEach((Transform transform, ref PlayerMoveInput playerMoveInput) =>
-                {
-                    if (playerMoveInput.value != 0f)
-                    {
-                        transform.rotation = Quaternion.LookRotation(new Vector3(playerMoveInput.value, 0f, 0f), Vector3.up);
-                    }
                 });
 
             Entities.With(_moveAnimationQuery)

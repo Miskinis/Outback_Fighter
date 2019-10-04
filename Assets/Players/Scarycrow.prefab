@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 7569143172395486068}
   - component: {fileID: 1474458462900442950}
   - component: {fileID: 4262715367035321399}
+  - component: {fileID: 2046021783}
   m_Layer: 0
   m_Name: Scarycrow
   m_TagString: Untagged
@@ -705,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d6a3b9d00c5764dbcd51f5eacc50ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 100
 --- !u!114 &1067199677037988084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,5 +969,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 687f7582a2b3d954d988fed41888406b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2046021783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074358961698450484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4b7dddc261439db8f63015a4132572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
