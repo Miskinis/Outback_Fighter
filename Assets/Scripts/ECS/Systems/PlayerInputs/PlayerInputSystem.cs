@@ -37,9 +37,11 @@ namespace ECS.Systems.PlayerInputs
                 },
                 None = new[]
                 {
-                    ComponentType.ReadOnly<PlayerMoveDirection>(),
-                    ComponentType.ReadOnly<PlayerMoveInput>(),
-                    ComponentType.ReadOnly<PlayerFeetPoint>(),
+                    ComponentType.ReadWrite<PlayerMoveDirection>(),
+                    ComponentType.ReadWrite<PlayerMoveInput>(),
+                    ComponentType.ReadWrite<PlayerFeetPoint>(),
+                    ComponentType.ReadWrite<CameraHorizontalAxis>(), 
+                    ComponentType.ReadWrite<InitialPlayerDepth>(), 
                 }
             });
 
@@ -70,8 +72,8 @@ namespace ECS.Systems.PlayerInputs
                 },
                 None = new []
                 {
-                    ComponentType.ReadOnly<PlayerIsJumping>(),
-                    ComponentType.ReadOnly<PlayerIsCrouching>(), 
+                    ComponentType.ReadWrite<PlayerIsJumping>(),
+                    ComponentType.ReadWrite<PlayerIsCrouching>(), 
                 }
             });
 
@@ -110,7 +112,7 @@ namespace ECS.Systems.PlayerInputs
                 },
                 None = new []
                 {
-                    ComponentType.ReadOnly<PlayerIsGrounded>(),
+                    ComponentType.ReadWrite<PlayerIsGrounded>(),
                 }
             });
 
@@ -133,7 +135,7 @@ namespace ECS.Systems.PlayerInputs
                 },
                 None = new []
                 {
-                    ComponentType.ReadOnly<PlayerIsCrouching>(),
+                    ComponentType.ReadWrite<PlayerIsCrouching>(),
                 }
             });
 
@@ -153,7 +155,7 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<CharacterController>(),
                     ComponentType.ReadOnly<PlayerMoveDirection>(),
                     ComponentType.ReadWrite<PlayerFeetPoint>(),
-                    ComponentType.ReadOnly<Translation>(),
+                    ComponentType.ReadOnly<InitialPlayerDepth>(), 
                 }
             });
 
@@ -192,6 +194,7 @@ namespace ECS.Systems.PlayerInputs
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveInput());
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveDirection());
                     PostUpdateCommands.AddComponent(entity, new CameraHorizontalAxis(Camera.main.transform.right.x));
+                    PostUpdateCommands.AddComponent(entity, new InitialPlayerDepth(transform.position.z));
                     
                     if (playerInput.currentControlScheme == null)
                     {
@@ -317,9 +320,15 @@ namespace ECS.Systems.PlayerInputs
                     CharacterController characterController,
                     ref PlayerMoveDirection playerMoveDirection,
                     ref PlayerFeetPoint playerFeetPoint,
-                    ref Translation translation) =>
+                    ref InitialPlayerDepth initialPlayerDepth) =>
                 {
                     characterController.Move(playerMoveDirection.value * deltaTime);
+
+                    var transform = characterController.transform;
+                    var position  = transform.position;
+                    position.z         = initialPlayerDepth.value;
+                    transform.position = position;
+
                     if (characterController.isGrounded)
                     {
                         PostUpdateCommands.AddComponent<PlayerIsGrounded>(entity);
@@ -329,7 +338,7 @@ namespace ECS.Systems.PlayerInputs
                         PostUpdateCommands.RemoveComponent<PlayerIsGrounded>(entity);
                     }
 
-                    var feetPoint = translation.Value + (float3) characterController.center;
+                    var feetPoint = position + characterController.center;
                     feetPoint.y           -= characterController.height / 2f;
                     playerFeetPoint.value =  feetPoint;
                 });
