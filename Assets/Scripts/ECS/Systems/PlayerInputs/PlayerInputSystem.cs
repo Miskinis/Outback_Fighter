@@ -2,6 +2,8 @@ using ECS.Components;
 using ECS.Components.Combat;
 using ECS.Components.Mecanim;
 using ECS.Components.PlayerInputs;
+using ECS.Components.PlayerInputs.Internal;
+using MecanimBehaviors;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -34,6 +36,7 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<CharacterController>(),
                     ComponentType.ReadWrite<PlayerInput>(),
                     ComponentType.ReadWrite<Transform>(), 
+                    ComponentType.ReadWrite<Animator>(), 
                 },
                 None = new[]
                 {
@@ -72,8 +75,8 @@ namespace ECS.Systems.PlayerInputs
                 },
                 None = new []
                 {
-                    ComponentType.ReadWrite<PlayerIsJumping>(),
-                    ComponentType.ReadWrite<PlayerIsCrouching>(), 
+                    ComponentType.ReadWrite<PlayerInputJump>(),
+                    ComponentType.ReadWrite<PlayerInputCrouch>(), 
                 }
             });
 
@@ -98,7 +101,7 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadOnly<PlayerIsGrounded>(),
                     ComponentType.ReadWrite<PlayerMoveDirection>(),
                     ComponentType.ReadOnly<PlayerJumpSpeed>(),
-                    ComponentType.ReadOnly<PlayerIsJumping>(),
+                    ComponentType.ReadOnly<PlayerInputJump>(),
                 }
             });
 
@@ -122,7 +125,11 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<MecanimSetBool>(),
                     ComponentType.ReadOnly<MecanimIsCrouchingParameter>(),
-                    ComponentType.ReadOnly<PlayerIsCrouching>(),
+                    ComponentType.ReadOnly<PlayerInputCrouch>(),
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<PlayerIsCrouching>(),
                 }
             });
             
@@ -132,10 +139,11 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<MecanimSetBool>(),
                     ComponentType.ReadOnly<MecanimIsCrouchingParameter>(),
+                    ComponentType.ReadWrite<PlayerIsCrouching>(), 
                 },
                 None = new []
                 {
-                    ComponentType.ReadWrite<PlayerIsCrouching>(),
+                    ComponentType.ReadWrite<PlayerInputCrouch>(),
                 }
             });
 
@@ -156,6 +164,7 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadOnly<PlayerMoveDirection>(),
                     ComponentType.ReadWrite<PlayerFeetPoint>(),
                     ComponentType.ReadOnly<InitialPlayerDepth>(), 
+                    ComponentType.ReadOnly<PlayerCapsuleParameters>(), 
                 }
             });
 
@@ -165,7 +174,7 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<MecanimTrigger>(),
                     ComponentType.ReadOnly<MecanimAttackParameter>(),
-                    ComponentType.ReadOnly<PlayerIsAttacking>(),
+                    ComponentType.ReadOnly<PlayerInputAttack>(),
                 }
             });
             
@@ -175,7 +184,7 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<MecanimTrigger>(),
                     ComponentType.ReadOnly<MecanimSpecialAttackParameter>(),
-                    ComponentType.ReadOnly<PlayerIsSpecialAttacking>(),
+                    ComponentType.ReadOnly<PlayerInputSpecialAttack>(),
                 }
             });
         }
@@ -186,7 +195,8 @@ namespace ECS.Systems.PlayerInputs
                 .ForEach((Entity entity,
                     CharacterController characterController,
                     PlayerInput playerInput,
-                    Transform transform) =>
+                    Transform transform,
+                    Animator animator) =>
                 {
                     var feetPoint = characterController.center;
                     feetPoint.y -= characterController.height / 2f;
@@ -202,6 +212,11 @@ namespace ECS.Systems.PlayerInputs
                     }
                     
                     PlayerManager.instance.RegisterPlayer(transform);
+
+                    foreach (var isCrouchingBehavior in animator.GetBehaviours<StopCrouchingBehavior>())
+                    {
+                        isCrouchingBehavior.onExitAction = () => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().RemoveComponent<PlayerIsCrouching>(entity);
+                    }
                 });
 
             Entities.With(_inputQuery)
@@ -214,38 +229,38 @@ namespace ECS.Systems.PlayerInputs
                     
                     if (playerInput.currentActionMap.asset["Crouch"].ReadValue<float>() > 0)
                     {
-                        PostUpdateCommands.AddComponent<PlayerIsCrouching>(entity);
+                        PostUpdateCommands.AddComponent<PlayerInputCrouch>(entity);
                     }
                     else
                     {
-                        PostUpdateCommands.RemoveComponent<PlayerIsCrouching>(entity);
+                        PostUpdateCommands.RemoveComponent<PlayerInputCrouch>(entity);
                     }
 
                     if (playerInput.currentActionMap.asset["Jump"].triggered)
                     {
-                        PostUpdateCommands.AddComponent<PlayerIsJumping>(entity);
+                        PostUpdateCommands.AddComponent<PlayerInputJump>(entity);
                     }
                     else
                     {
-                        PostUpdateCommands.RemoveComponent<PlayerIsJumping>(entity);
+                        PostUpdateCommands.RemoveComponent<PlayerInputJump>(entity);
                     }
                     
                     if (playerInput.currentActionMap.asset["Attack"].triggered)
                     {
-                        PostUpdateCommands.AddComponent<PlayerIsAttacking>(entity);
+                        PostUpdateCommands.AddComponent<PlayerInputAttack>(entity);
                     }
                     else
                     {
-                        PostUpdateCommands.RemoveComponent<PlayerIsAttacking>(entity);
+                        PostUpdateCommands.RemoveComponent<PlayerInputAttack>(entity);
                     }
                     
                     if (playerInput.currentActionMap.asset["SpecialAttack"].triggered)
                     {
-                        PostUpdateCommands.AddComponent<PlayerIsSpecialAttacking>(entity);
+                        PostUpdateCommands.AddComponent<PlayerInputSpecialAttack>(entity);
                     }
                     else
                     {
-                        PostUpdateCommands.RemoveComponent<PlayerIsSpecialAttacking>(entity);
+                        PostUpdateCommands.RemoveComponent<PlayerInputSpecialAttack>(entity);
                     }
                 });
 
@@ -297,10 +312,12 @@ namespace ECS.Systems.PlayerInputs
                 });
 
             Entities.With(_startCrouchingQuery)
-                .ForEach((DynamicBuffer<MecanimSetBool> mecanimSetBoolBuffer,
+                .ForEach((Entity entity,
+                    DynamicBuffer<MecanimSetBool> mecanimSetBoolBuffer,
                     ref MecanimIsCrouchingParameter mecanimIsCrouchingParameter,
                     ref PlayerMoveDirection playerMoveDirection) =>
                 {
+                    PostUpdateCommands.AddComponent(entity, new PlayerIsCrouching());
                     mecanimSetBoolBuffer.Add(new MecanimSetBool(mecanimIsCrouchingParameter.value, true));
                     playerMoveDirection.value.x = 0f;
                 });
@@ -320,8 +337,22 @@ namespace ECS.Systems.PlayerInputs
                     CharacterController characterController,
                     ref PlayerMoveDirection playerMoveDirection,
                     ref PlayerFeetPoint playerFeetPoint,
-                    ref InitialPlayerDepth initialPlayerDepth) =>
+                    ref InitialPlayerDepth initialPlayerDepth,
+                    ref PlayerCapsuleParameters playerCapsuleParameters) =>
                 {
+                    if (EntityManager.HasComponent<PlayerIsCrouching>(entity) == false)
+                    {
+                        characterController.center = playerCapsuleParameters.standCenter;
+                        characterController.radius = playerCapsuleParameters.standRadius;
+                        characterController.height = playerCapsuleParameters.standHeight;
+                    }
+                    else
+                    {
+                        characterController.center = playerCapsuleParameters.crouchCenter;
+                        characterController.radius = playerCapsuleParameters.crouchRadius;
+                        characterController.height = playerCapsuleParameters.crouchHeight;
+                    }
+
                     characterController.Move(playerMoveDirection.value * deltaTime);
 
                     var transform = characterController.transform;
@@ -346,7 +377,7 @@ namespace ECS.Systems.PlayerInputs
             Entities.With(_attackQuery)
                 .ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger,
                     ref MecanimAttackParameter mecanimAttackParameter,
-                    ref PlayerIsAttacking playerAttackInput) =>
+                    ref PlayerInputAttack playerAttackInput) =>
                 {
                     mecanimTrigger.Add(new MecanimTrigger(mecanimAttackParameter.value));
                 });
@@ -354,7 +385,7 @@ namespace ECS.Systems.PlayerInputs
             Entities.With(_specialAttackQuery)
                 .ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger,
                     ref MecanimSpecialAttackParameter mecanimSpecialAttackParameter,
-                    ref PlayerIsSpecialAttacking playerSpecialAttackInput) =>
+                    ref PlayerInputSpecialAttack playerSpecialAttackInput) =>
                 {
                     mecanimTrigger.Add(new MecanimTrigger(mecanimSpecialAttackParameter.value));
                 });

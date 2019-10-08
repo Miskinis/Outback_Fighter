@@ -1,6 +1,6 @@
 # Outback Fighter
 
-It's a 2D style duealing game in 3D enviroment. Players fight eachother locally using keyboard, gamepads, joysticks, whatever...
+It's a 2D style dueling game in 3D enviroment. Players fight each other locally using keyboard, gamepads, joysticks, whatever...
 
 #### Made using Unity3D latest (currently preview version) packages:
 - [Unity Data-Oriented Tech Stack](https://github.com/Unity-Technologies/EntityComponentSystemSamples/blob/master/ECSSamples/Documentation/Readme.md)
