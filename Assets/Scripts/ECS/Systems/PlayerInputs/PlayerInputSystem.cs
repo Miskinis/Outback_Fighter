@@ -55,10 +55,6 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<PlayerInput>(),
                     ComponentType.ReadWrite<PlayerMoveInput>(),
                     ComponentType.ReadOnly<CameraHorizontalAxis>(), 
-                },
-                None = new[]
-                {
-                    ComponentType.ReadWrite<Dead>(),
                 }
             });
 
@@ -164,7 +160,7 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadOnly<PlayerMoveDirection>(),
                     ComponentType.ReadWrite<PlayerFeetPoint>(),
                     ComponentType.ReadOnly<InitialPlayerDepth>(), 
-                    ComponentType.ReadOnly<PlayerCapsuleParameters>(), 
+                    ComponentType.ReadOnly<PlayerSize>(), 
                 }
             });
 
@@ -211,7 +207,7 @@ namespace ECS.Systems.PlayerInputs
                         playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex+1}_Keyboard", Keyboard.current);
                     }
                     
-                    PlayerManager.instance.RegisterPlayer(transform);
+                    PlayerManager.instance.RegisterPlayer(transform, entity);
 
                     foreach (var isCrouchingBehavior in animator.GetBehaviours<StopCrouchingBehavior>())
                     {
@@ -338,25 +334,17 @@ namespace ECS.Systems.PlayerInputs
                     ref PlayerMoveDirection playerMoveDirection,
                     ref PlayerFeetPoint playerFeetPoint,
                     ref InitialPlayerDepth initialPlayerDepth,
-                    ref PlayerCapsuleParameters playerCapsuleParameters) =>
+                    ref PlayerSize playerSize) =>
                 {
-                    if (EntityManager.HasComponent<PlayerIsCrouching>(entity) == false)
-                    {
-                        characterController.center = playerCapsuleParameters.standCenter;
-                        characterController.radius = playerCapsuleParameters.standRadius;
-                        characterController.height = playerCapsuleParameters.standHeight;
-                    }
-                    else
-                    {
-                        characterController.center = playerCapsuleParameters.crouchCenter;
-                        characterController.radius = playerCapsuleParameters.crouchRadius;
-                        characterController.height = playerCapsuleParameters.crouchHeight;
-                    }
+                    var transform = characterController.transform;
+
+                    characterController.center = transform.InverseTransformPoint(playerSize.center);
+                    //characterController.radius = playerSize.radius;
+                    characterController.height = playerSize.height;
 
                     characterController.Move(playerMoveDirection.value * deltaTime);
-
-                    var transform = characterController.transform;
-                    var position  = transform.position;
+                    
+                    var position = transform.position;
                     position.z         = initialPlayerDepth.value;
                     transform.position = position;
 

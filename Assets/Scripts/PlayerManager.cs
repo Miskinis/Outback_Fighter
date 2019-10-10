@@ -1,13 +1,17 @@
+using ECS.Components.Combat;
+using Unity.Entities;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-    
-    private Transform _player1, _player2;
+
+    private Transform _playerTransform1, _playerTransform2;
+    private Entity _playerEntity1, _playerEntity2;
     private bool _registered;
     private bool _player1Dead, _player2Dead;
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -16,24 +20,28 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void RegisterPlayer(Transform player)
+    public void RegisterPlayer(Transform playerTransform, Entity playerEntity)
     {
-        if (_player1 == null)
+        if (_playerTransform1 == null)
         {
-            _player1 = player;
+            _playerTransform1 = playerTransform;
+            _playerEntity1 = playerEntity;
         }
-        else if (_player2 == null)
+        else if (_playerTransform2 == null)
         {
-            _player2 = player;
+            _playerTransform2 = playerTransform;
+            _playerEntity2 = playerEntity;
         }
 
-        _registered = _player1 != null && _player2 != null;
+        _registered = _playerTransform1 != null && _playerTransform2 != null;
     }
 
     public void PlayerKilled(Transform player)
     {
-        _player1Dead = player == _player1;
-        _player2Dead = player == _player2;
+        _player1Dead = player == _playerTransform1;
+        _player2Dead = player == _playerTransform2;
+
+        var entityCommandBuffer = World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer();
         
         if (_player1Dead && _player2Dead)
         {
@@ -41,11 +49,13 @@ public class PlayerManager : MonoBehaviour
         }
         else if (_player1Dead)
         {
-            
+            entityCommandBuffer.AddComponent(_playerEntity2, new Victory());
+            print("player2 Win");
         }
         else if (_player2Dead)
         {
-            
+            entityCommandBuffer.AddComponent(_playerEntity1, new Victory());
+            print("player1 Win");
         }
     }
 
@@ -53,8 +63,8 @@ public class PlayerManager : MonoBehaviour
     {
         if(_registered)
         {
-            RotatePlayer(_player1, _player2);
-            RotatePlayer(_player2, _player1);
+            RotatePlayer(_playerTransform1, _playerTransform2);
+            RotatePlayer(_playerTransform2, _playerTransform1);
         }
     }
 

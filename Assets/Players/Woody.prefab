@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &620665188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620665189}
+  m_Layer: 0
+  m_Name: Forehead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &620665189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620665188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.093, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9097754598621461053}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140037803042255186
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +599,8 @@ Transform:
   m_LocalRotation: {x: -0.00018804797, y: 0.017923784, z: -0.00033021547, w: 0.9998393}
   m_LocalPosition: {x: -3.72529e-10, y: 0.04182301, z: -0.0000000027939675}
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
-  m_Children: []
+  m_Children:
+  - {fileID: 620665189}
   m_Father: {fileID: 4473484894564957899}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -668,6 +699,7 @@ GameObject:
   - component: {fileID: 3459896683075915234}
   - component: {fileID: 8542789898423822930}
   - component: {fileID: 1476652237}
+  - component: {fileID: 1246559550054530428}
   m_Layer: 0
   m_Name: Woody
   m_TagString: Untagged
@@ -1068,6 +1100,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4b7dddc261439db8f63015a4132572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1246559550054530428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932329703012978835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3cf4a496ce4e1b936ac430887481c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forehead: {fileID: 620665189}
+  feet: {fileID: 2378852483574124602}
+  torso: {fileID: 4504650760327054349}
 --- !u!1 &2005029168959323055
 GameObject:
   m_ObjectHideFlags: 0
