@@ -23,6 +23,7 @@ namespace ECS.Systems.Combat
                 All = new[]
                 {
                     ComponentType.ReadWrite<Health>(),
+                    ComponentType.ReadWrite<MaxHealth>(), 
                 },
                 None = new[]
                 {
@@ -34,6 +35,7 @@ namespace ECS.Systems.Combat
                 All = new[]
                 {
                     ComponentType.ReadWrite<HealthBar>(),
+                    ComponentType.ReadWrite<Image>(), 
                 },
                 None = new[]
                 {
@@ -70,6 +72,12 @@ namespace ECS.Systems.Combat
                         var innerEntityArray    = innerChunk.GetNativeArray(entityType);
                         var innerHealthBarArray = innerChunk.GetNativeArray(healthBarType);
 
+#if UNITY_EDITOR
+                        if (innerChunk.Count < outerInstanceCount)
+                        {
+                            Debug.LogError($"There are {outerInstanceCount} players, but only {innerChunk.Count} health bars");
+                        }
+#endif                        
                         var innerEntity = innerEntityArray[i];
 
                         innerHealthBarArray[i] = new HealthBar {playerEntity = outerEntity};
@@ -90,7 +98,8 @@ namespace ECS.Systems.Combat
 #if UNITY_EDITOR
                 if (healthBar.playerEntity == Entity.Null)
                 {
-                    Debug.Log("HealthBar not assigned to player");
+                    Debug.LogError("Health bar not assigned to player");
+                    return;
                 }
 #endif
                 image.fillAmount = healthEntityArray[healthBar.playerEntity].value / maxHealthEntityArray[healthBar.playerEntity].value;

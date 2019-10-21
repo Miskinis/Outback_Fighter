@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Custom Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b6db090ead9e36148a449dc19759b4fe
+  m_SerializeEntries:
+  - m_GUID: 07a4e73f9fe0bbb4f9786f280dbc502d
+    m_Address: Scarycrow 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Player 1
+  - m_GUID: 3510c6810ebbb024eb2b601987957f99
+    m_Address: Woody 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Player 2
+  - m_GUID: 6237eb233d21d644695727a64b51fceb
+    m_Address: Scarycrow Icon 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 1
+  - m_GUID: 76500c1b7496b074182f6e459e8799da
+    m_Address: Scarycrow 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Player 2
+  - m_GUID: ace8ed41f75c4d441b51c8a501926145
+    m_Address: Woody Icon 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 1
+  - m_GUID: c4d4dadfeaba3a84dbfc8b9926343814
+    m_Address: Woody 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Player 1
+  - m_GUID: dcbb76d3987860544aa6749601dd4b27
+    m_Address: Scarycrow Icon 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 2
+  - m_GUID: ee75a6dd3cc9db749abfd427cac58497
+    m_Address: Woody Icon 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 2
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 781b9d17877666843bc3f180ee214c24, type: 2}
+    - {fileID: 11400000, guid: 948f1a915f366cc49b165cb535bd4115, type: 2}
