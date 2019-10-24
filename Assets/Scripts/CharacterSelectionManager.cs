@@ -1,45 +1,35 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.UI;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
-    public string[] characterLabels = {"Character", "Player 1"};
-    public string[] characterIconLabels = {"Character Icon", "Player 1"};
+    public static CharacterSelectionManager main;
+    public GameObject menuPanel;
+    public GameObject hudPanel;
+    private Dictionary<GameObject, InstantiationParameters> _selectedCharacters = new Dictionary<GameObject, InstantiationParameters>();
 
     private void Awake()
     {
-        var buttons = GetComponentsInChildren<Button>();
-        
-        var loadCharactersAsync = Addressables.LoadAssetsAsync<GameObject>(new List<object>(characterLabels), null, Addressables.MergeMode.Intersection);
-
-        void OnLoadCharactersAsyncOnCompleted(AsyncOperationHandle<IList<GameObject>> characterHandle)
+        if (main == null)
         {
-            var loadIconsAsync = Addressables.LoadAssetsAsync<Sprite>(new List<object>(characterIconLabels), null, Addressables.MergeMode.Intersection);
-
-            void OnLoadIconsAsyncOnCompleted(AsyncOperationHandle<IList<Sprite>> iconsHandle)
-            {
-                for (int i = 0; i < iconsHandle.Result.Count; i++)
-                {
-                    var icon   = iconsHandle.Result[i];
-                    var button = buttons[i];
-                    button.image.sprite = icon;
-                    int characterIndex = i;
-
-                    void ButtonOnClick()
-                    {
-                        Addressables.InstantiateAsync(characterHandle.Result[characterIndex]);
-                    }
-
-                    button.onClick.AddListener(ButtonOnClick);
-                }
-            }
-
-            loadIconsAsync.Completed += OnLoadIconsAsyncOnCompleted;
+            main = this;
+            hudPanel.SetActive(false);
         }
+    }
 
-        loadCharactersAsync.Completed += OnLoadCharactersAsyncOnCompleted;
+    public void ConfirmSelection(GameObject character, InstantiationParameters instantiationParameters)
+    {
+        _selectedCharacters.Add(character, instantiationParameters);
+        
+        if (_selectedCharacters.Count > 1)
+        {
+            foreach (var selectedCharacter in _selectedCharacters)
+            {
+                Instantiate(selectedCharacter.Key, selectedCharacter.Value.Position, selectedCharacter.Value.Rotation);
+                menuPanel.SetActive(false);
+                hudPanel.SetActive(true);
+            }
+        }
     }
 }
