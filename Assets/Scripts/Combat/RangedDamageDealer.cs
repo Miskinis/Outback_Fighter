@@ -54,6 +54,15 @@ namespace Combat
             }
 
             var otherGameObject   = other.gameObject;
+
+            if (otherGameObject.GetComponent<RangedDamageDealer>())
+            {
+                Destroy(otherGameObject);
+                Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
+                Destroy(gameObject);
+                return;
+            }
+            
             var otherEntityObject = otherGameObject.GetComponent<ConvertHierarchyToEntities>();
             if (otherEntityObject == null || otherGameObject == _characterRootGameObject.gameObject || otherGameObject.GetComponent<HealthComponent>() == null) return;
 

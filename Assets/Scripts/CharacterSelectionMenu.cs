@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class CharacterSelectionMenu : MonoBehaviour
 {
+    public PlayerNumber playerNumber;
     public Transform spawnLocation;
     public GameObject readyPanel;
     public string[] characterAssetLabels = {"Character", "Player 1"};
@@ -36,7 +37,8 @@ public class CharacterSelectionMenu : MonoBehaviour
 
                     void ButtonOnClick()
                     {
-                        CharacterSelectionManager.main.ConfirmSelection(characterHandle.Result[characterIndex], new InstantiationParameters(spawnLocation.position, spawnLocation.rotation, null));
+                        print(characterHandle.Result[characterIndex]);
+                        CharacterSelectionManager.main.ConfirmSelection(characterHandle.Result[characterIndex], new InstantiationParameters(spawnLocation.position, spawnLocation.rotation, null), (int)playerNumber);
                         readyPanel.SetActive(true);
                         gameObject.SetActive(false);
                     }
@@ -54,5 +56,11 @@ public class CharacterSelectionMenu : MonoBehaviour
         }
 
         loadCharactersAsync.Completed += OnLoadCharactersAsyncOnCompleted;
+    }
+    
+    public enum PlayerNumber
+    {
+        Player1 = 0,
+        Player2 = 1
     }
 }

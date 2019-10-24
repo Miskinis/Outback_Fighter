@@ -93,7 +93,7 @@ namespace ECS.Systems.Combat
             var healthEntityArray    = GetComponentDataFromEntity<Health>(true);
             var maxHealthEntityArray = GetComponentDataFromEntity<MaxHealth>(true);
             
-            Entities.With(_healthBarQuery).ForEach((Image image, ref HealthBar healthBar) =>
+            Entities.With(_healthBarQuery).ForEach((Entity entity, Image image, ref HealthBar healthBar) =>
             {
 #if UNITY_EDITOR
                 if (healthBar.playerEntity == Entity.Null)
@@ -102,6 +102,12 @@ namespace ECS.Systems.Combat
                     return;
                 }
 #endif
+                if (healthEntityArray.Exists(healthBar.playerEntity) == false)
+                {
+                    PostUpdateCommands.RemoveComponent<HealthBarAssigned>(healthBar.playerEntity);
+                    healthBar.playerEntity = Entity.Null;
+                    return;
+                }
                 image.fillAmount = healthEntityArray[healthBar.playerEntity].value / maxHealthEntityArray[healthBar.playerEntity].value;
             });
         }

@@ -1,22 +1,28 @@
+using System;
+using System.Collections;
 using ECS.Components.Combat;
+using TMPro;
 using Unity.Entities;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
+    public GameObject gameOverPanel;
 
     private Transform _playerTransform1, _playerTransform2;
     private Entity _playerEntity1, _playerEntity2;
     private bool _registered;
     private bool _player1Dead, _player2Dead;
+    private bool _gameOver;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            gameOverPanel.SetActive(false);
         }
     }
 
@@ -38,25 +44,43 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayerKilled(Transform player)
     {
-        _player1Dead = player == _playerTransform1;
-        _player2Dead = player == _playerTransform2;
+        if (player == _playerTransform1)
+            _player1Dead = true;
+        if (player == _playerTransform2)
+            _player2Dead = true;
+
+        StartCoroutine(GameOver());
+    }
+
+    private IEnumerator GameOver()
+    {
+        _gameOver = true;
+
+        yield return new WaitForSeconds(2f);
 
         var entityCommandBuffer = World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer();
-        
+        string message = string.Empty;
+
         if (_player1Dead && _player2Dead)
         {
-            
+            message = $"Game Over{Environment.NewLine}Tie";
         }
         else if (_player1Dead)
         {
             entityCommandBuffer.AddComponent(_playerEntity2, new Victory());
-            print("player2 Win");
+            message = $"Game Over{Environment.NewLine}Player 2 Wins";
         }
         else if (_player2Dead)
         {
             entityCommandBuffer.AddComponent(_playerEntity1, new Victory());
-            print("player1 Win");
+            message = $"Game Over{Environment.NewLine}Player 1 Wins";
         }
+
+        gameOverPanel.SetActive(true);
+        gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
     }
 
     private void Update()
