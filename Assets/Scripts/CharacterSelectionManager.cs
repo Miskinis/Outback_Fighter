@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -7,7 +8,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public static CharacterSelectionManager main;
     public GameObject menuPanel;
     public GameObject hudPanel;
-    private Dictionary<GameObject, InstantiationParameters> _selectedCharacters = new Dictionary<GameObject, InstantiationParameters>();
+    private Tuple<GameObject, InstantiationParameters>[] _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
 
     private void Awake()
     {
@@ -18,18 +19,19 @@ public class CharacterSelectionManager : MonoBehaviour
         }
     }
 
-    public void ConfirmSelection(GameObject character, InstantiationParameters instantiationParameters)
+    public void ConfirmSelection(GameObject character, InstantiationParameters instantiationParameters, int playerNumber)
     {
-        _selectedCharacters.Add(character, instantiationParameters);
+        _selectedCharacters[playerNumber] = Tuple.Create(character, instantiationParameters);
         
-        if (_selectedCharacters.Count > 1)
+        if (_selectedCharacters[0] != null && _selectedCharacters[1] != null)
         {
             foreach (var selectedCharacter in _selectedCharacters)
             {
-                Instantiate(selectedCharacter.Key, selectedCharacter.Value.Position, selectedCharacter.Value.Rotation);
-                menuPanel.SetActive(false);
-                hudPanel.SetActive(true);
+                Instantiate(selectedCharacter.Item1, selectedCharacter.Item2.Position, selectedCharacter.Item2.Rotation);
             }
+            menuPanel.SetActive(false);
+            hudPanel.SetActive(true);
+            _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
         }
     }
 }

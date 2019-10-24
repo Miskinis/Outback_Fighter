@@ -35,7 +35,7 @@ namespace ECS.Systems.Combat
                 {
                     ComponentType.ReadWrite<Transform>(),
                     ComponentType.ReadWrite<Dead>(),
-                    ComponentType.ReadWrite<GameObject>(), 
+                    ComponentType.ReadWrite<GameOver>(), 
                 }
             });
             
