@@ -9,7 +9,7 @@ using UnityEngine;
 public class MeleeDamageDealer : MonoBehaviour
 {
     public ConvertHierarchyToEntities rootEntityObject;
-    public ushort damage = 10;
+    public short damage = 10;
     public GameObject hitEffect;
 
     private Entity _entity;
@@ -29,8 +29,9 @@ public class MeleeDamageDealer : MonoBehaviour
             return;
         }
 
-        var otherEntityObject = other.GetComponent<ConvertHierarchyToEntities>();
-        if (otherEntityObject == null || other.GetComponent<HealthComponent>() == null) return;
+        var otherGameObject   = other.gameObject;
+        var otherEntityObject = otherGameObject.GetComponent<ConvertHierarchyToEntities>();
+        if (otherEntityObject == null || otherGameObject == rootEntityObject.gameObject || otherGameObject.GetComponent<HealthComponent>() == null) return;
 
         var otherEntity = otherEntityObject.HierarchyRootEntity;
 

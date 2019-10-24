@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Woody 2
+  m_EditorClassIdentifier: 
+  m_GroupName: Woody 2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 918a58485068aa441b00d9ee66d83134
+  m_SerializeEntries:
+  - m_GUID: 3510c6810ebbb024eb2b601987957f99
+    m_Address: Woody 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Player 2
+  - m_GUID: ee75a6dd3cc9db749abfd427cac58497
+    m_Address: Woody Icon 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 2
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 575c9795af9cb1f489e32a9185c68fbd, type: 2}
+    - {fileID: 11400000, guid: 4d2c950dcb3159f4c971298599535dc3, type: 2}

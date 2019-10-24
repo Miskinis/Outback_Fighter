@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Scarycrow 2
+  m_EditorClassIdentifier: 
+  m_GroupName: Scarycrow 2
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4db04071656b80440a42a680e77c26e7
+  m_SerializeEntries:
+  - m_GUID: 76500c1b7496b074182f6e459e8799da
+    m_Address: Scarycrow 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Player 2
+  - m_GUID: dcbb76d3987860544aa6749601dd4b27
+    m_Address: Scarycrow Icon 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 2
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c4c929d5ff8eafb44bd8109eabb41e40, type: 2}
+    - {fileID: 11400000, guid: ca1e87e1af3aef6499c3c114b6ff77e7, type: 2}

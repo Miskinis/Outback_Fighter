@@ -15,11 +15,21 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 4181cfb843e990b4bbb805253d3fb1cc
-  m_SerializeEntries: []
+  m_GUID: b6db090ead9e36148a449dc19759b4fe
+  m_SerializeEntries:
+  - m_GUID: 07a4e73f9fe0bbb4f9786f280dbc502d
+    m_Address: Scarycrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+  - m_GUID: c4d4dadfeaba3a84dbfc8b9926343814
+    m_Address: Woody
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: 1eac18ed2e2cd10489f77ead0b7b0371, type: 2}
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: df4b7f41de2c5fa49b8c593e8ebf06cb, type: 2}
-    - {fileID: 11400000, guid: 0ac942d9d6ff06d42ae29a8f84c6378d, type: 2}
+    - {fileID: 11400000, guid: 781b9d17877666843bc3f180ee214c24, type: 2}
+    - {fileID: 11400000, guid: 948f1a915f366cc49b165cb535bd4115, type: 2}
