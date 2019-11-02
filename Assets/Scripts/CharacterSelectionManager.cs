@@ -1,11 +1,12 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
     public static CharacterSelectionManager main;
+    public float duelStartDelay = 2f;
     public GameObject menuPanel;
     public GameObject hudPanel;
     private Tuple<GameObject, InstantiationParameters>[] _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
@@ -25,13 +26,20 @@ public class CharacterSelectionManager : MonoBehaviour
         
         if (_selectedCharacters[0] != null && _selectedCharacters[1] != null)
         {
-            foreach (var selectedCharacter in _selectedCharacters)
-            {
-                Instantiate(selectedCharacter.Item1, selectedCharacter.Item2.Position, selectedCharacter.Item2.Rotation);
-            }
-            menuPanel.SetActive(false);
-            hudPanel.SetActive(true);
-            _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
+            StartCoroutine(StartDuel());
         }
+    }
+
+    private IEnumerator StartDuel()
+    {
+        yield return new WaitForSeconds(duelStartDelay);
+        foreach (var (character, instantiationParameters) in _selectedCharacters)
+        {
+            Instantiate(character, instantiationParameters.Position, instantiationParameters.Rotation);
+        }
+        menuPanel.SetActive(false);
+        hudPanel.SetActive(true);
+        _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
+        yield return null;
     }
 }

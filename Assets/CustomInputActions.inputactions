@@ -624,6 +624,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4c47b6ef-d43e-4184-af64-a6065de3e9a0",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse2",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "38c99815-14ea-4617-8627-164d27641299",
                     "path": "<Mouse>/scroll",
                     "interactions": "",

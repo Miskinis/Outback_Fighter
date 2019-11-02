@@ -95,13 +95,11 @@ namespace ECS.Systems.Combat
             
             Entities.With(_healthBarQuery).ForEach((Entity entity, Image image, ref HealthBar healthBar) =>
             {
-#if UNITY_EDITOR
                 if (healthBar.playerEntity == Entity.Null)
                 {
-                    Debug.LogError("Health bar not assigned to player");
                     return;
                 }
-#endif
+
                 if (healthEntityArray.Exists(healthBar.playerEntity) == false)
                 {
                     PostUpdateCommands.RemoveComponent<HealthBarAssigned>(healthBar.playerEntity);

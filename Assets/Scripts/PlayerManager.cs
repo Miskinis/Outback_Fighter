@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
     public GameObject gameOverPanel;
+    public float preDeathScreenDelay = 2f;
+    public float postDeathScreenDelay = 3f;
 
     private Transform _playerTransform1, _playerTransform2;
     private Entity _playerEntity1, _playerEntity2;
@@ -49,14 +51,17 @@ public class PlayerManager : MonoBehaviour
         if (player == _playerTransform2)
             _player2Dead = true;
 
-        StartCoroutine(GameOver());
+        if(_gameOver == false)
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
     private IEnumerator GameOver()
     {
         _gameOver = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(preDeathScreenDelay);
 
         var entityCommandBuffer = World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer();
         string message = string.Empty;
@@ -79,8 +84,10 @@ public class PlayerManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
 
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
+        var sceneLoader = SceneManager.LoadSceneAsync(0);
+        sceneLoader.allowSceneActivation = false;
+        yield return new WaitForSeconds(postDeathScreenDelay);
+        sceneLoader.allowSceneActivation = true;
     }
 
     private void Update()
