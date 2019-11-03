@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Scarycrow 2
   m_Data:
     m_SerializedData: []
-  m_GUID: 4db04071656b80440a42a680e77c26e7
+  m_GUID: a2759e28683d18446b261ea704b6a06b
   m_SerializeEntries:
   - m_GUID: 76500c1b7496b074182f6e459e8799da
     m_Address: Scarycrow 2
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: c4c929d5ff8eafb44bd8109eabb41e40, type: 2}
-    - {fileID: 11400000, guid: ca1e87e1af3aef6499c3c114b6ff77e7, type: 2}
+    - {fileID: 11400000, guid: 64f7e38433bb8304494875298eb9ad15, type: 2}
+    - {fileID: 11400000, guid: 08ae0b71eb0085b45a924c59f45cb405, type: 2}

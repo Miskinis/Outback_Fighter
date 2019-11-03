@@ -9,9 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Scarycrow
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _BENTNORMALMAP _DISABLE_DECALS _DOUBLESIDED_ON _ENABLESPECULAROCCLUSION
+  m_ShaderKeywords: _ALPHATEST_ON _DISABLE_DECALS _DOUBLESIDED_ON _ENABLESPECULAROCCLUSION
     _MATERIAL_FEATURE_SUBSURFACE_SCATTERING _MATERIAL_FEATURE_TRANSMISSION _NORMALMAP
-    _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -181,8 +180,8 @@ Material:
     - _LinkDetailsWithBase: 1
     - _MaterialID: 0
     - _Metallic: 0.05
-    - _NormalMapSpace: 0
-    - _NormalScale: 1.45
+    - _NormalMapSpace: 1
+    - _NormalScale: 0
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5

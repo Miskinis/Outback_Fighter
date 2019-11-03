@@ -19,31 +19,50 @@ MonoBehaviour:
     m_Value: 0.5
     min: 0
     max: 4
-  thicknessModifier:
+  stepCount:
     m_OverrideState: 0
-    m_Value: 1
-    min: 1
-    max: 10
+    m_Value: 6
+    min: 2
+    max: 32
+  radius:
+    m_OverrideState: 0
+    m_Value: 2
+    min: 0.25
+    max: 5
+  fullResolution:
+    m_OverrideState: 0
+    m_Value: 0
+  maximumRadiusInPixels:
+    m_OverrideState: 0
+    m_Value: 40
+    min: 16
+    max: 256
   directLightingStrength:
     m_OverrideState: 0
     m_Value: 0
     min: 0
     max: 1
-  noiseFilterTolerance:
+  enableRaytracing:
     m_OverrideState: 0
     m_Value: 0
-    min: -8
-    max: 0
-  blurTolerance:
+  rayLength:
     m_OverrideState: 0
-    m_Value: -4.6
-    min: -8
-    max: 1
-  upsampleTolerance:
+    m_Value: 0.5
+    min: 0
+    max: 50
+  enableFilter:
     m_OverrideState: 0
-    m_Value: -12
-    min: -12
-    max: -1
+    m_Value: 0
+  numSamples:
+    m_OverrideState: 0
+    m_Value: 4
+    min: 1
+    max: 64
+  filterRadius:
+    m_OverrideState: 0
+    m_Value: 16
+    min: 1
+    max: 32
 --- !u!114 &-3352347674914365972
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -227,7 +246,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 11.81
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -265,14 +284,14 @@ MonoBehaviour:
     min: 0
     max: 5
   skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   groundColor:
-    m_OverrideState: 0
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0.3920169, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
