@@ -2534,13 +2534,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7633863837280371965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ca98e97ec83c846af2aa39a459423b, type: 3}
+  m_Script: {fileID: 11500000, guid: 267e6afce7814774485b5871fe5f28ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rootEntityObject: {fileID: 7633863837687305334}
   damage: 10
-  hitEffect: {fileID: 451141189688372360, guid: 492c6df2a4468c14a87e1533bd9e52f0,
-    type: 3}
+  hitEffect: {fileID: 0}
+  hitEffectSpawn: {fileID: 0}
 --- !u!1 &7850102789810930374
 GameObject:
   m_ObjectHideFlags: 0
