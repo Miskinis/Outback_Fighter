@@ -109,14 +109,14 @@ MonoBehaviour:
     m_Value: 1000
     min: 0
   albedo:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 150
+    m_Value: 121.41
     min: 1
   baseHeight:
     m_OverrideState: 0
@@ -171,10 +171,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   skyAmbientMode:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   fogType:
     m_OverrideState: 1
     m_Value: 3
@@ -206,10 +206,10 @@ MonoBehaviour:
     m_Value: 0.02
   cascadeShadowSplit1:
     m_OverrideState: 1
-    m_Value: 0.07
+    m_Value: 0.23
   cascadeShadowSplit2:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.31933334
   cascadeShadowBorder0:
     m_OverrideState: 1
     m_Value: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 11.81
+    m_Value: 1.9
   multiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -291,10 +291,10 @@ MonoBehaviour:
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.3920169, b: 1, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   enableSunDisk:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
