@@ -36,6 +36,8 @@ public class MeleeDamageDealer : MonoBehaviour
         var otherEntity = otherEntityObject.HierarchyRootEntity;
 
         _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
-        Instantiate(hitEffect, other.transform.position, Quaternion.identity);
+        
+        if(hitEffect)
+            Instantiate(hitEffect, other.transform.position, Quaternion.identity);
     }
 }

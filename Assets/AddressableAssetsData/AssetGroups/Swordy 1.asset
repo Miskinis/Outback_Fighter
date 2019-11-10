@@ -18,11 +18,11 @@ MonoBehaviour:
   m_GUID: 2f4a3486ed897d744b596817856731cc
   m_SerializeEntries:
   - m_GUID: 568efe8a775b26f49abfcf9c84eb754f
-    m_Address: Assets/Prefabs/Swordy1.prefab
+    m_Address: Swordy 1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Player 1
     - Character
+    - Player 1
   - m_GUID: 8d78d0b6e04ef154091892f28584b3e5
     m_Address: Assets/UI/swordy2.png
     m_ReadOnly: 0

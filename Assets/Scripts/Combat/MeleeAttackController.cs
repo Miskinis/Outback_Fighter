@@ -20,18 +20,22 @@ public class MeleeAttackController : MonoBehaviour
         {
             attackBehavior.onStartAction = () =>
             {
-                trailRenderer.enabled   = true;
+                if(trailRenderer)
+                    trailRenderer.enabled   = true;
                 _weaponCollider.enabled = true;
             };
             attackBehavior.onEndAction = () =>
             {
-                trailRenderer.enabled   = false;
+                if(trailRenderer)
+                    trailRenderer.enabled   = false;
                 _weaponCollider.enabled = false;
             };
         }
 
         _weaponCollider.enabled = false;
-        trailRenderer.enabled = false;
+        
+        if(trailRenderer)
+            trailRenderer.enabled = false;
     }
 
     private void OnDestroy()

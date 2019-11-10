@@ -33,7 +33,9 @@ namespace Combat
             var thisTransform = transform;
             thisTransform.parent = null;
             _rigidbody.AddForce(thisTransform.forward * impulseForce, ForceMode.Impulse);
-            Instantiate(spawnEffect, thisTransform.position, quaternion.identity);
+            
+            if(spawnEffect)
+                Instantiate(spawnEffect, thisTransform.position, quaternion.identity);
 
             StartCoroutine(SelfDestruct(selfDestructDelay));
         }
@@ -58,8 +60,11 @@ namespace Combat
             if (otherGameObject.GetComponent<RangedDamageDealer>())
             {
                 Destroy(otherGameObject);
-                Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
+                
+                if(hitEffect)
+                    Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
                 Destroy(gameObject);
+                
                 return;
             }
             
@@ -68,7 +73,10 @@ namespace Combat
 
             var otherEntity = otherEntityObject.HierarchyRootEntity;
             _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
-            Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
+            
+            if(hitEffect)
+                Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
+            
             StopCoroutine(nameof(SelfDestruct));
             enabled = false;
             Destroy(gameObject);

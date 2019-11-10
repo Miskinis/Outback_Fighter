@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 5efd545ddd0568445b710642d69ba34a
   m_SerializeEntries:
   - m_GUID: b560004c7b5ce5243ac6167a9b4f5fe9
-    m_Address: Assets/Prefabs/Swordy2 Variant.prefab
+    m_Address: Swordy 2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character

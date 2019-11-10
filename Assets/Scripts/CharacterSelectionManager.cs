@@ -1,15 +1,25 @@
 using System;
 using System.Collections;
+using Cinemachine;
+using TMPro;
 using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.UI;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
     public static CharacterSelectionManager main;
-    public float duelStartDelay = 2f;
+    public CinemachineTargetGroup cinemachineTargetGroup;
+    public float characterRadius = 0.5f;
+    public float delayTillCountdown = 1f;
+    public float countInterval = 1f;
+    public GameObject countdownPanel;
+    public Image countdownImage;
+    public Sprite[] countDownSprites;
     public GameObject menuPanel;
     public GameObject hudPanel;
     private Tuple<GameObject, InstantiationParameters>[] _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
+    private readonly CinemachineTargetGroup.Target[] _instantiatedCharacters = new CinemachineTargetGroup.Target[2];
 
     private void Awake()
     {
@@ -32,12 +42,34 @@ public class CharacterSelectionManager : MonoBehaviour
 
     private IEnumerator StartDuel()
     {
-        yield return new WaitForSeconds(duelStartDelay);
-        foreach (var (character, instantiationParameters) in _selectedCharacters)
-        {
-            Instantiate(character, instantiationParameters.Position, instantiationParameters.Rotation);
-        }
+        yield return new WaitForSeconds(delayTillCountdown);
+
         menuPanel.SetActive(false);
+        countdownPanel.SetActive(true);
+        
+        var delayTime = new WaitForSeconds(countInterval);
+
+        for (int i = 0; i < countDownSprites.Length; i++)
+        {
+            countdownImage.sprite = countDownSprites[i];
+            yield return delayTime;
+        }
+        
+        for (var i = 0; i < _selectedCharacters.Length; i++)
+        {
+            var (character, instantiationParameters) = _selectedCharacters[i];
+
+            _instantiatedCharacters[i] = new CinemachineTargetGroup.Target
+                {
+                    target = Instantiate(character, instantiationParameters.Position, instantiationParameters.Rotation).transform,
+                    weight = 0.5f,
+                    radius = characterRadius
+                };
+
+            cinemachineTargetGroup.m_Targets = _instantiatedCharacters;
+        }
+
+        countdownPanel.SetActive(false);
         hudPanel.SetActive(true);
         _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
         yield return null;
