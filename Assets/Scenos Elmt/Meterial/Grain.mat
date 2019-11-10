@@ -12,7 +12,7 @@ Material:
     type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _BLENDMODE_ALPHA _DOUBLESIDED_ON _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_B53C2C9B:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0964eac449fc7bc49b65f3709731cede, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C59F6246:
@@ -108,6 +108,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_560178E6_Out_0:
+        m_Texture: {fileID: 2800000, guid: 5eda8de75b6e874459e3919a48e7668c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_7405F326_Out_0:
         m_Texture: {fileID: 2800000, guid: 5eda8de75b6e874459e3919a48e7668c, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -129,7 +133,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_5E5739FD: 1.2
+    - Vector1_51B9D801: 0
+    - Vector1_5E5739FD: 0.9
     - Vector1_D8CF25C3: 0.1
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -253,6 +258,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_59847E34: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0.7921569}
     - Vector2_6A9E5801: {r: 0.7, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

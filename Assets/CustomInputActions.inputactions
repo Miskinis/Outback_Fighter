@@ -37,7 +37,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -158,7 +158,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,7 +169,7 @@
                     "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse1;Touch",
+                    "groups": ";Keyboard&Mouse1;Touch 1",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -180,7 +180,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -202,7 +202,7 @@
                     "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Touch",
+                    "groups": ";Touch 1",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -213,7 +213,7 @@
                     "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Joystick 1",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -331,7 +331,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -342,7 +342,7 @@
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -353,7 +353,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -364,7 +364,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -375,7 +375,7 @@
                     "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Gamepad 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -397,7 +397,7 @@
                     "path": "<Joystick>/stick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Joystick 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -408,7 +408,7 @@
                     "path": "<Joystick>/stick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Joystick 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -419,7 +419,7 @@
                     "path": "<Joystick>/stick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Joystick 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -430,7 +430,7 @@
                     "path": "<Joystick>/stick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Joystick 1",
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -635,6 +635,28 @@
                 },
                 {
                     "name": "",
+                    "id": "bc8ab1d4-99e4-4f31-a18b-43cd1a9ad557",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad 1;Gamepad 2",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "820177ae-81f7-44cd-9759-104bed334535",
+                    "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick 1;Joystick 2",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "38c99815-14ea-4617-8627-164d27641299",
                     "path": "<Mouse>/scroll",
                     "interactions": "",
@@ -720,8 +742,8 @@
             ]
         },
         {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
+            "name": "Gamepad 1",
+            "bindingGroup": "Gamepad 1",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
@@ -731,8 +753,8 @@
             ]
         },
         {
-            "name": "Touch",
-            "bindingGroup": "Touch",
+            "name": "Touch 1",
+            "bindingGroup": "Touch 1",
             "devices": [
                 {
                     "devicePath": "<Touchscreen>",
@@ -742,8 +764,8 @@
             ]
         },
         {
-            "name": "Joystick",
-            "bindingGroup": "Joystick",
+            "name": "Joystick 1",
+            "bindingGroup": "Joystick 1",
             "devices": [
                 {
                     "devicePath": "<Joystick>",
@@ -763,6 +785,39 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad 2",
+            "bindingGroup": "Gamepad 2",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Joystick 2",
+            "bindingGroup": "Joystick 2",
+            "devices": [
+                {
+                    "devicePath": "<Joystick>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Touch 2",
+            "bindingGroup": "Touch 2",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
                     "isOptional": false,
                     "isOR": false
                 }

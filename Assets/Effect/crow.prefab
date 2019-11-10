@@ -352,7 +352,7 @@ Animator:
   m_GameObject: {fileID: 6928327975657020464}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dd2c0b3e708aa4a4380d6f9669079ece, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff58d8f8066a6ac49a0b127f4305dd8f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -405,9 +405,8 @@ MonoBehaviour:
   damage: 10
   impulseForce: 10
   selfDestructDelay: 5
-  spawnEffect: {fileID: 3522553381193638255, guid: 00543989da4419e4aaa5328114cb04b1,
-    type: 3}
-  hitEffect: {fileID: 6544740184368735637, guid: d1b74e7d197126e4d846a2fa9bca6d69,
+  spawnEffect: {fileID: 0}
+  hitEffect: {fileID: 3687130337537631599, guid: 63ab81a3125b3a14bb92e4575914482c,
     type: 3}
 --- !u!1 &7944765352608749135
 GameObject:

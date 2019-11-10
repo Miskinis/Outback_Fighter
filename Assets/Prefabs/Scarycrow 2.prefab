@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 9074358961698450484, guid: 07a4e73f9fe0bbb4f9786f280dbc502d,
         type: 3}
       propertyPath: m_Name
-      value: Scarycrow (2)
+      value: Scarycrow 2
       objectReference: {fileID: 0}
     - target: {fileID: 5455478442214415911, guid: 07a4e73f9fe0bbb4f9786f280dbc502d,
         type: 3}
@@ -67,5 +67,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5110590088790120108, guid: 07a4e73f9fe0bbb4f9786f280dbc502d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f7fd091696e60846b887cea94e3a565, type: 2}
+    - target: {fileID: 1972303225983232168, guid: 07a4e73f9fe0bbb4f9786f280dbc502d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f7fd091696e60846b887cea94e3a565, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a4e73f9fe0bbb4f9786f280dbc502d, type: 3}

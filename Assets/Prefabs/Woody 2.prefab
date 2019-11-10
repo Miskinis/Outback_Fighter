@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1932329703012978835, guid: c4d4dadfeaba3a84dbfc8b9926343814,
         type: 3}
       propertyPath: m_Name
-      value: Woody (2)
+      value: Woody 2
       objectReference: {fileID: 0}
     - target: {fileID: 3209477157752447616, guid: c4d4dadfeaba3a84dbfc8b9926343814,
         type: 3}
@@ -67,5 +67,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 67464914047051016, guid: c4d4dadfeaba3a84dbfc8b9926343814,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ae9a7312d6c45f4fa46aaa021e5a1a2, type: 2}
+    - target: {fileID: 6628538413122510346, guid: c4d4dadfeaba3a84dbfc8b9926343814,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f1bfba228e1bca4d94f2ee23cd89a87, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4d4dadfeaba3a84dbfc8b9926343814, type: 3}

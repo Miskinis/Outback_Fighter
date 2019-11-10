@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0
     min: 0
     max: 1
   maxSamples:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   temperature:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: -13
     min: -100
     max: 100
   tint:
@@ -96,13 +96,13 @@ MonoBehaviour:
     m_Value: 0
   compensation:
     m_OverrideState: 1
-    m_Value: 1.29
+    m_Value: 0.86
   limitMin:
     m_OverrideState: 0
     m_Value: -10
   limitMax:
     m_OverrideState: 1
-    m_Value: 7.7
+    m_Value: 12.27
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -130,7 +130,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   adaptationMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   adaptationSpeedDarkToLight:
     m_OverrideState: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1be1b6c95cd2e41b27903b9270817f, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
@@ -168,12 +168,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.417
+    m_Value: 0
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.356
+    m_Value: 0.549
     min: 0.01
     max: 1
   roundness:
