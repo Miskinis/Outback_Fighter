@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Swordy 1
+  m_EditorClassIdentifier: 
+  m_GroupName: Swordy 1
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2f4a3486ed897d744b596817856731cc
+  m_SerializeEntries:
+  - m_GUID: 568efe8a775b26f49abfcf9c84eb754f
+    m_Address: Assets/Prefabs/Swordy1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player 1
+    - Character
+  - m_GUID: 8d78d0b6e04ef154091892f28584b3e5
+    m_Address: Assets/UI/swordy2.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character Icon
+    - Player 1
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: af627b7d66bbcff4a96ea02cc5491806, type: 2}
+    - {fileID: 11400000, guid: b79c4167e73288f499ce915bee2a876b, type: 2}
