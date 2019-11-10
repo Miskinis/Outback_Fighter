@@ -872,16 +872,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7137067387488929484}
     m_Modifications:
-    - target: {fileID: 780157847501935634, guid: 96c75fa970592c248913470151cd4421,
-        type: 3}
-      propertyPath: m_Name
-      value: Countdown Panel
-      objectReference: {fileID: 0}
-    - target: {fileID: 780157847501935634, guid: 96c75fa970592c248913470151cd4421,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 780157847501935637, guid: 96c75fa970592c248913470151cd4421,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -986,6 +976,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 780157847501935634, guid: 96c75fa970592c248913470151cd4421,
+        type: 3}
+      propertyPath: m_Name
+      value: Countdown Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 780157847501935634, guid: 96c75fa970592c248913470151cd4421,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96c75fa970592c248913470151cd4421, type: 3}

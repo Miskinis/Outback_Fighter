@@ -11,6 +11,7 @@ public class MeleeDamageDealer : MonoBehaviour
     public ConvertHierarchyToEntities rootEntityObject;
     public short damage = 10;
     public GameObject hitEffect;
+    public Transform hitEffectSpawn;
 
     private Entity _entity;
     private EntityManager _entityManager;
@@ -38,6 +39,6 @@ public class MeleeDamageDealer : MonoBehaviour
         _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
         
         if(hitEffect)
-            Instantiate(hitEffect, other.transform.position, Quaternion.identity);
+            Instantiate(hitEffect, hitEffectSpawn.position, Quaternion.identity);
     }
 }

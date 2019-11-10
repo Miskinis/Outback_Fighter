@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 2664297700205713341}
   - component: {fileID: 3870236854821673756}
   m_Layer: 0
-  m_Name: Swordy1
+  m_Name: Swordy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1730,8 +1730,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08533717, y: 0.73232096, z: 0.049999997}
-  m_Center: {x: 0.0073313517, y: 0.31616086, z: 0.000000022656252}
+  m_Size: {x: 0.123156115, y: 0.94308805, z: 0.049999997}
+  m_Center: {x: 0.008318291, y: 0.42154476, z: 0.00000021290236}
 --- !u!114 &6648783495473933886
 MonoBehaviour:
   m_ObjectHideFlags: 0
