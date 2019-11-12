@@ -107,7 +107,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -623603649343465320, guid: e0542c52949203c48841974caa6fd29c,
+  m_Motion: {fileID: -623603649343465320, guid: 5adc8340d3c0c584081cde5f88a167ad,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1119,7 +1119,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Top
     m_StateMachine: {fileID: -1540659054026255014}
-    m_Mask: {fileID: 31900000, guid: 1d7b07e5dcd716e47870e8a9399958c4, type: 2}
+    m_Mask: {fileID: 31900000, guid: 59a7e64ccf3d65548ab9119bcb5648b9, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -1131,7 +1131,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Jummp Bot
     m_StateMachine: {fileID: 6653510024572642674}
-    m_Mask: {fileID: 31900000, guid: 9b9ad78168f289749ad31fb41c2a33b7, type: 2}
+    m_Mask: {fileID: 31900000, guid: ac3c9bb9e35ec714d8286ed80657fb89, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0

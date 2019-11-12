@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca77ddf164ee1f4d90beed1715880e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 6313595938460279935}
+  spawnPoint: {fileID: 6749756747497800062}
   rootEntityObject: {fileID: 6648783496174468791}
   animator: {fileID: 8625957151795062075}
   projectilePrefab: {fileID: 8702648266431080558, guid: aedf61c57f85f044e86880e1bde4e3c3,
@@ -1182,6 +1182,7 @@ Transform:
   - {fileID: 6313595938460279935}
   - {fileID: 2543886693160419475}
   - {fileID: 7465302061763289948}
+  - {fileID: 6749756747497800062}
   m_Father: {fileID: 6724097690679494705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1624,6 +1625,36 @@ Transform:
   m_Father: {fileID: 7385411699752932344}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6295218406209823042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6749756747497800062}
+  m_Layer: 0
+  m_Name: swordy spawn point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6749756747497800062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295218406209823042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.184, y: 0.633, z: 0.248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6656184402156290225}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6547209005263746881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,8 +1777,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootEntityObject: {fileID: 6648783496174468791}
   damage: 10
-  hitEffect: {fileID: 0}
-  hitEffectSpawn: {fileID: 0}
+  hitEffect: {fileID: 451141189688372360, guid: 492c6df2a4468c14a87e1533bd9e52f0,
+    type: 3}
+  hitEffectSpawn: {fileID: 6648783495473933885}
 --- !u!1 &6818971976875131371
 GameObject:
   m_ObjectHideFlags: 0
