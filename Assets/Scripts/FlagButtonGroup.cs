@@ -36,20 +36,20 @@ public class FlagButtonGroup : UIBehaviour
             
             if (i == 0)
             {
-                navigation.selectOnRight = m_FlagButtons[m_FlagButtons.Count - 1];
+                navigation.selectOnLeft = m_FlagButtons[m_FlagButtons.Count - 1];
             }
             else
             {
-                navigation.selectOnRight = m_FlagButtons[i - 1];
+                navigation.selectOnLeft = m_FlagButtons[i - 1];
             }
 
             if (i + 1 >= m_FlagButtons.Count)
             {
-                navigation.selectOnLeft = m_FlagButtons[0];
+                navigation.selectOnRight = m_FlagButtons[0];
             }
             else if(i + 1 < m_FlagButtons.Count)
             {
-                navigation.selectOnLeft = m_FlagButtons[i + 1];
+                navigation.selectOnRight = m_FlagButtons[i + 1];
             }
             flagButton.navigation = navigation;
         }

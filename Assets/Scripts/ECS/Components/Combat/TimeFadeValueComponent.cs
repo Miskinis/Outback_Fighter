@@ -38,6 +38,10 @@ namespace ECS.Components.Combat
             this.time = time;
         }
     }
+
+    public struct AllowTimeFade : IComponentData
+    {
+    }
     
     public class TimeFadeValueComponent : MonoBehaviour, IConvertGameObjectToEntity
     {

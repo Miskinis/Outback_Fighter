@@ -11,7 +11,7 @@ namespace ECS.Systems.Combat
         private EntityQuery _postDeathQuery;
         private EntityQuery _victoryQuery;
         private EntityQuery _postVictoryQuery;
-        
+
         protected override void OnCreate()
         {
             _deathQuery = GetEntityQuery(new EntityQueryDesc
@@ -36,6 +36,10 @@ namespace ECS.Systems.Combat
                     ComponentType.ReadWrite<Transform>(),
                     ComponentType.ReadWrite<Dead>(),
                     ComponentType.ReadWrite<GameOver>(), 
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<TimeFadeClock>(), 
                 }
             });
             
@@ -77,18 +81,23 @@ namespace ECS.Systems.Combat
                     PostUpdateCommands.AddComponent(entity, new GameOver());
                 }
             });
-
-            Entities.With(_postDeathQuery).ForEach((Entity entity, Transform transform) =>
-            {
-                PostUpdateCommands.DestroyEntity(entity);
-                PlayerManager.instance.PlayerKilled(transform);
-            });
             
-            Entities.With(_victoryQuery)
-                .ForEach((DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer, ref MecanimVictoryParameter mecanimVictoryParameter) =>
+            Entities.With(_postDeathQuery).ForEach((Entity entity, OnKillEffects onKillEffects, Transform transform) =>
+            {
+                var effectSpawnPoint = onKillEffects.effectSpawnPoint;
+                GameObject.Instantiate(onKillEffects.visualEffect, effectSpawnPoint.position, effectSpawnPoint.rotation);
+                PlayerManager.instance.PlayerKilled(transform);
+                
+                if (HasSingleton<AllowTimeFade>() == false)
                 {
-                    mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimVictoryParameter.value));
-                });
+                    PostUpdateCommands.CreateEntity(EntityManager.CreateArchetype(ComponentType.ReadWrite<AllowTimeFade>()));
+                }
+            });
+
+            Entities.With(_victoryQuery).ForEach((DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer, ref MecanimVictoryParameter mecanimVictoryParameter) =>
+            {
+                mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimVictoryParameter.value));
+            });
             
             Entities.With(_postVictoryQuery).ForEach((Entity entity) =>
             {

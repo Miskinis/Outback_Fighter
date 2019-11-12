@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 3870236856175805964}
   - component: {fileID: 2664297700205713341}
   - component: {fileID: 3870236854821673756}
+  - component: {fileID: -7744599410835460983}
   m_Layer: 0
   m_Name: Swordy 1
   m_TagString: Untagged
@@ -1029,6 +1030,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &-7744599410835460983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3415087834061503058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e340c71bf570478ba99c28d2c228bab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualEffect: {fileID: 6544740184368735637, guid: d1b74e7d197126e4d846a2fa9bca6d69,
+    type: 3}
+  effectSpawnPoint: {fileID: 1819328434403838017}
 --- !u!1 &3538143132237123241
 GameObject:
   m_ObjectHideFlags: 0
