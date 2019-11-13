@@ -25,6 +25,7 @@ namespace ECS.Systems.PlayerInputs
         private EntityQuery _gravityQuery;
         private EntityQuery _controllerQuery;
         private EntityQuery _attackQuery;
+        private EntityQuery _dashQuery;
         private EntityQuery _specialAttackQuery;
 
         protected override void OnCreate()
@@ -194,6 +195,17 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<Dead>(), 
                 }
             });
+
+            _dashQuery = GetEntityQuery(new EntityQueryDesc
+            {
+                All = new[]
+                {
+                    ComponentType.ReadOnly<PlayerInputDash>(),
+                    ComponentType.ReadOnly<Rotation>(),
+                    ComponentType.ReadOnly<PlayerMoveDirection>(),
+                    ComponentType.ReadOnly<Dash>(), 
+                }
+            });
             
             _specialAttackQuery = GetEntityQuery(new EntityQueryDesc
             {
@@ -233,10 +245,19 @@ namespace ECS.Systems.PlayerInputs
                     }
                     
                     PlayerManager.instance.RegisterPlayer(transform, entity);
-
+                    
+                    void OnExitAction() => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().RemoveComponent<PlayerIsCrouching>(entity);
                     foreach (var isCrouchingBehavior in animator.GetBehaviours<StopCrouchingBehavior>())
                     {
-                        isCrouchingBehavior.onExitAction = () => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().RemoveComponent<PlayerIsCrouching>(entity);
+                        isCrouchingBehavior.onExitAction = OnExitAction;
+                    }
+
+                    void OnStartAction() => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().AddComponent<PlayerInputDash>(entity);
+                    void OnEndAction() => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().RemoveComponent<PlayerInputDash>(entity);
+                    foreach (var playerDashBehavior in animator.GetBehaviours<PlayerDashBehavior>())
+                    {
+                        playerDashBehavior.onStartAction = OnStartAction;
+                        playerDashBehavior.onEndAction = OnEndAction;
                     }
                 });
 
@@ -350,6 +371,21 @@ namespace ECS.Systems.PlayerInputs
                     mecanimSetBoolBuffer.Add(new MecanimSetBool(mecanimIsCrouchingParameter.value, false));
                 });
 
+            Entities.With(_attackQuery).ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger, ref MecanimAttackParameter mecanimAttackParameter) =>
+                {
+                    mecanimTrigger.Add(new MecanimTrigger(mecanimAttackParameter.value));
+                });
+
+            Entities.With(_dashQuery).ForEach((ref Dash dash, ref PlayerMoveDirection playerMoveDirection, ref Rotation rotation) =>
+            {
+                playerMoveDirection.value.x = (dash.speed * math.forward(rotation.Value)).x;
+            });
+
+            Entities.With(_specialAttackQuery).ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger, ref MecanimSpecialAttackParameter mecanimSpecialAttackParameter) =>
+            {
+                mecanimTrigger.Add(new MecanimTrigger(mecanimSpecialAttackParameter.value));
+            });
+            
             Entities.With(_gravityQuery)
                 .ForEach((ref PlayerMoveDirection playerMoveDirection, ref PlayerGravity playerGravity) => { playerMoveDirection.value.y -= playerGravity.value * deltaTime; });
 
@@ -385,22 +421,6 @@ namespace ECS.Systems.PlayerInputs
                     var feetPoint = position + characterController.center;
                     feetPoint.y           -= characterController.height / 2f;
                     playerFeetPoint.value =  feetPoint;
-                });
-
-            Entities.With(_attackQuery)
-                .ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger,
-                    ref MecanimAttackParameter mecanimAttackParameter,
-                    ref PlayerInputAttack playerAttackInput) =>
-                {
-                    mecanimTrigger.Add(new MecanimTrigger(mecanimAttackParameter.value));
-                });
-
-            Entities.With(_specialAttackQuery)
-                .ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger,
-                    ref MecanimSpecialAttackParameter mecanimSpecialAttackParameter,
-                    ref PlayerInputSpecialAttack playerSpecialAttackInput) =>
-                {
-                    mecanimTrigger.Add(new MecanimTrigger(mecanimSpecialAttackParameter.value));
                 });
         }
     }
