@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class FlagButton : Selectable, IPointerClickHandler, ISubmitHandler, ICanvasElement
 {
     [NonSerialized] public UnityEvent onClick = new UnityEvent();
+    private IDisposable _onInteractableChange;
 
     public override void OnSelect(BaseEventData eventData)
     {
@@ -21,22 +22,7 @@ public class FlagButton : Selectable, IPointerClickHandler, ISubmitHandler, ICan
         base.OnDeselect(eventData);
         isOn = false;
     }
-
-    protected override void Awake()
-    {
-        this.ObserveEveryValueChanged(x => interactable).Subscribe(value =>
-        {
-            if (value)
-            {
-                m_Group.RegisterFlagButton(this);
-            }
-            else
-            {
-                m_Group.UnregisterFlagButton(this);
-            }
-        });
-    }
-
+    
     /// <summary>
         /// Display settings for when a flagButton is activated or deactivated.
         /// </summary>
@@ -171,12 +157,25 @@ public class FlagButton : Selectable, IPointerClickHandler, ISubmitHandler, ICan
             base.OnEnable();
             SetFlagButtonGroup(m_Group, false);
             PlayEffect(true);
+
+            _onInteractableChange = this.ObserveEveryValueChanged(x => interactable).Subscribe(value =>
+            {
+                if (value)
+                {
+                    m_Group.RegisterFlagButton(this);
+                }
+                else
+                {
+                    m_Group.UnregisterFlagButton(this);
+                }
+            });
         }
 
         protected override void OnDisable()
         {
             SetFlagButtonGroup(null, false);
             base.OnDisable();
+            _onInteractableChange?.Dispose();
         }
 
         protected override void OnDidApplyAnimationProperties()

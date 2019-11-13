@@ -289,9 +289,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.24999999
   m_TransitionOffset: 0
-  m_ExitTime: 0.46428573
+  m_ExitTime: 0.30329308
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -429,7 +429,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7202423597817852553, guid: e0542c52949203c48841974caa6fd29c,
+  m_Motion: {fileID: -6071296564851637385, guid: 5adc8340d3c0c584081cde5f88a167ad,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -767,7 +767,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8011042777459462918, guid: e0542c52949203c48841974caa6fd29c,
+  m_Motion: {fileID: 2640830300192589479, guid: 5adc8340d3c0c584081cde5f88a167ad,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -826,7 +826,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7572344613039948371, guid: e0542c52949203c48841974caa6fd29c,
+    m_Motion: {fileID: 7899098039274560797, guid: 5adc8340d3c0c584081cde5f88a167ad,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -835,7 +835,7 @@ BlendTree:
     m_DirectBlendParameter: Walk Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 8114531597553069840, guid: e0542c52949203c48841974caa6fd29c,
+    m_Motion: {fileID: -3875534409696841048, guid: 5adc8340d3c0c584081cde5f88a167ad,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
@@ -898,7 +898,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7572344613039948371, guid: e0542c52949203c48841974caa6fd29c,
+    m_Motion: {fileID: 7899098039274560797, guid: 5adc8340d3c0c584081cde5f88a167ad,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -907,7 +907,7 @@ BlendTree:
     m_DirectBlendParameter: Walk Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 8114531597553069840, guid: e0542c52949203c48841974caa6fd29c,
+    m_Motion: {fileID: -3875534409696841048, guid: 5adc8340d3c0c584081cde5f88a167ad,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
@@ -1252,7 +1252,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -277954514018177, guid: e0542c52949203c48841974caa6fd29c, type: 3}
+  m_Motion: {fileID: -5733807372556477247, guid: 5adc8340d3c0c584081cde5f88a167ad,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1585,7 +1586,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7202423597817852553, guid: e0542c52949203c48841974caa6fd29c,
+  m_Motion: {fileID: -6071296564851637385, guid: 5adc8340d3c0c584081cde5f88a167ad,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -1600,7 +1601,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump loop
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 9053592267566900157}
@@ -2243,7 +2244,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7572344613039948371, guid: e0542c52949203c48841974caa6fd29c,
+    m_Motion: {fileID: 7899098039274560797, guid: 5adc8340d3c0c584081cde5f88a167ad,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
@@ -2252,7 +2253,7 @@ BlendTree:
     m_DirectBlendParameter: Walk Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 8114531597553069840, guid: e0542c52949203c48841974caa6fd29c,
+    m_Motion: {fileID: -3875534409696841048, guid: 5adc8340d3c0c584081cde5f88a167ad,
       type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
@@ -2275,7 +2276,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump loop
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -88523640982182517}
@@ -2290,7 +2291,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 5032734204829030401, guid: e0542c52949203c48841974caa6fd29c,
+  m_Motion: {fileID: 6641649272912931394, guid: 5adc8340d3c0c584081cde5f88a167ad,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -2340,7 +2341,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -277954514018177, guid: e0542c52949203c48841974caa6fd29c, type: 3}
+  m_Motion: {fileID: -5733807372556477247, guid: 5adc8340d3c0c584081cde5f88a167ad,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2382,7 +2384,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jump loop
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6527010358291850297}
@@ -2397,7 +2399,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 5032734204829030401, guid: e0542c52949203c48841974caa6fd29c,
+  m_Motion: {fileID: 6641649272912931394, guid: 5adc8340d3c0c584081cde5f88a167ad,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

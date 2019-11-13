@@ -7,8 +7,7 @@ namespace ECS.Systems.Combat
     public class DamageSystem : ComponentSystem
     {
         private EntityQuery _dealDamageQuery;
-        private bool _allowTimeFade = false;
-
+        
         protected override void OnCreate()
         {
             _dealDamageQuery = GetEntityQuery(new EntityQueryDesc
@@ -23,10 +22,14 @@ namespace ECS.Systems.Combat
             {
                 health.value -= dealDamage.damage;
                 PostUpdateCommands.RemoveComponent<DealDamage>(entity);
-                _allowTimeFade = true;
+                
+                if (HasSingleton<AllowTimeFade>() == false)
+                {
+                    PostUpdateCommands.CreateEntity(EntityManager.CreateArchetype(ComponentType.ReadWrite<AllowTimeFade>()));
+                }
             });
 
-            if(_allowTimeFade)
+            if (HasSingleton<AllowTimeFade>())
             {
                 Entities.WithAll<TimeFadeValue, TimeFadeClock>().ForEach((TimeFadeValue timeFadeValue, ref TimeFadeClock timeFadeClock) =>
                 {
@@ -35,10 +38,10 @@ namespace ECS.Systems.Combat
                     if (timeFadeClock.time > curve[curve.length - 1].time)
                     {
                         timeFadeClock.time = curve[0].time;
-                        _allowTimeFade = false;
+                        PostUpdateCommands.DestroyEntity(GetSingletonEntity<TimeFadeValue>());
                     }
 
-                    timeFadeClock.time += Time.deltaTime;
+                    timeFadeClock.time += Time.unscaledDeltaTime;
                 });
             }
         }

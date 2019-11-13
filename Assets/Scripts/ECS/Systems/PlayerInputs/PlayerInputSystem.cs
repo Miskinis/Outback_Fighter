@@ -45,6 +45,7 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<PlayerFeetPoint>(),
                     ComponentType.ReadWrite<CameraHorizontalAxis>(), 
                     ComponentType.ReadWrite<InitialPlayerDepth>(), 
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -55,6 +56,10 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<PlayerInput>(),
                     ComponentType.ReadWrite<PlayerMoveInput>(),
                     ComponentType.ReadOnly<CameraHorizontalAxis>(), 
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -73,6 +78,7 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<PlayerInputJump>(),
                     ComponentType.ReadWrite<PlayerInputCrouch>(), 
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -85,6 +91,10 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadOnly<MecanimMoveSpeedParameter>(),
                     ComponentType.ReadOnly<PlayerMoveInput>(),
                     ComponentType.ReadOnly<PlayerMoveSpeed>(),
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -98,6 +108,10 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<PlayerMoveDirection>(),
                     ComponentType.ReadOnly<PlayerJumpSpeed>(),
                     ComponentType.ReadOnly<PlayerInputJump>(),
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -112,6 +126,7 @@ namespace ECS.Systems.PlayerInputs
                 None = new []
                 {
                     ComponentType.ReadWrite<PlayerIsGrounded>(),
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -126,6 +141,7 @@ namespace ECS.Systems.PlayerInputs
                 None = new []
                 {
                     ComponentType.ReadWrite<PlayerIsCrouching>(),
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
             
@@ -140,6 +156,7 @@ namespace ECS.Systems.PlayerInputs
                 None = new []
                 {
                     ComponentType.ReadWrite<PlayerInputCrouch>(),
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
 
@@ -171,6 +188,10 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<MecanimTrigger>(),
                     ComponentType.ReadOnly<MecanimAttackParameter>(),
                     ComponentType.ReadOnly<PlayerInputAttack>(),
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
             
@@ -181,6 +202,10 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<MecanimTrigger>(),
                     ComponentType.ReadOnly<MecanimSpecialAttackParameter>(),
                     ComponentType.ReadOnly<PlayerInputSpecialAttack>(),
+                },
+                None = new []
+                {
+                    ComponentType.ReadWrite<Dead>(), 
                 }
             });
         }
