@@ -58,8 +58,9 @@ namespace ECS.Systems.Combat
             var entityType = GetArchetypeChunkEntityType();
 
             var outerChunkArray = _bootstrapOuterQuery.CreateArchetypeChunkArray(Allocator.TempJob);
-            foreach (var outerChunk in outerChunkArray)
+            if(outerChunkArray.Length > 0)
             {
+                var outerChunk = outerChunkArray[0];
                 int outerInstanceCount = outerChunk.Count;
                 var outerEntityArray = outerChunk.GetNativeArray(entityType);
                 for (int i = 0; i < outerInstanceCount; i++)
@@ -67,8 +68,9 @@ namespace ECS.Systems.Combat
                     var outerEntity = outerEntityArray[i];
                     
                     var innerChunkArray = _bootstrapInnerQuery.CreateArchetypeChunkArray(Allocator.TempJob);
-                    foreach (var innerChunk in innerChunkArray)
+                    if(innerChunkArray.Length > 0)
                     {
+                        var innerChunk = innerChunkArray[0];
                         var innerEntityArray = innerChunk.GetNativeArray(entityType);
 
 #if UNITY_EDITOR
@@ -78,9 +80,9 @@ namespace ECS.Systems.Combat
                         }
 #endif                        
                         var innerEntity = innerEntityArray[i];
+
                         PostUpdateCommands.SetComponent(innerEntity, new HealthBar {playerEntity = outerEntity});
                         PostUpdateCommands.AddComponent<HealthBarAssigned>(innerEntity);
-                        
                         PostUpdateCommands.AddComponent<HealthBarAssigned>(outerEntity);
                     }
                     innerChunkArray.Dispose();
@@ -93,13 +95,13 @@ namespace ECS.Systems.Combat
             
             Entities.With(_healthBarQuery).ForEach((Entity entity, Image image, ref HealthBar healthBar) =>
             {
-                if (healthEntityArray.Exists(healthBar.playerEntity) == false)
+                /*if (healthEntityArray.Exists(healthBar.playerEntity) == false)
                 {
                     PostUpdateCommands.RemoveComponent<HealthBarAssigned>(healthBar.playerEntity);
                     PostUpdateCommands.RemoveComponent<HealthBarAssigned>(entity);
                     healthBar.playerEntity = Entity.Null;
                     return;
-                }
+                }*/
                 image.fillAmount = healthEntityArray[healthBar.playerEntity].value / maxHealthEntityArray[healthBar.playerEntity].value;
             });
         }
