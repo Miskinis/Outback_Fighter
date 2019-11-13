@@ -84,6 +84,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3687130337537631593, guid: 63ab81a3125b3a14bb92e4575914482c,
         type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.28627452
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687130337537631593, guid: 63ab81a3125b3a14bb92e4575914482c,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 1.92
       objectReference: {fileID: 0}
@@ -161,6 +166,16 @@ PrefabInstance:
         type: 3}
       propertyPath: RotationModule.curve.scalar
       value: 1.3962634
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687130337537631593, guid: 63ab81a3125b3a14bb92e4575914482c,
+        type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687130337537631593, guid: 63ab81a3125b3a14bb92e4575914482c,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3687130337537631593, guid: 63ab81a3125b3a14bb92e4575914482c,
         type: 3}

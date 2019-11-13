@@ -1,3 +1,4 @@
+using ECS.Components.Combat;
 using ECS.Components.PlayerInputs;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -18,6 +19,10 @@ namespace ECS.Systems.PlayerInputs
                 {
                     ComponentType.ReadWrite<PlayerSizeComponent>(),
                     ComponentType.ReadWrite<PlayerSize>(),
+                },
+                None = new[]
+                {
+                    ComponentType.ReadWrite<Dead>()
                 }
             });
         }

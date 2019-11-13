@@ -35,11 +35,11 @@ namespace ECS.Systems.Combat
                 {
                     ComponentType.ReadWrite<Transform>(),
                     ComponentType.ReadWrite<Dead>(),
-                    ComponentType.ReadWrite<GameOver>(), 
                 },
                 None = new []
                 {
                     ComponentType.ReadWrite<TimeFadeClock>(), 
+                    ComponentType.ReadWrite<GameOver>(), 
                 }
             });
             
@@ -78,7 +78,6 @@ namespace ECS.Systems.Combat
                 {
                     mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimDieParameter.hashedParameter));
                     PostUpdateCommands.AddComponent(entity, new Dead());
-                    PostUpdateCommands.AddComponent(entity, new GameOver());
                 }
             });
             
@@ -92,6 +91,8 @@ namespace ECS.Systems.Combat
                 {
                     PostUpdateCommands.CreateEntity(EntityManager.CreateArchetype(ComponentType.ReadWrite<AllowTimeFade>()));
                 }
+                
+                PostUpdateCommands.AddComponent(entity, new GameOver());
             });
 
             Entities.With(_victoryQuery).ForEach((DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer, ref MecanimVictoryParameter mecanimVictoryParameter) =>
