@@ -48,6 +48,7 @@ namespace ECS.Systems.Combat
                 {
                     ComponentType.ReadWrite<Image>(), 
                     ComponentType.ReadOnly<HealthBar>(),
+                    ComponentType.ReadWrite<HealthBarAssigned>(), 
                 }
             });
         }
@@ -55,8 +56,7 @@ namespace ECS.Systems.Combat
         protected override void OnUpdate()
         {
             var entityType = GetArchetypeChunkEntityType();
-            var healthBarType = GetArchetypeChunkComponentType<HealthBar>();
-            
+
             var outerChunkArray = _bootstrapOuterQuery.CreateArchetypeChunkArray(Allocator.TempJob);
             foreach (var outerChunk in outerChunkArray)
             {
@@ -69,8 +69,7 @@ namespace ECS.Systems.Combat
                     var innerChunkArray = _bootstrapInnerQuery.CreateArchetypeChunkArray(Allocator.TempJob);
                     foreach (var innerChunk in innerChunkArray)
                     {
-                        var innerEntityArray    = innerChunk.GetNativeArray(entityType);
-                        var innerHealthBarArray = innerChunk.GetNativeArray(healthBarType);
+                        var innerEntityArray = innerChunk.GetNativeArray(entityType);
 
 #if UNITY_EDITOR
                         if (innerChunk.Count < outerInstanceCount)
@@ -79,12 +78,11 @@ namespace ECS.Systems.Combat
                         }
 #endif                        
                         var innerEntity = innerEntityArray[i];
-
-                        innerHealthBarArray[i] = new HealthBar {playerEntity = outerEntity};
-                        PostUpdateCommands.AddComponent<HealthBarAssigned>(outerEntity);
+                        PostUpdateCommands.SetComponent(innerEntity, new HealthBar {playerEntity = outerEntity});
                         PostUpdateCommands.AddComponent<HealthBarAssigned>(innerEntity);
+                        
+                        PostUpdateCommands.AddComponent<HealthBarAssigned>(outerEntity);
                     }
-
                     innerChunkArray.Dispose();
                 }
             }
@@ -95,14 +93,10 @@ namespace ECS.Systems.Combat
             
             Entities.With(_healthBarQuery).ForEach((Entity entity, Image image, ref HealthBar healthBar) =>
             {
-                if (healthBar.playerEntity == Entity.Null)
-                {
-                    return;
-                }
-
                 if (healthEntityArray.Exists(healthBar.playerEntity) == false)
                 {
                     PostUpdateCommands.RemoveComponent<HealthBarAssigned>(healthBar.playerEntity);
+                    PostUpdateCommands.RemoveComponent<HealthBarAssigned>(entity);
                     healthBar.playerEntity = Entity.Null;
                     return;
                 }

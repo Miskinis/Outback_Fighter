@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 1246559550054530428}
   - component: {fileID: 146633181}
   - component: {fileID: 5726836202301210031}
+  - component: {fileID: 7774498663590359864}
   m_Layer: 0
   m_Name: Woody 1
   m_TagString: Untagged
@@ -1189,6 +1190,19 @@ MonoBehaviour:
   visualEffect: {fileID: 6544740184368735637, guid: d1b74e7d197126e4d846a2fa9bca6d69,
     type: 3}
   effectSpawnPoint: {fileID: 3209477157752447616}
+--- !u!114 &7774498663590359864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932329703012978835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d270e65f0134569bbde8f485bf55d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
 --- !u!1 &2005029168959323055
 GameObject:
   m_ObjectHideFlags: 0

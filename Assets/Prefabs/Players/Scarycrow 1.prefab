@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 2102193508}
   - component: {fileID: 1006982490}
   - component: {fileID: 6275078187639810788}
+  - component: {fileID: 4814733079029333874}
   m_Layer: 0
   m_Name: Scarycrow 1
   m_TagString: Untagged
@@ -1201,3 +1202,16 @@ MonoBehaviour:
   visualEffect: {fileID: 6544740184368735637, guid: d1b74e7d197126e4d846a2fa9bca6d69,
     type: 3}
   effectSpawnPoint: {fileID: 5455478442214415911}
+--- !u!114 &4814733079029333874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074358961698450484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d270e65f0134569bbde8f485bf55d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
