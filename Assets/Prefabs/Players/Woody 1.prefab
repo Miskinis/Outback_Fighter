@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forehead: {fileID: 620665189}
-  feet: {fileID: 2378852483574124602}
+  feet: {fileID: 1088682295148797199}
   torso: {fileID: 4504650760327054349}
 --- !u!114 &146633181
 MonoBehaviour:
