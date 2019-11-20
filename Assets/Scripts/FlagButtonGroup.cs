@@ -27,7 +27,15 @@ public class FlagButtonGroup : UIBehaviour
 
     public void UpdateSelectablesNavigation()
     {
-        for (var i = 0; i < m_FlagButtons.Count; i++)
+        var count = m_FlagButtons.Count;
+        if (count < 1) return;
+        
+        if (m_FlagButtons[0] == GetComponentInChildren<FlagButton>())
+        {
+            m_FlagButtons.Reverse();
+        }
+        
+        for (var i = 0; i < count; i++)
         {
             var flagButton = m_FlagButtons[i];
             var navigation = new Navigation {mode = Navigation.Mode.Explicit};
