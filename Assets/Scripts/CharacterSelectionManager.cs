@@ -17,6 +17,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public float countInterval = 1f;
     public GameObject countdownPanel;
     public Image countdownImage;
+    public Vector2 lastCountdownImageSize = new Vector2(1000f, 700f);
     public Sprite[] countDownSprites;
     public GameObject menuPanel;
     public GameObject hudPanel;
@@ -56,11 +57,16 @@ public class CharacterSelectionManager : MonoBehaviour
         
         var delayTime = new WaitForSeconds(countInterval);
 
-        for (int i = 0; i < countDownSprites.Length; i++)
+        var countdownImageCount = countDownSprites.Length;
+        for (int i = 0; i < countdownImageCount - 1; i++)
         {
             countdownImage.sprite = countDownSprites[i];
             yield return delayTime;
         }
+        
+        countdownImage.sprite = countDownSprites[countdownImageCount - 1];
+        countdownImage.rectTransform.sizeDelta = lastCountdownImageSize;
+        yield return delayTime;
 
         var inputModules = FindObjectsOfType<InputSystemUIInputModule>();
         
