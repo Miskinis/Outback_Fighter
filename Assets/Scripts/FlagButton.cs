@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform))]
 public class FlagButton : Selectable, IPointerClickHandler, ISubmitHandler, ICanvasElement
 {
+    [SerializeField] public AudioSource clickSound;
     [NonSerialized] public UnityEvent onClick = new UnityEvent();
     private IDisposable _onInteractableChange;
 
@@ -287,6 +288,7 @@ public class FlagButton : Selectable, IPointerClickHandler, ISubmitHandler, ICan
                 {
                     m_IsOn = true;
                     m_Group.NotifyFlagButtonOn(this, sendCallback);
+                    clickSound.Play();
                 }
             }
 
