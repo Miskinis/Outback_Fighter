@@ -90,9 +90,6 @@ public class CharacterSelectionManager : MonoBehaviour
         hudPanel.SetActive(true);
         _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
 
-        var entityManager = World.Active.EntityManager;
-        entityManager.DestroyEntity(entityManager.GetAllEntities());
-        
         PlayerInputDeviceManager.ReassignDevices();
         
         yield return null;
