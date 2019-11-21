@@ -61,5 +61,51 @@ public class PlayerInputDeviceManager : MonoBehaviour
         {
             playerInput2.SwitchCurrentControlScheme($"Player2_Keyboard", Keyboard.current);
         }
+        
+        foreach (var actionEvent in playerInput1.actionEvents)
+        {
+            if (actionEvent.actionName == "Restart")
+            {
+                void Restart(InputAction.CallbackContext callback)
+                {
+                    PlayerManager.instance.InstantRestart();
+                }
+
+                actionEvent.AddListener(Restart);
+            }
+
+            if (actionEvent.actionName == "Quit")
+            {
+                void Quit(InputAction.CallbackContext call)
+                {
+                    PlayerManager.instance.Quit();
+                }
+
+                actionEvent.AddListener(Quit);
+            }
+        }
+        
+        foreach (var actionEvent in playerInput2.actionEvents)
+        {
+            if (actionEvent.actionName == "Restart")
+            {
+                void Restart(InputAction.CallbackContext callback)
+                {
+                    PlayerManager.instance.InstantRestart();
+                }
+
+                actionEvent.AddListener(Restart);
+            }
+
+            if (actionEvent.actionName == "Quit")
+            {
+                void Quit(InputAction.CallbackContext call)
+                {
+                    PlayerManager.instance.Quit();
+                }
+
+                actionEvent.AddListener(Quit);
+            }
+        }
     }
 }
