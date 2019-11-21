@@ -42,6 +42,7 @@ namespace ECS.Systems.PlayerInputs
 
                     playerSize.height = headToFeetDistance;
                     playerSize.center = (foreheadPosition + feetPosition + torsoPosition) / 3f;
+                    playerSize.center += playerSizeComponent.centerOffset;
 
                     Debug.DrawLine(feetPosition, foreheadPosition, Color.red);
                     Debug.DrawLine(feetPosition, torsoPosition, Color.red);
