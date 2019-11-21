@@ -776,7 +776,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.01
-  m_Radius: 0.26
+  m_Radius: 0.15
   m_SlopeLimit: 30
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
@@ -1144,8 +1144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forehead: {fileID: 620665189}
-  feet: {fileID: 1088682295148797199}
+  feet: {fileID: 3583957366839375061}
   torso: {fileID: 4504650760327054349}
+  centerOffset:
+    x: 0
+    y: 0.1
+    z: 0
 --- !u!114 &146633181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,8 +2572,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2477794, y: 0.9047383, z: 0.24920544}
-  m_Center: {x: -0.009284757, y: 0.40236875, z: -0.004230501}
+  m_Size: {x: 0.37206507, y: 0.9206892, z: 0.24920544}
+  m_Center: {x: -0.07142741, y: 0.4103431, z: -0.004230499}
 --- !u!114 &7633863837280371967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2583,7 +2587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootEntityObject: {fileID: 7633863837687305334}
-  damage: 10
+  damage: 9
   hitEffect: {fileID: 451141189688372360, guid: 492c6df2a4468c14a87e1533bd9e52f0,
     type: 3}
   hitEffectSpawn: {fileID: 7633863837280371964}

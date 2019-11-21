@@ -426,8 +426,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2376002687258317482}
-  m_LocalRotation: {x: -0.7071068, y: 0.0000000842937, z: 0.00000008429369, w: 0.7071067}
-  m_LocalPosition: {x: -0.23399994, y: 0.63099986, z: 0.23299998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.234, y: 0.652, z: 0.23299998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6656184402156290225}
@@ -625,7 +625,7 @@ Animator:
   m_GameObject: {fileID: 3415087834061503058}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5adc8340d3c0c584081cde5f88a167ad, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3d608ec729e74204a837170d2a5db2cb, type: 2}
+  m_Controller: {fileID: 22100000, guid: fc2c9ea10131a344699a11d22c1ddb52, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -662,7 +662,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.93
-  m_Radius: 0.32
+  m_Radius: 0.16
   m_SlopeLimit: 30
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
@@ -1032,6 +1032,10 @@ MonoBehaviour:
   forehead: {fileID: 2835043216638254444}
   feet: {fileID: 8654457134108735339}
   torso: {fileID: 7465302061763289948}
+  centerOffset:
+    x: 0
+    y: 0.1
+    z: 0
 --- !u!114 &3870236854821673756
 MonoBehaviour:
   m_ObjectHideFlags: 0

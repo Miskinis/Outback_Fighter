@@ -417,8 +417,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2537582, y: 0.6235445, z: 0.4090464}
-  m_Center: {x: 0.3464785, y: 0.23240341, z: 0.021877104}
+  m_Size: {x: 0.2537582, y: 0.7721411, z: 0.4090464}
+  m_Center: {x: 0.3464794, y: 0.30670133, z: 0.021877103}
 --- !u!114 &8677616201935194539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +445,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2690112374806519694}
-  - component: {fileID: 1067199676704650552}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -467,19 +466,6 @@ Transform:
   m_Father: {fileID: 7430073615739274192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1067199676704650552
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7864487219880802008}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.13194881
-  m_Center: {x: 0.011984436, y: 0.07578511, z: 0.026256224}
 --- !u!1 &7928098831225605297
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +759,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.93
-  m_Radius: 0.26
+  m_Radius: 0.16
   m_SlopeLimit: 30
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
@@ -1147,6 +1133,10 @@ MonoBehaviour:
   forehead: {fileID: 2690112374806519694}
   feet: {fileID: 6898924874904652319}
   torso: {fileID: 6466079701127510186}
+  centerOffset:
+    x: 0
+    y: 0.1
+    z: 0
 --- !u!114 &1006982490
 MonoBehaviour:
   m_ObjectHideFlags: 0
