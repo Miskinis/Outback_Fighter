@@ -87,6 +87,10 @@ public class PlayerManager : MonoBehaviour
         var sceneLoader = SceneManager.LoadSceneAsync(0);
         sceneLoader.allowSceneActivation = false;
         yield return new WaitForSeconds(postDeathScreenDelay);
+        
+        var entityManager = World.Active.EntityManager;
+        entityManager.DestroyEntity(entityManager.GetAllEntities());
+        
         sceneLoader.allowSceneActivation = true;
     }
 

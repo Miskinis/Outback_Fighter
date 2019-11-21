@@ -378,14 +378,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Cancel",
-                    "type": "Button",
-                    "id": "3824f88f-9b0b-4c0c-97ba-aded0e3ae4a4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Point",
                     "type": "PassThrough",
                     "id": "3690585b-5003-4fa6-bea9-0c9d5ca7df6e",
@@ -743,17 +735,6 @@
                     "processors": "",
                     "groups": "Player1_Joystick;Player2_Joystick",
                     "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "22578a8b-479a-4880-8456-302cbf723d65",
-                    "path": "*/{Cancel}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

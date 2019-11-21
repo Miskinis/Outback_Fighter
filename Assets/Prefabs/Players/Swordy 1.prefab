@@ -426,12 +426,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2376002687258317482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.234, y: -0.233, z: 0.631}
+  m_LocalRotation: {x: -0.7071068, y: 0.0000000842937, z: 0.00000008429369, w: 0.7071067}
+  m_LocalPosition: {x: -0.23399994, y: 0.63099986, z: 0.23299998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6724097690679494705}
-  m_RootOrder: 2
+  m_Father: {fileID: 6656184402156290225}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2555381178093912268
 GameObject:
@@ -726,48 +726,32 @@ MonoBehaviour:
     m_ActionName: Player/SpecialAttack[/Keyboard/q,/Keyboard/2]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: ba83e016-6d54-489b-8122-0bda92f55c46
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: a2fa2387-e9c4-400f-9f1b-889a62697aca
+    m_ActionName: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 850d7018-6373-4388-bdb5-2a3b4d98ff58
-    m_ActionName: UI/Submit
+    m_ActionId: 782189fe-5fd4-4ed0-ba3b-72914d46148c
+    m_ActionName: UI/Submit[/Keyboard/enter,/Keyboard/numpadEnter,/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: bc96f5f0-d743-44a6-9972-45e1934b5c33
-    m_ActionName: UI/Cancel[/Keyboard/escape]
+    m_ActionId: 3690585b-5003-4fa6-bea9-0c9d5ca7df6e
+    m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2f77c88c-de28-4f81-8906-60b4d22e5203
-    m_ActionName: UI/Point[/Mouse/position,/Touchscreen/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position]
+    m_ActionId: 9b98ad39-0639-442f-94a0-ae94afffe5d8
+    m_ActionName: UI/Click[/Mouse/leftButton,/Keyboard/numpadEnter,/Keyboard/enter,/DualShock4GamepadHID/leftTrigger]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 7369cdcb-9464-4935-a524-4300a92bf09b
-    m_ActionName: UI/Click[/Mouse/leftButton,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6ec79843-064c-4f4d-bae7-ff7451ac4ad6
+    m_ActionId: 89fd3f3d-11da-47e2-8371-7eb635adc621
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: dbd2df7a-b5a5-4750-9573-45ca63c73897
+    m_ActionId: e1ebe9fc-2916-4c9c-8c3f-45721da6d415
     m_ActionName: UI/MiddleClick[/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 5c6a9c6e-2e8c-4427-ad06-a7f4055a9ec3
+    m_ActionId: de3b6975-3bf9-4c4b-acca-19683ba71483
     m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4f87a309-92ea-4a84-926c-365c74fe0373
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4beaf7c5-d96a-4e67-998c-1f7c7ad1aa8d
-    m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 89c89620-8917-4705-9e9b-c93e0a66e4be
-    m_ActionName: UI/TrackedDeviceSelect
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions
@@ -1242,6 +1226,7 @@ Transform:
   - {fileID: 6313595938460279935}
   - {fileID: 2543886693160419475}
   - {fileID: 7465302061763289948}
+  - {fileID: 2023571569851301105}
   m_Father: {fileID: 6724097690679494705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1898,7 +1883,6 @@ Transform:
   m_Children:
   - {fileID: 5766462308208355688}
   - {fileID: 6656184402156290225}
-  - {fileID: 2023571569851301105}
   m_Father: {fileID: 1819328434403838017}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
