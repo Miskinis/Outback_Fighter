@@ -9,6 +9,8 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
+using UnityTemplateProjects;
 
 namespace ECS.Systems.PlayerInputs
 {
@@ -19,7 +21,7 @@ namespace ECS.Systems.PlayerInputs
         private EntityQuery _moveQuery;
         private EntityQuery _moveAnimationQuery;
         private EntityQuery _jumpQuery;
-        private EntityQuery _isJumpingQuery;
+        private EntityQuery _isLandingQuery;
         private EntityQuery _startCrouchingQuery;
         private EntityQuery _stopCrouchingQuery;
         private EntityQuery _gravityQuery;
@@ -106,23 +108,23 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadWrite<MecanimTrigger>(),
                     ComponentType.ReadOnly<MecanimJumpParameter>(),
                     ComponentType.ReadOnly<PlayerIsGrounded>(),
-                    ComponentType.ReadWrite<PlayerMoveDirection>(),
-                    ComponentType.ReadOnly<PlayerJumpSpeed>(),
                     ComponentType.ReadOnly<PlayerInputJump>(),
                 },
                 None = new []
                 {
                     ComponentType.ReadWrite<Dead>(), 
+                    ComponentType.ReadWrite<PlayerStartJump>(), 
                 }
             });
 
-            _isJumpingQuery = GetEntityQuery(new EntityQueryDesc
+            _isLandingQuery = GetEntityQuery(new EntityQueryDesc
             {
                 All = new[]
                 {
                     ComponentType.ReadWrite<MecanimSetBool>(),
                     ComponentType.ReadOnly<MecanimIsJumpingParameter>(),
                     ComponentType.ReadOnly<PlayerFeetPoint>(),
+                    ComponentType.ReadWrite<PlayerStartJump>(), 
                 },
                 None = new []
                 {
@@ -238,12 +240,7 @@ namespace ECS.Systems.PlayerInputs
                     PostUpdateCommands.AddComponent(entity, new PlayerMoveDirection());
                     PostUpdateCommands.AddComponent(entity, new CameraHorizontalAxis(Camera.main.transform.right.x));
                     PostUpdateCommands.AddComponent(entity, new InitialPlayerDepth(transform.position.z));
-                    
-                    if (playerInput.currentControlScheme == null)
-                    {
-                        playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex+1}_Keyboard", Keyboard.current);
-                    }
-                    
+
                     PlayerManager.instance.RegisterPlayer(transform, entity);
                     
                     void OnExitAction() => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().RemoveComponent<PlayerIsCrouching>(entity);
@@ -258,6 +255,12 @@ namespace ECS.Systems.PlayerInputs
                     {
                         playerDashBehavior.onStartAction = OnStartAction;
                         playerDashBehavior.onEndAction = OnEndAction;
+                    }
+
+                    void OnFrameAction() => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().AddComponent<PlayerStartJump>(entity);
+                    foreach (var startJumpingBehavior in animator.GetBehaviours<StartJumpingBehavior>())
+                    {
+                        startJumpingBehavior.onFrameAction = OnFrameAction;
                     }
                 });
 
@@ -331,25 +334,25 @@ namespace ECS.Systems.PlayerInputs
                         : new MecanimSetFloat(mecanimMoveSpeedParameter.value, 1f));
                 });
 
-            Entities.With(_jumpQuery)
-                .ForEach((DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer,
-                    ref MecanimJumpParameter mecanimJumpParameter,
-                    ref PlayerMoveDirection playerMoveDirection,
-                    ref PlayerJumpSpeed playerJumpSpeed) =>
-                {
-                    mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimJumpParameter.value));
-                    playerMoveDirection.value.y += playerJumpSpeed.value;
-                });
+            Entities.With(_jumpQuery).ForEach((DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer, ref MecanimJumpParameter mecanimJumpParameter) =>
+            {
+                mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimJumpParameter.value));
+            });
 
+            Entities.WithAll<PlayerStartJump, PlayerMoveDirection, PlayerJumpSpeed>().ForEach((Entity entity, ref PlayerMoveDirection playerMoveDirection, ref PlayerJumpSpeed playerJumpSpeed) =>
+            {
+                playerMoveDirection.value.y += playerJumpSpeed.value;
+                PostUpdateCommands.RemoveComponent<PlayerStartJump>(entity);
+            });
+            
             float deltaTime = Time.deltaTime;
 
-            Entities.With(_isJumpingQuery)
+            Entities.With(_isLandingQuery)
                 .ForEach((DynamicBuffer<MecanimSetBool> mecanimSetBoolBuffer,
                     ref MecanimIsJumpingParameter mecanimIsJumpingParameter,
-                    ref PlayerFeetPoint playerFeetPoint,
-                    ref PlayerGravity playerGravity) =>
+                    ref PlayerFeetPoint playerFeetPoint) =>
                 {
-                    bool isJumping = !Physics.Raycast(playerFeetPoint.value, Vector3.down, playerGravity.value * deltaTime * 2f);
+                    bool isJumping = !Physics.Raycast(playerFeetPoint.value, Vector3.down, 1f);
                     mecanimSetBoolBuffer.Add(new MecanimSetBool(mecanimIsJumpingParameter.value, isJumping));
                 });
 

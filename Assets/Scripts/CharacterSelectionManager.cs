@@ -3,6 +3,8 @@ using System.Collections;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.UI;
 
@@ -46,6 +48,11 @@ public class CharacterSelectionManager : MonoBehaviour
 
         menuPanel.SetActive(false);
         countdownPanel.SetActive(true);
+
+        foreach (var playerInput in FindObjectsOfType<PlayerInput>())
+        {
+            Destroy(playerInput);
+        }
         
         var delayTime = new WaitForSeconds(countInterval);
 
@@ -54,6 +61,8 @@ public class CharacterSelectionManager : MonoBehaviour
             countdownImage.sprite = countDownSprites[i];
             yield return delayTime;
         }
+
+        var inputModules = FindObjectsOfType<InputSystemUIInputModule>();
         
         for (var i = 0; i < _selectedCharacters.Length; i++)
         {
@@ -67,11 +76,15 @@ public class CharacterSelectionManager : MonoBehaviour
                 };
 
             cinemachineTargetGroup.m_Targets = _instantiatedCharacters;
+            character.GetComponent<PlayerInput>().uiInputModule = inputModules[i];
         }
 
         countdownPanel.SetActive(false);
         hudPanel.SetActive(true);
         _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
+        
+        PlayerInputDeviceManager.ReassignDevices();
+        
         yield return null;
     }
 }
