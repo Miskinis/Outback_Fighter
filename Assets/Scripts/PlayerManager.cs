@@ -4,12 +4,13 @@ using ECS.Components.Combat;
 using TMPro;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-    public GameObject gameOverPanel;
+    //public GameObject gameOverPanel;
     public float preDeathScreenDelay = 2f;
     public float postDeathScreenDelay = 3f;
 
@@ -19,12 +20,16 @@ public class PlayerManager : MonoBehaviour
     private bool _player1Dead, _player2Dead;
     private bool _gameOver;
 
+    public GameObject gameOverPrefab1;
+    public GameObject gameOverPrefab2;
+
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            gameOverPanel.SetActive(false);
+            //gameOverPanel.SetActive(false);
         }
     }
 
@@ -64,25 +69,27 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(preDeathScreenDelay);
 
         var entityCommandBuffer = World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer();
-        string message = string.Empty;
+        //string message = string.Empty;
 
-        if (_player1Dead && _player2Dead)
+        /*if (_player1Dead && _player2Dead)
         {
-            message = $"Game Over{Environment.NewLine}Tie";
+            //message = $"Game Over{Environment.NewLine}Tie";
         }
-        else if (_player1Dead)
+        else*/ if (_player1Dead)
         {
             entityCommandBuffer.AddComponent(_playerEntity2, new Victory());
-            message = $"Game Over{Environment.NewLine}Player 2 Wins";
+            Instantiate(gameOverPrefab2, transform);
+            //message = $"Game Over{Environment.NewLine}Player 2 Wins";
         }
         else if (_player2Dead)
         {
             entityCommandBuffer.AddComponent(_playerEntity1, new Victory());
-            message = $"Game Over{Environment.NewLine}Player 1 Wins";
+            Instantiate(gameOverPrefab1, transform);
+            //message = $"Game Over{Environment.NewLine}Player 1 Wins";
         }
 
-        gameOverPanel.SetActive(true);
-        gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        //gameOverPanel.SetActive(true);
+        //gameOverPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
 
         var sceneLoader = SceneManager.LoadSceneAsync(0);
         sceneLoader.allowSceneActivation = false;

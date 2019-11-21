@@ -81,7 +81,7 @@ public class CharacterSelector : MonoBehaviour
             {
                 CharacterSelectionManager.main.ConfirmSelection(character, new InstantiationParameters(spawnLocation.position, spawnLocation.rotation, null), playerIndex);
                 characterReadyText.gameObject.SetActive(true);
-                characterReadyText.text = $"{character.name} Ready";
+                //characterReadyText.text = $"{character.name} Ready";
                 for (int i = 0; i < flagButtons.Length; i++)
                 {
                     flagButtons[i].interactable = false;
