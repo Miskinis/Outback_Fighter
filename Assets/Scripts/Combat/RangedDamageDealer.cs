@@ -35,8 +35,15 @@ namespace Combat
             _rigidbody.AddForce(thisTransform.forward * impulseForce, ForceMode.Impulse);
             
             if(spawnEffect)
+            {
                 Instantiate(spawnEffect, thisTransform.position, quaternion.identity);
+            }
 
+            foreach (var childColliders in _characterRootGameObject.GetComponentsInChildren<Collider>())
+            {
+                Physics.IgnoreCollision(GetComponent<Collider>(), childColliders);
+            }
+            
             StartCoroutine(SelfDestruct(selfDestructDelay));
         }
 
@@ -54,31 +61,28 @@ namespace Combat
                 Destroy(this);
                 return;
             }
+            
+            if(hitEffect)
+            {
+                Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
+            }
 
-            var otherGameObject   = other.gameObject;
+            var otherGameObject = other.gameObject;
 
             if (otherGameObject.GetComponent<RangedDamageDealer>())
             {
                 Destroy(otherGameObject);
-                
-                if(hitEffect)
-                    Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
                 Destroy(gameObject);
-                
                 return;
             }
             
             var otherEntityObject = otherGameObject.GetComponent<ConvertHierarchyToEntities>();
-            if (otherEntityObject == null || otherGameObject == _characterRootGameObject.gameObject || otherGameObject.GetComponent<HealthComponent>() == null) return;
-
-            var otherEntity = otherEntityObject.HierarchyRootEntity;
-            _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
+            if (otherEntityObject != null && otherGameObject != _characterRootGameObject.gameObject && otherGameObject.GetComponent<HealthComponent>() != null)
+            {
+                var otherEntity = otherEntityObject.HierarchyRootEntity;
+                _entityManager.AddComponentData(otherEntity, new DealDamage(damage));
+            }
             
-            if(hitEffect)
-                Instantiate(hitEffect, other.contacts[0].point, Quaternion.identity);
-            
-            StopCoroutine(nameof(SelfDestruct));
-            enabled = false;
             Destroy(gameObject);
         }
     }
