@@ -303,7 +303,7 @@
                 {
                     "name": "",
                     "id": "04db47d7-503d-46cd-b93b-fc79c10df8c7",
-                    "path": "<Gamepad>/dpad/x",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Gamepad;Player2_Gamepad",
@@ -314,7 +314,7 @@
                 {
                     "name": "",
                     "id": "b22d448f-6f39-4d04-b956-e3e7b1c22965",
-                    "path": "<Joystick>/stick/x",
+                    "path": "<HID::Microntek              USB Joystick          >/button3",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Joystick;Player2_Joystick",
@@ -336,7 +336,7 @@
                 {
                     "name": "",
                     "id": "b01125bd-149c-4eb8-958d-b2fc68320522",
-                    "path": "<Gamepad>/dpad/y",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Gamepad;Player2_Gamepad",
@@ -347,7 +347,7 @@
                 {
                     "name": "",
                     "id": "8f8eae4c-e34f-481c-bffe-02dcefca95da",
-                    "path": "<Joystick>/stick/y",
+                    "path": "<HID::Microntek              USB Joystick          >/button2",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Joystick;Player2_Joystick",
@@ -726,6 +726,28 @@
                 },
                 {
                     "name": "",
+                    "id": "e812cc93-ee73-42c7-8149-2be453107db5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1_Gamepad;Player2_Gamepad",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f1f8c1f-d780-4bdb-9b8b-104d8af7ff34",
+                    "path": "<HID::Microntek              USB Joystick          >/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1_Joystick;Player2_Joystick",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "22578a8b-479a-4880-8456-302cbf723d65",
                     "path": "*/{Cancel}",
                     "interactions": "",
@@ -887,7 +909,7 @@
             "bindingGroup": "Player1_Joystick",
             "devices": [
                 {
-                    "devicePath": "<Joystick>",
+                    "devicePath": "<HID::Microntek              USB Joystick          >",
                     "isOptional": false,
                     "isOR": false
                 }
@@ -898,7 +920,7 @@
             "bindingGroup": "Player2_Joystick",
             "devices": [
                 {
-                    "devicePath": "<Joystick>",
+                    "devicePath": "<HID::Microntek              USB Joystick          >",
                     "isOptional": false,
                     "isOR": false
                 }

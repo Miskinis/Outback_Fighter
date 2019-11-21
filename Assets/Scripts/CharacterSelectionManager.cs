@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Cinemachine;
 using TMPro;
+using Unity.Entities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
@@ -88,6 +89,9 @@ public class CharacterSelectionManager : MonoBehaviour
         countdownPanel.SetActive(false);
         hudPanel.SetActive(true);
         _selectedCharacters = new Tuple<GameObject, InstantiationParameters>[2];
+
+        var entityManager = World.Active.EntityManager;
+        entityManager.DestroyEntity(entityManager.GetAllEntities());
         
         PlayerInputDeviceManager.ReassignDevices();
         
