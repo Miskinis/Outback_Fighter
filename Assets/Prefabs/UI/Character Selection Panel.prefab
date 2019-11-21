@@ -319,10 +319,10 @@ MonoBehaviour:
   player1FlagsObject: {fileID: 368912900914317042}
   player2FlagsObject: {fileID: 368912900899413904}
   player1Flag:
-    m_AssetGUID: f22e1901a1c20534d95e518f396fdc32
+    m_AssetGUID: 
     m_SubObjectName: 
   player2Flag:
-    m_AssetGUID: 5468ae9770b036848ac6a2a380b216d4
+    m_AssetGUID: 
     m_SubObjectName: 
 --- !u!1 &6289338753278588388
 GameObject:

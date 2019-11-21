@@ -403,6 +403,36 @@ Transform:
   m_Father: {fileID: 7465302061763289948}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2376002687258317482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023571569851301105}
+  m_Layer: 0
+  m_Name: shooty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2023571569851301105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376002687258317482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.234, y: -0.233, z: 0.631}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6724097690679494705}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2555381178093912268
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,36 +726,48 @@ MonoBehaviour:
     m_ActionName: Player/SpecialAttack[/Keyboard/q,/Keyboard/2]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: a2fa2387-e9c4-400f-9f1b-889a62697aca
+    m_ActionId: ba83e016-6d54-489b-8122-0bda92f55c46
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 782189fe-5fd4-4ed0-ba3b-72914d46148c
-    m_ActionName: UI/Submit[/Keyboard/enter,/Keyboard/numpadEnter]
+    m_ActionId: 850d7018-6373-4388-bdb5-2a3b4d98ff58
+    m_ActionName: UI/Submit
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 3824f88f-9b0b-4c0c-97ba-aded0e3ae4a4
+    m_ActionId: bc96f5f0-d743-44a6-9972-45e1934b5c33
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 3690585b-5003-4fa6-bea9-0c9d5ca7df6e
-    m_ActionName: UI/Point[/Mouse/position]
+    m_ActionId: 2f77c88c-de28-4f81-8906-60b4d22e5203
+    m_ActionName: UI/Point[/Mouse/position,/Touchscreen/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 9b98ad39-0639-442f-94a0-ae94afffe5d8
-    m_ActionName: UI/Click[/Mouse/leftButton,/Keyboard/numpadEnter,/Keyboard/enter]
+    m_ActionId: 7369cdcb-9464-4935-a524-4300a92bf09b
+    m_ActionName: UI/Click[/Mouse/leftButton,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 89fd3f3d-11da-47e2-8371-7eb635adc621
+    m_ActionId: 6ec79843-064c-4f4d-bae7-ff7451ac4ad6
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: e1ebe9fc-2916-4c9c-8c3f-45721da6d415
+    m_ActionId: dbd2df7a-b5a5-4750-9573-45ca63c73897
     m_ActionName: UI/MiddleClick[/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: de3b6975-3bf9-4c4b-acca-19683ba71483
+    m_ActionId: 5c6a9c6e-2e8c-4427-ad06-a7f4055a9ec3
     m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f87a309-92ea-4a84-926c-365c74fe0373
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4beaf7c5-d96a-4e67-998c-1f7c7ad1aa8d
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89c89620-8917-4705-9e9b-c93e0a66e4be
+    m_ActionName: UI/TrackedDeviceSelect
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions
@@ -933,7 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca77ddf164ee1f4d90beed1715880e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 6313595938460279935}
+  spawnPoint: {fileID: 2023571569851301105}
   rootEntityObject: {fileID: 6648783496174468791}
   animator: {fileID: 8625957151795062075}
   projectilePrefab: {fileID: 8702648266431080558, guid: aedf61c57f85f044e86880e1bde4e3c3,
@@ -1004,7 +1046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forehead: {fileID: 2835043216638254444}
-  feet: {fileID: 6197632123361393246}
+  feet: {fileID: 8654457134108735339}
   torso: {fileID: 7465302061763289948}
 --- !u!114 &3870236854821673756
 MonoBehaviour:
@@ -1856,6 +1898,7 @@ Transform:
   m_Children:
   - {fileID: 5766462308208355688}
   - {fileID: 6656184402156290225}
+  - {fileID: 2023571569851301105}
   m_Father: {fileID: 1819328434403838017}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
