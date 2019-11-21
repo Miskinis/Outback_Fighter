@@ -16,6 +16,8 @@ namespace ECS.Components.PlayerInputs
         public Transform forehead;
         public Transform feet;
         public Transform torso;
+
+        public float3 centerOffset = new float3(0f, 0.1f, 0f);
         
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
