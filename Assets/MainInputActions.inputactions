@@ -44,6 +44,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "343f24f0-5db6-4d07-b492-96bfba7f4af4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "25eb3e4e-a6b1-46b8-a5ef-11cc54e9dc0c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -354,6 +370,28 @@
                     "action": "SpecialAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79b1328c-ed34-4df9-874e-a8f69aeb429e",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73604774-398f-4644-b544-2e42020cca01",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -413,6 +451,22 @@
                     "name": "RightClick",
                     "type": "PassThrough",
                     "id": "de3b6975-3bf9-4c4b-acca-19683ba71483",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "58824e11-5cb0-48d3-b70f-801b82941c34",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "b6c8988d-1862-483a-9eb0-4f531599b2f7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -730,7 +784,7 @@
                 {
                     "name": "",
                     "id": "4f1f8c1f-d780-4bdb-9b8b-104d8af7ff34",
-                    "path": "<HID::Microntek              USB Joystick          >/button3",
+                    "path": "<Joystick>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Joystick;Player2_Joystick",
@@ -836,6 +890,28 @@
                     "action": "RightClick",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0562a004-e13c-41a8-b2eb-8b15a962f442",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d4cc94c-9868-4963-b280-4ad15e178e50",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -890,7 +966,7 @@
             "bindingGroup": "Player1_Joystick",
             "devices": [
                 {
-                    "devicePath": "<HID::Microntek              USB Joystick          >",
+                    "devicePath": "<Joystick>",
                     "isOptional": false,
                     "isOR": false
                 }
@@ -901,7 +977,7 @@
             "bindingGroup": "Player2_Joystick",
             "devices": [
                 {
-                    "devicePath": "<HID::Microntek              USB Joystick          >",
+                    "devicePath": "<Joystick>",
                     "isOptional": false,
                     "isOR": false
                 }

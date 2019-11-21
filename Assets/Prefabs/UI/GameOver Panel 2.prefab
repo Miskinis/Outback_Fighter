@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3417205750584437171, guid: 96ec429cd6747be439ef6ce7d2c619a5,
         type: 3}
       propertyPath: m_Name
-      value: GameOver Panel
+      value: GameOver Panel 2
       objectReference: {fileID: 0}
     - target: {fileID: 3417205750584437168, guid: 96ec429cd6747be439ef6ce7d2c619a5,
         type: 3}
@@ -117,6 +117,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -5033601609410357200, guid: 96ec429cd6747be439ef6ce7d2c619a5,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: baaee35ab8c835b43b2acc941c088aa2, type: 3}
+    - target: {fileID: -5033601609410357200, guid: 96ec429cd6747be439ef6ce7d2c619a5,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f50d2a600276f414bb5f9e8942da7bc4,
+        type: 2}
     - target: {fileID: 5505560934159424663, guid: 96ec429cd6747be439ef6ce7d2c619a5,
         type: 3}
       propertyPath: m_Sprite
