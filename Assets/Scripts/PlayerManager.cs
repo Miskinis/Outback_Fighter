@@ -95,10 +95,7 @@ public class PlayerManager : MonoBehaviour
         sceneLoader.allowSceneActivation = false;
         yield return new WaitForSeconds(postDeathScreenDelay);
         
-        var entityManager = World.Active.EntityManager;
-        entityManager.DestroyEntity(entityManager.GetAllEntities());
-        
-        sceneLoader.allowSceneActivation = true;
+       Restart(sceneLoader);
     }
 
     private void Update()
@@ -116,5 +113,21 @@ public class PlayerManager : MonoBehaviour
         angles.x             = 0f;
         angles.z             = 0f;
         player1.eulerAngles = angles;
+    }
+
+    public void Restart(AsyncOperation sceneLoader)
+    {
+        var entityManager = World.Active.EntityManager;
+        entityManager.DestroyEntity(entityManager.GetAllEntities());
+        sceneLoader.allowSceneActivation = true;
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 }
