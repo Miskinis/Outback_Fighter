@@ -777,8 +777,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.01
   m_Radius: 0.26
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 30
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.45, z: 0}
@@ -846,10 +846,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 782189fe-5fd4-4ed0-ba3b-72914d46148c
     m_ActionName: UI/Submit[/Keyboard/enter,/Keyboard/numpadEnter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3824f88f-9b0b-4c0c-97ba-aded0e3ae4a4
-    m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 3690585b-5003-4fa6-bea9-0c9d5ca7df6e

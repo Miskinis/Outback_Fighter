@@ -226,7 +226,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203593815578366660}
-  - component: {fileID: 1067199676704650553}
   m_Layer: 0
   m_Name: belly
   m_TagString: Untagged
@@ -250,20 +249,6 @@ Transform:
   m_Father: {fileID: 2666305416031046240}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.2007183, y: 0.000023494133, z: 0.000026227304}
---- !u!136 &1067199676704650553
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6735345696234661823}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.11336338
-  m_Height: 0.39988598
-  m_Direction: 1
-  m_Center: {x: 0.016141754, y: 0.1809216, z: -1.6752222e-10}
 --- !u!1 &6922581878025190724
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +736,7 @@ Animator:
   m_GameObject: {fileID: 9074358961698450484}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5f533ae077319fe47b1179dabc2779c0, type: 3}
-  m_Controller: {fileID: 9100000, guid: a4d670c7092422b47bc82ca2ef7f34b1, type: 2}
+  m_Controller: {fileID: 22100000, guid: b2f79c88673bac14f8eb9d760d8d17ab, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -789,8 +774,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 0.93
   m_Radius: 0.26
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 30
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.45, z: 0}
@@ -852,48 +837,36 @@ MonoBehaviour:
     m_ActionName: Player/SpecialAttack[/Keyboard/q,/Keyboard/2]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: ba83e016-6d54-489b-8122-0bda92f55c46
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: a2fa2387-e9c4-400f-9f1b-889a62697aca
+    m_ActionName: UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/leftStick/right,/Microntek              USB
+      Joystick          /stick/up,/Microntek              USB Joystick          /stick/down,/Microntek              USB
+      Joystick          /stick/left,/Microntek              USB Joystick          /stick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 850d7018-6373-4388-bdb5-2a3b4d98ff58
-    m_ActionName: UI/Submit
+    m_ActionId: 782189fe-5fd4-4ed0-ba3b-72914d46148c
+    m_ActionName: UI/Submit[/Keyboard/enter,/Keyboard/numpadEnter,/DualShock4GamepadHID/buttonSouth,/Microntek              USB
+      Joystick          /button3]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: bc96f5f0-d743-44a6-9972-45e1934b5c33
-    m_ActionName: UI/Cancel[/Keyboard/escape]
+    m_ActionId: 3690585b-5003-4fa6-bea9-0c9d5ca7df6e
+    m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2f77c88c-de28-4f81-8906-60b4d22e5203
-    m_ActionName: UI/Point[/Mouse/position,/Touchscreen/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position]
+    m_ActionId: 9b98ad39-0639-442f-94a0-ae94afffe5d8
+    m_ActionName: UI/Click[/Mouse/leftButton,/Keyboard/numpadEnter,/Keyboard/enter,/Microntek              USB
+      Joystick          /trigger,/DualShock4GamepadHID/leftTrigger]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 7369cdcb-9464-4935-a524-4300a92bf09b
-    m_ActionName: UI/Click[/Mouse/leftButton,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6ec79843-064c-4f4d-bae7-ff7451ac4ad6
+    m_ActionId: 89fd3f3d-11da-47e2-8371-7eb635adc621
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: dbd2df7a-b5a5-4750-9573-45ca63c73897
+    m_ActionId: e1ebe9fc-2916-4c9c-8c3f-45721da6d415
     m_ActionName: UI/MiddleClick[/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 5c6a9c6e-2e8c-4427-ad06-a7f4055a9ec3
+    m_ActionId: de3b6975-3bf9-4c4b-acca-19683ba71483
     m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4f87a309-92ea-4a84-926c-365c74fe0373
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4beaf7c5-d96a-4e67-998c-1f7c7ad1aa8d
-    m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 89c89620-8917-4705-9e9b-c93e0a66e4be
-    m_ActionName: UI/TrackedDeviceSelect
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions
