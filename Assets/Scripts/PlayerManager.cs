@@ -115,6 +115,14 @@ public class PlayerManager : MonoBehaviour
         player1.eulerAngles = angles;
     }
 
+    public void InstantRestart()
+    {
+        var sceneLoader = SceneManager.LoadSceneAsync(0);
+        var entityManager = World.Active.EntityManager;
+        entityManager.DestroyEntity(entityManager.GetAllEntities());
+        sceneLoader.allowSceneActivation = true;
+    }
+    
     public void Restart(AsyncOperation sceneLoader)
     {
         var entityManager = World.Active.EntityManager;
