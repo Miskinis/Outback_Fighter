@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 451141189688372365}
   - component: {fileID: 451141189688372366}
   - component: {fileID: 451141189688372367}
-  - component: {fileID: -4785462820029547781}
+  - component: {fileID: 1917338540340641279}
+  - component: {fileID: -6543365467591279346}
   m_Layer: 0
   m_Name: dmg
   m_TagString: Untagged
@@ -4813,7 +4814,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!82 &
+--- !u!82 &1917338540340641279
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4824,8 +4825,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f50d2a600276f414bb5f9e8942da7bc4,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: e777ef66b226adf44904e534804836fc, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: d103d5a5c31c36344806867d9c810b1f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4870,7 +4871,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4910,6 +4911,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6543365467591279346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451141189688372360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aead79da1ec17429cb1dc189121663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnAwake: 1
+  audioClips:
+  - {fileID: 8300000, guid: d103d5a5c31c36344806867d9c810b1f, type: 3}
+  - {fileID: 8300000, guid: 3fe3196a2c7025544a508eafaac38de6, type: 3}
+  - {fileID: 8300000, guid: e777ef66b226adf44904e534804836fc, type: 3}
 --- !u!1 &451141190536633081
 GameObject:
   m_ObjectHideFlags: 0

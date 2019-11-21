@@ -17,6 +17,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public float delayTillCountdown = 1f;
     public float countInterval = 1f;
     public GameObject countdownPanel;
+    public AudioSource countdownAudioSource;
     public Image countdownImage;
     public Vector2 lastCountdownImageSize = new Vector2(1000f, 700f);
     public Sprite[] countDownSprites;
@@ -58,6 +59,7 @@ public class CharacterSelectionManager : MonoBehaviour
         
         var delayTime = new WaitForSeconds(countInterval);
 
+        countdownAudioSource.Play();
         var countdownImageCount = countDownSprites.Length;
         for (int i = 0; i < countdownImageCount - 1; i++)
         {
