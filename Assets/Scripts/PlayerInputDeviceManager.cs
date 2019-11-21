@@ -64,47 +64,47 @@ public class PlayerInputDeviceManager : MonoBehaviour
         
         foreach (var actionEvent in playerInput1.actionEvents)
         {
-            if (actionEvent.actionName == "Restart")
+            if (actionEvent.actionName.Contains("PlayerActions/Restart"))
             {
                 void Restart(InputAction.CallbackContext callback)
                 {
                     PlayerManager.instance.InstantRestart();
                 }
 
-                actionEvent.AddListener(Restart);
+                playerInput1.actions["PlayerActions/Restart"].performed += Restart;
             }
 
-            if (actionEvent.actionName == "Quit")
+            if (actionEvent.actionName.Contains("PlayerActions/Quit"))
             {
                 void Quit(InputAction.CallbackContext call)
                 {
                     PlayerManager.instance.Quit();
                 }
 
-                actionEvent.AddListener(Quit);
+                playerInput1.actions["PlayerActions/Quit"].performed += Quit;
             }
         }
         
         foreach (var actionEvent in playerInput2.actionEvents)
         {
-            if (actionEvent.actionName == "Restart")
+            if (actionEvent.actionName.Contains("PlayerActions/Restart"))
             {
                 void Restart(InputAction.CallbackContext callback)
                 {
                     PlayerManager.instance.InstantRestart();
                 }
 
-                actionEvent.AddListener(Restart);
+                playerInput1.actions["PlayerActions/Restart"].performed += Restart;
             }
 
-            if (actionEvent.actionName == "Quit")
+            if (actionEvent.actionName.Contains("PlayerActions/Quit"))
             {
                 void Quit(InputAction.CallbackContext call)
                 {
                     PlayerManager.instance.Quit();
                 }
 
-                actionEvent.AddListener(Quit);
+                playerInput1.actions["PlayerActions/Quit"].performed += Quit;
             }
         }
     }
