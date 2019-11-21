@@ -20,33 +20,46 @@ public class PlayerInputDeviceManager : MonoBehaviour
         int gamepad = 0;
         int joysticks = 0;
 
-        foreach (var playerInput in FindObjectsOfType<PlayerInput>())
+        foreach (var inputDevice in InputSystem.devices)
         {
-            foreach (var inputDevice in InputSystem.devices)
+            if (inputDevice == Gamepad.current)
             {
-                if (inputDevice == Gamepad.current)
-                {
-                    gamepad++;
-                }
-
-                if (inputDevice == Joystick.current)
-                {
-                    joysticks++;
-                }
+                gamepad++;
             }
 
-            if (gamepad == 2)
+            if (inputDevice == Joystick.current)
             {
-                playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex + 1}_Gamepad", Gamepad.current);
+                joysticks++;
             }
-            else if (joysticks == 2)
-            {
-                playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex + 1}_Joystick", Joystick.current);
-            }
-            else if (playerInput.currentControlScheme == null)
-            {
-                playerInput.SwitchCurrentControlScheme($"Player{playerInput.playerIndex + 1}_Keyboard", Keyboard.current);
-            }
+        }
+
+        var playerInputs = PlayerInput.all;
+        
+        var playerInput1 = playerInputs[0];
+        var playerInput2 = playerInputs[1];
+        
+        if (gamepad == 2)
+        {
+            playerInput1.SwitchCurrentControlScheme($"Player1_Gamepad", Gamepad.current);
+            playerInput2.SwitchCurrentControlScheme($"Player2_Gamepad", Gamepad.current);
+        }
+        else if (joysticks == 2)
+        {
+            playerInput1.SwitchCurrentControlScheme($"Player1_Joystick", Joystick.current);
+            playerInput2.SwitchCurrentControlScheme($"Player2_Joystick", Joystick.current);
+        }
+        else if (gamepad == 1 && joysticks == 1)
+        {
+            playerInput1.SwitchCurrentControlScheme($"Player1_Gamepad", Gamepad.current);
+            playerInput2.SwitchCurrentControlScheme($"Player2_Joystick", Joystick.current);
+        }
+        else if (playerInput1.currentControlScheme == null)
+        {
+            playerInput1.SwitchCurrentControlScheme($"Player1_Keyboard", Keyboard.current);
+        }
+        else if (playerInput2.currentControlScheme == null)
+        {
+            playerInput2.SwitchCurrentControlScheme($"Player2_Keyboard", Keyboard.current);
         }
     }
 }
