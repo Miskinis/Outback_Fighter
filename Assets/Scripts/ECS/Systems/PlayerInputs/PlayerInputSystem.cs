@@ -290,7 +290,7 @@ namespace ECS.Systems.PlayerInputs
                         PostUpdateCommands.RemoveComponent<PlayerInputJump>(entity);
                     }
                     
-                    if (playerInput.currentActionMap.asset["Attack"].triggered)
+                    if (playerInput.currentActionMap.asset["Attack"].ReadValue<float>() > 0)
                     {
                         PostUpdateCommands.AddComponent<PlayerInputAttack>(entity);
                     }
@@ -299,7 +299,7 @@ namespace ECS.Systems.PlayerInputs
                         PostUpdateCommands.RemoveComponent<PlayerInputAttack>(entity);
                     }
                     
-                    if (playerInput.currentActionMap.asset["SpecialAttack"].triggered)
+                    if (playerInput.currentActionMap.asset["SpecialAttack"].ReadValue<float>() > 0)
                     {
                         PostUpdateCommands.AddComponent<PlayerInputSpecialAttack>(entity);
                     }

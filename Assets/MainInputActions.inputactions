@@ -31,19 +31,19 @@
                 },
                 {
                     "name": "Attack",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "c98c976c-b2bd-4a91-9ce7-8623a04b4b90",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
                     "name": "SpecialAttack",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "534da72f-c341-4764-981b-4456d6f65b08",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": ""
                 },
                 {
                     "name": "Restart",
