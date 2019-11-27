@@ -31,7 +31,7 @@
                 },
                 {
                     "name": "Attack",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "c98c976c-b2bd-4a91-9ce7-8623a04b4b90",
                     "expectedControlType": "",
                     "processors": "",
@@ -39,7 +39,7 @@
                 },
                 {
                     "name": "SpecialAttack",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "534da72f-c341-4764-981b-4456d6f65b08",
                     "expectedControlType": "",
                     "processors": "",
@@ -330,7 +330,7 @@
                 {
                     "name": "",
                     "id": "b22d448f-6f39-4d04-b956-e3e7b1c22965",
-                    "path": "<HID::Microntek              USB Joystick          >/button3",
+                    "path": "<Joystick>/stick/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Joystick;Player2_Joystick",
@@ -363,7 +363,7 @@
                 {
                     "name": "",
                     "id": "8f8eae4c-e34f-481c-bffe-02dcefca95da",
-                    "path": "<HID::Microntek              USB Joystick          >/button2",
+                    "path": "<Joystick>/stick/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1_Joystick;Player2_Joystick",
