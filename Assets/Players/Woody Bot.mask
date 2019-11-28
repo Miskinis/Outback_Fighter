@@ -6,19 +6,19 @@ AvatarMask:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bot - Copy
+  m_Name: Woody Bot
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   m_Elements:
   - m_Path: 
     m_Weight: 1
-  - m_Path: footman
+  - m_Path: nail
     m_Weight: 0
   - m_Path: Skelly skeleton
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Skelly skeleton/IKRH
     m_Weight: 0
   - m_Path: Skelly skeleton/Root
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Skelly skeleton/Root/Foot.Controll.L
     m_Weight: 1
   - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L
@@ -65,25 +65,43 @@ AvatarMask:
     m_Weight: 0
   - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R
     m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.01.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.01.R/f_index.01.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.01.R/f_index.01.R/f_index.02.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.01.R/f_index.01.R/f_index.02.R/f_index.03.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.02.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.02.R/f_middle.01.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.02.R/f_middle.01.R/f_middle.02.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/palm.02.R/f_middle.01.R/f_middle.02.R/f_middle.03.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/Sword
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/thumb.01.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/thumb.01.R/thumb.02.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R/thumb.01.R/thumb.02.R/thumb.03.R
+    m_Weight: 0
   - m_Path: Skelly skeleton/Root/spine
     m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/Head
+  - m_Path: Skelly skeleton/Root/spine/spine.001
     m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/Head/Head.001
+  - m_Path: Skelly skeleton/Root/spine/spine.001/spine.002
     m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.L
+  - m_Path: Skelly skeleton/Root/spine/spine.001/spine.002/shoulder.L
     m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.L/upper_arm.L
+  - m_Path: Skelly skeleton/Root/spine/spine.001/spine.002/shoulder.R
     m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.L/upper_arm.L/forearm.L
+  - m_Path: Skelly skeleton/Root/spine/spine.001/spine.002/spine.005
     m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.L/upper_arm.L/forearm.L/bolt
-    m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.R
-    m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.R/upper_arm.R
-    m_Weight: 0
-  - m_Path: Skelly skeleton/Root/spine/shoulder.R/upper_arm.R/forearm.R
+  - m_Path: Skelly skeleton/Root/spine/spine.001/spine.002/spine.005/Head
     m_Weight: 0
   - m_Path: Skelly skeleton/Root/spine/thigh.L
     m_Weight: 1
@@ -101,3 +119,19 @@ AvatarMask:
     m_Weight: 1
   - m_Path: Skelly skeleton/Root/spine/thigh.R/shin.R/Foot.R/toe.R
     m_Weight: 1
+  - m_Path: Skelly skeleton/upper_arm.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/upper_arm.L/forearm.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/upper_arm.L/forearm.L/bolt
+    m_Weight: 0
+  - m_Path: Skelly skeleton/upper_arm.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/upper_arm.R/forearm.R
+    m_Weight: 0
+  - m_Path: Wooden
+    m_Weight: 0
+  - m_Path: Wooden rope
+    m_Weight: 0
+  - m_Path: Wooden sword
+    m_Weight: 0

@@ -866,6 +866,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: de3b6975-3bf9-4c4b-acca-19683ba71483
     m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 343f24f0-5db6-4d07-b492-96bfba7f4af4
+    m_ActionName: PlayerActions/Restart[/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 25eb3e4e-a6b1-46b8-a5ef-11cc54e9dc0c
+    m_ActionName: PlayerActions/Quit[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58824e11-5cb0-48d3-b70f-801b82941c34
+    m_ActionName: UI/Restart[/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b6c8988d-1862-483a-9eb0-4f531599b2f7
+    m_ActionName: UI/Quit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions
@@ -960,7 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fefaebc2ecc4653ac44e8b951f9fb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameter: IsJumping
+  parameter: Land
 --- !u!114 &7633863837687305320
 MonoBehaviour:
   m_ObjectHideFlags: 0

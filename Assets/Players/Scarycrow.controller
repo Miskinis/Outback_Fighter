@@ -1233,7 +1233,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Woody
+  m_Name: Scarycrow
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsCrouching
@@ -1330,7 +1330,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Top
     m_StateMachine: {fileID: -1540659054026255014}
-    m_Mask: {fileID: 31900000, guid: 1d7b07e5dcd716e47870e8a9399958c4, type: 2}
+    m_Mask: {fileID: 31900000, guid: 3402d4167adea4c458e9d55f48233263, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -1342,7 +1342,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Legs
     m_StateMachine: {fileID: 5199553466421286781}
-    m_Mask: {fileID: 31900000, guid: 9b9ad78168f289749ad31fb41c2a33b7, type: 2}
+    m_Mask: {fileID: 31900000, guid: daafc7b9cb60517489baf3501c99a7a6, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0

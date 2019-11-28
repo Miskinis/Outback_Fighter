@@ -881,7 +881,7 @@ Animator:
   m_GameObject: {fileID: 9074358961698450484}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5f533ae077319fe47b1179dabc2779c0, type: 3}
-  m_Controller: {fileID: 22100000, guid: b2f79c88673bac14f8eb9d760d8d17ab, type: 2}
+  m_Controller: {fileID: 9100000, guid: 73e30e574f55490408c9145acd75fe57, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1012,6 +1012,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: de3b6975-3bf9-4c4b-acca-19683ba71483
     m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 343f24f0-5db6-4d07-b492-96bfba7f4af4
+    m_ActionName: PlayerActions/Restart[/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 25eb3e4e-a6b1-46b8-a5ef-11cc54e9dc0c
+    m_ActionName: PlayerActions/Quit[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58824e11-5cb0-48d3-b70f-801b82941c34
+    m_ActionName: UI/Restart[/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b6c8988d-1862-483a-9eb0-4f531599b2f7
+    m_ActionName: UI/Quit[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions
@@ -1106,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fefaebc2ecc4653ac44e8b951f9fb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parameter: IsJumping
+  parameter: Land
 --- !u!114 &1705729414
 MonoBehaviour:
   m_ObjectHideFlags: 0

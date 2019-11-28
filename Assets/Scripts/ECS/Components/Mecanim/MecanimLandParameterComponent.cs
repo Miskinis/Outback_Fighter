@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace ECS.Components.Mecanim
 {
-    public struct MecanimIsJumpingParameter : IComponentData
+    public struct MecanimLandParameter : IComponentData
     {
         public readonly int value;
 
-        public MecanimIsJumpingParameter(int value)
+        public MecanimLandParameter(int value)
         {
             this.value = value;
         }
@@ -15,13 +15,13 @@ namespace ECS.Components.Mecanim
     
     [RequiresEntityConversion]
     [DisallowMultipleComponent]
-    public class MecanimIsJumpingParameterComponent : MonoBehaviour, IConvertGameObjectToEntity
+    public class MecanimLandParameterComponent : MonoBehaviour, IConvertGameObjectToEntity
     {
-        public string parameter = "IsJumping";
+        public string parameter = "Land";
         
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
-            dstManager.AddComponentData(entity, new MecanimIsJumpingParameter(Animator.StringToHash(parameter)));
+            dstManager.AddComponentData(entity, new MecanimLandParameter(Animator.StringToHash(parameter)));
         }
     }
 }
