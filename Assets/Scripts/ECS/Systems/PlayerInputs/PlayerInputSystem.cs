@@ -4,6 +4,7 @@ using ECS.Components.Mecanim;
 using ECS.Components.PlayerInputs;
 using ECS.Components.PlayerInputs.Internal;
 using MecanimBehaviors;
+using MecanimBehaviors.Input;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -121,10 +122,10 @@ namespace ECS.Systems.PlayerInputs
             {
                 All = new[]
                 {
-                    ComponentType.ReadWrite<MecanimSetBool>(),
-                    ComponentType.ReadOnly<MecanimIsJumpingParameter>(),
+                    ComponentType.ReadWrite<MecanimTrigger>(),
+                    ComponentType.ReadOnly<MecanimLandParameter>(),
                     ComponentType.ReadOnly<PlayerFeetPoint>(),
-                    ComponentType.ReadWrite<PlayerStartJump>(), 
+                    ComponentType.ReadWrite<PlayerMidAir>(), 
                 },
                 None = new []
                 {
@@ -206,6 +207,9 @@ namespace ECS.Systems.PlayerInputs
                     ComponentType.ReadOnly<Rotation>(),
                     ComponentType.ReadOnly<PlayerMoveDirection>(),
                     ComponentType.ReadOnly<Dash>(), 
+                    ComponentType.ReadWrite<MecanimSetFloat>(),
+                    ComponentType.ReadOnly<MecanimMoveDirectionParameter>(),
+                    ComponentType.ReadOnly<MecanimMoveSpeedParameter>(),
                 }
             });
             
@@ -261,6 +265,12 @@ namespace ECS.Systems.PlayerInputs
                     foreach (var startJumpingBehavior in animator.GetBehaviours<StartJumpingBehavior>())
                     {
                         startJumpingBehavior.onFrameAction = OnFrameAction;
+                    }
+                    
+                    void OnEnterAction() => World.Active.GetExistingSystem<EndSimulationEntityCommandBufferSystem>().CreateCommandBuffer().AddComponent<PlayerMidAir>(entity);
+                    foreach (var midAirBehavior in animator.GetBehaviours<PlayerMidAirBehavior>())
+                    {
+                        midAirBehavior.onEnterAction = OnEnterAction;
                     }
                 });
 
@@ -348,12 +358,16 @@ namespace ECS.Systems.PlayerInputs
             float deltaTime = Time.deltaTime;
 
             Entities.With(_isLandingQuery)
-                .ForEach((DynamicBuffer<MecanimSetBool> mecanimSetBoolBuffer,
-                    ref MecanimIsJumpingParameter mecanimIsJumpingParameter,
+                .ForEach((Entity entity,
+                    DynamicBuffer<MecanimTrigger> mecanimTriggerBuffer,
+                    ref MecanimLandParameter mecanimLandParameter,
                     ref PlayerFeetPoint playerFeetPoint) =>
                 {
-                    bool isJumping = !Physics.Raycast(playerFeetPoint.value, Vector3.down, 1f);
-                    mecanimSetBoolBuffer.Add(new MecanimSetBool(mecanimIsJumpingParameter.value, isJumping));
+                    if (Physics.Raycast(playerFeetPoint.value, Vector3.down, 0.5f))
+                    {
+                        mecanimTriggerBuffer.Add(new MecanimTrigger(mecanimLandParameter.value));
+                        PostUpdateCommands.RemoveComponent<PlayerMidAir>(entity);
+                    }
                 });
 
             Entities.With(_startCrouchingQuery)
@@ -379,9 +393,20 @@ namespace ECS.Systems.PlayerInputs
                     mecanimTrigger.Add(new MecanimTrigger(mecanimAttackParameter.value));
                 });
 
-            Entities.With(_dashQuery).ForEach((ref Dash dash, ref PlayerMoveDirection playerMoveDirection, ref Rotation rotation) =>
+            Entities.With(_dashQuery).ForEach((DynamicBuffer<MecanimSetFloat> mecanimSetFloatBuffer,
+                ref MecanimMoveDirectionParameter mecanimMoveDirectionParameter,
+                ref MecanimMoveSpeedParameter mecanimMoveSpeedParameter,
+                ref Dash dash,
+                ref PlayerMoveDirection playerMoveDirection,
+                ref Rotation rotation) =>
             {
-                playerMoveDirection.value.x = (dash.speed * math.forward(rotation.Value)).x;
+                var forward = math.forward(rotation.Value).x;
+                playerMoveDirection.value.x = forward * dash.speed;
+                mecanimSetFloatBuffer.Add(new MecanimSetFloat(mecanimMoveDirectionParameter.value, forward));
+                
+                mecanimSetFloatBuffer.Add(forward != 0f
+                    ? new MecanimSetFloat(mecanimMoveSpeedParameter.value, dash.speed)
+                    : new MecanimSetFloat(mecanimMoveSpeedParameter.value, 1f));
             });
 
             Entities.With(_specialAttackQuery).ForEach((DynamicBuffer<MecanimTrigger> mecanimTrigger, ref MecanimSpecialAttackParameter mecanimSpecialAttackParameter) =>
