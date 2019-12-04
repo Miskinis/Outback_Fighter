@@ -8,4 +8,96 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: Top
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: footman
+    m_Weight: 0
+  - m_Path: Skelly skeleton
+    m_Weight: 1
+  - m_Path: Skelly skeleton/IKRH
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Heel_Roll.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Heel_Roll.L/Foot.Roll.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Heel_Roll.L/Foot.Roll.L/Heel.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Heel_Roll.L/IK.Foot.01.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Heel_Roll.L/Toe.roll.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Heel_Roll.L/Toe.roll.L/IK.Foot.11.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L/Knee.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Heel_Roll.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Heel_Roll.R/Foot.Roll.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Heel_Roll.R/Foot.Roll.R/Heel.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Heel_Roll.R/IK.Foot.01.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Heel_Roll.R/Toe.roll.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Heel_Roll.R/Toe.roll.R/IK.Foot.11.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/Foot.Controll.R/Heel_main.R/Knee.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/IKLH
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/IKLH/Albow L
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/Albow R
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/Right Hand RigPelvis/hand.R
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/Head
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/Head/Head.001
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.L
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.L/upper_arm.L
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.L/upper_arm.L/forearm.L
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.L/upper_arm.L/forearm.L/bolt
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.R
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.R/upper_arm.R
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/shoulder.R/upper_arm.R/forearm.R
+    m_Weight: 1
+  - m_Path: Skelly skeleton/Root/spine/thigh.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.L/shin.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.L/shin.L/Foot.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.L/shin.L/Foot.L/toe.L
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.R/shin.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.R/shin.R/Foot.R
+    m_Weight: 0
+  - m_Path: Skelly skeleton/Root/spine/thigh.R/shin.R/Foot.R/toe.R
+    m_Weight: 0
