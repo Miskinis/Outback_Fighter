@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalFrameCount: 24
-  actionStartFrame: 10
+  actionStartFrame: 8
   actionEndFrame: 20
 --- !u!1101 &-5172337027633484126
 AnimatorStateTransition:
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalFrameCount: 34
-  actionStartFrame: 10
+  actionStartFrame: 8
   actionEndFrame: 20
 --- !u!114 &-3983829990481719899
 MonoBehaviour:

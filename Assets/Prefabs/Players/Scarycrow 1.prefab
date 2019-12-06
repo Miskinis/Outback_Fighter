@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootEntityObject: {fileID: 4262715367035321399}
-  damage: 10
+  damage: 11
   hitEffect: {fileID: 451141189688372360, guid: 492c6df2a4468c14a87e1533bd9e52f0,
     type: 3}
   hitEffectSpawn: {fileID: 8301109220528089384}
@@ -881,7 +881,7 @@ Animator:
   m_GameObject: {fileID: 9074358961698450484}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5f533ae077319fe47b1179dabc2779c0, type: 3}
-  m_Controller: {fileID: 9100000, guid: a4d670c7092422b47bc82ca2ef7f34b1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 73e30e574f55490408c9145acd75fe57, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1352,4 +1352,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d270e65f0134569bbde8f485bf55d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 1
