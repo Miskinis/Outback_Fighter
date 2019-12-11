@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Woody 1 Technowood
+  m_EditorClassIdentifier: 
+  m_GroupName: Woody 1 Technowood
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 85bba09ad18016a409eed6cb6cfef932
+  m_SerializeEntries:
+  - m_GUID: 938821d85cab7fd42965f030cb4d1167
+    m_Address: Woody 1 Technowood Icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player 1
+    - Icon
+    - Skin
+    - Woody
+  - m_GUID: d387e2ee29741af4e955c8f72157df16
+    m_Address: Woody 1 Technowood
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    - Skin
+    - Woody
+    - Player 1
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9cd426e13efe9484cb632cf04c5354eb, type: 2}
+    - {fileID: 11400000, guid: 338d2c7cb09e370438623d5cf9f8b886, type: 2}

@@ -25,8 +25,38 @@ public class CharacterSelector : MonoBehaviour
 
     private async void Awake()
     {
-        var handle = await new UniTask<Tuple<IReadOnlyList<GameObject>, IReadOnlyList<GameObject>,IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>>(GameAssetManager.main.LoadAllAsync);
-        var (characters1, characters2, icons1, icons2) = handle;
+        //var handle = await new UniTask<Tuple<IReadOnlyList<GameObject>, IReadOnlyList<GameObject>,IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>>(GameAssetManager.main.LoadAllDefaultCharactersAndIcons);
+        //var (characters1, characters2, icons1, icons2) = handle;
+
+        var equippedSkins = GameAssetManager.main.equippedSkins;
+        List<GameObject> characters1 = new List<GameObject>();
+        List<GameObject> characters2 = new List<GameObject>();
+        List<Sprite> icons1 = new List<Sprite>();
+        List<Sprite> icons2 = new List<Sprite>();
+
+        foreach (var equippedSkin in equippedSkins)
+        {
+            var handle = await GameAssetManager.LoadAddressableGameObjects($"{equippedSkin.Key} 1 {equippedSkin.Value}");
+            characters1.Add(handle[0]);
+        }
+        
+        foreach (var equippedSkin in equippedSkins)
+        {
+            var handle = await GameAssetManager.LoadAddressableGameObjects($"{equippedSkin.Key} 2 {equippedSkin.Value}");
+            characters2.Add(handle[0]);
+        }
+        
+        foreach (var equippedSkin in equippedSkins)
+        {
+            var handle = await GameAssetManager.LoadAddressableSprites($"{equippedSkin.Key} 1 {equippedSkin.Value} {GameAssetManager.main.iconTag}");
+            icons1.Add(handle[0]);
+        }
+        
+        foreach (var equippedSkin in equippedSkins)
+        {
+            var handle = await GameAssetManager.LoadAddressableSprites($"{equippedSkin.Key} 2 {equippedSkin.Value} {GameAssetManager.main.iconTag}");
+            icons2.Add(handle[0]);
+        }
 
         var images = characterIconsObject.GetComponentsInChildren<Image>();
         for (var i = 0; i < icons1.Count; i++)
@@ -36,6 +66,8 @@ public class CharacterSelector : MonoBehaviour
 
         LoadFlagSprites(player1Flag, player1FlagsObject, characters1, icons1, player1SpawnLocation, characterPreviewImage1, characterReadyText1, 0);
         LoadFlagSprites(player2Flag, player2FlagsObject, characters2, icons2, player2SpawnLocation, characterPreviewImage2, characterReadyText2, 1);
+        
+        PlayerInputDeviceManager.ReassignDevices();
     }
 
     private static void LoadFlagSprites(AssetReferenceSprite playerFlagReference, Component buttonParent, IReadOnlyList<GameObject> characters, IReadOnlyList<Sprite> characterIcons, Transform spawnLocation, Image characterPreviewImage,

@@ -15,9 +15,19 @@ MonoBehaviour:
   m_GroupName: Default Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 4aeb101ef27211343b4c253275dbf888
-  m_SerializeEntries: []
+  m_GUID: ede7ef4caf4c295478b7738dc2d0b394
+  m_SerializeEntries:
+  - m_GUID: 5468ae9770b036848ac6a2a380b216d4
+    m_Address: Assets/UI/Player2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f22e1901a1c20534d95e518f396fdc32
+    m_Address: Assets/UI/Player1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 5109bfaad551c4a46a5f096c3f8162df, type: 2}
+    - {fileID: 11400000, guid: 58cab3de025c08440b901ecc0d3ccf6d, type: 2}

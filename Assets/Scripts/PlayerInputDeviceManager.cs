@@ -11,7 +11,7 @@ public class PlayerInputDeviceManager : MonoBehaviour
         if (main == null)
         {
             main = this;
-            ReassignDevices();
+            //ReassignDevices();
         }
     }
 

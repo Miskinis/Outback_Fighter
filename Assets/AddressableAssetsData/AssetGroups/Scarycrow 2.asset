@@ -18,17 +18,22 @@ MonoBehaviour:
   m_GUID: a2759e28683d18446b261ea704b6a06b
   m_SerializeEntries:
   - m_GUID: 76500c1b7496b074182f6e459e8799da
-    m_Address: Scarycrow 2
+    m_Address: Scarycrow 2 Scarycrow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character
     - Player 2
+    - default
+    - Scarycrow
   - m_GUID: dcbb76d3987860544aa6749601dd4b27
-    m_Address: Scarycrow Icon 2
+    m_Address: Scarycrow 2 Scarycrow Icon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character Icon
     - Player 2
+    - default
+    - Icon
+    - Scarycrow
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:

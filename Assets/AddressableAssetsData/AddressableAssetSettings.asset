@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 5c547835faff1264a850a1c69290512c
+  m_DefaultGroup: ede7ef4caf4c295478b7738dc2d0b394
   m_BuildRemoteCatalog: 0
   m_UniqueBundleIds: 0
   m_RemoteCatalogBuildPath:
@@ -21,13 +21,19 @@ MonoBehaviour:
     m_Id: d18055239fe263b4f92a704db1d6ae27
   m_overridePlayerVersion: 
   m_GroupAssets:
-  - {fileID: 11400000, guid: 4b739d773db407c498f721318038780e, type: 2}
-  - {fileID: 11400000, guid: 9c269df7d6e8ddb47ab21fa7ab2b6579, type: 2}
+  - {fileID: 11400000, guid: 17f6f2dd6f84fea4690acf86a431d5b3, type: 2}
+  - {fileID: 11400000, guid: 87a17907c253d924bacc2320ba82d041, type: 2}
+  - {fileID: 11400000, guid: 58d4cad7623a8a94b868aab8a8b7ecb6, type: 2}
   - {fileID: 11400000, guid: 1c781d84df510e543aff76243dfadccc, type: 2}
+  - {fileID: 11400000, guid: b0ed138938b93554f8a1f5acb76a9253, type: 2}
   - {fileID: 11400000, guid: ca5a723ec76fe5e45a82b1ae5cb1fb67, type: 2}
+  - {fileID: 11400000, guid: ec954903bda31a24dad6f180b4f35b69, type: 2}
   - {fileID: 11400000, guid: 62641313b4cf388488dd4a273c5298a0, type: 2}
+  - {fileID: 11400000, guid: bcf5a1ddf9c80294a96d7753f9b64481, type: 2}
   - {fileID: 11400000, guid: 696c55dde30964f4793001f4e29fef60, type: 2}
+  - {fileID: 11400000, guid: 9ac5b69fc87de494bac0abc8261df8b9, type: 2}
   - {fileID: 11400000, guid: c24322224d6ac384892b0dc211ba5b28, type: 2}
+  - {fileID: 11400000, guid: be666e6bd79b6504fa492e05a33e5997, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -70,9 +76,14 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Character
-    - Character Icon
     - Player 1
     - Player 2
+    - Material
+    - Icon
+    - Skin
+    - Woody
+    - Scarycrow
+    - Swordy
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: c9ac59b1bb149f140a34f0d3b5f9a25a, type: 2}
