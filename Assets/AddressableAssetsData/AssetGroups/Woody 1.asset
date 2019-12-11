@@ -15,23 +15,27 @@ MonoBehaviour:
   m_GroupName: Woody 1
   m_Data:
     m_SerializedData: []
-  m_GUID: 5538af113c4a9754291cbbf55efd30ab
+  m_GUID: 5b7ece57ac36e28499cd34452aa793cf
   m_SerializeEntries:
   - m_GUID: ace8ed41f75c4d441b51c8a501926145
-    m_Address: Woody Icon 1
+    m_Address: Woody 1 Woody Icon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Character Icon
+    - default
+    - Icon
     - Player 1
+    - Woody
   - m_GUID: c4d4dadfeaba3a84dbfc8b9926343814
-    m_Address: Woody 1
+    m_Address: Woody 1 Woody
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Character
     - Player 1
+    - Character
+    - default
+    - Woody
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 06371f71ff8b6ff4c967341a8d65c9b1, type: 2}
-    - {fileID: 11400000, guid: c5bbb13964abf834d9e34f1db028979f, type: 2}
+    - {fileID: 11400000, guid: 1aa3c90d1457e8443824fbec00ff8d97, type: 2}
+    - {fileID: 11400000, guid: 78edb51273de1c74d94c4a8c56139a44, type: 2}

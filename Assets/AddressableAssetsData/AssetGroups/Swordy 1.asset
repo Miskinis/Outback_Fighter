@@ -18,17 +18,21 @@ MonoBehaviour:
   m_GUID: 2f4a3486ed897d744b596817856731cc
   m_SerializeEntries:
   - m_GUID: 568efe8a775b26f49abfcf9c84eb754f
-    m_Address: Swordy 1
+    m_Address: Swordy 1 Swordy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character
     - Player 1
-  - m_GUID: 8d78d0b6e04ef154091892f28584b3e5
-    m_Address: Assets/UI/swordy2.png
+    - Swordy
+  - m_GUID: c67e590e201d4a343bdc4c6af2a2c918
+    m_Address: Swordy 1 Swordy Icon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character Icon
     - Player 1
+    - Icon
+    - default
+    - Swordy
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:

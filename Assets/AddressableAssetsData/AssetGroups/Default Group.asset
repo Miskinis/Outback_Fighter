@@ -15,9 +15,19 @@ MonoBehaviour:
   m_GroupName: Default Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 4aeb101ef27211343b4c253275dbf888
-  m_SerializeEntries: []
+  m_GUID: e98b492d51cf15f499b00cdf849b0469
+  m_SerializeEntries:
+  - m_GUID: 5468ae9770b036848ac6a2a380b216d4
+    m_Address: Player 2 Flag
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f22e1901a1c20534d95e518f396fdc32
+    m_Address: Player 1 Flag
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 809b7bdc00f188d4eb393dd2d345e717, type: 2}
+    - {fileID: 11400000, guid: e2676c35a0e973547849ba5fe7deaed1, type: 2}

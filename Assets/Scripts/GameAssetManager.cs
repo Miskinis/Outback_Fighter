@@ -9,19 +9,24 @@ using UnityEngine.AddressableAssets;
 public class GameAssetManager : MonoBehaviour
 {
     public static GameAssetManager main;
-    
-    public string[] character1AssetLabels = {"Character", "Player 1"};
-    public string[] character1IconAssetLabels = {"Character Icon", "Player 1"};
-    
-    public string[] character2AssetLabels = {"Character", "Player 2"};
-    public string[] character2IconAssetLabels = {"Character Icon", "Player 2"};
 
-    private UniTask<IReadOnlyList<GameObject>> _characters1Array;
-    private UniTask<IReadOnlyList<GameObject>> _characters2Array;
-    private UniTask<IReadOnlyList<Sprite>> _characterIcon1Array;
-    private UniTask<IReadOnlyList<Sprite>> _characterIcon2Array;
+    public string[] characterNames = new[] {"Woody", "Scarycrow", "Swordy"};
     
-    private void Awake()
+    public string player1Tag = "Player 1";
+    public string player2Tag = "Player 2";
+    public string characterTag = "Character";
+    public string iconTag = "Icon";
+    public string skinTag = "Skin";
+    public string defaultTag = "default";
+
+    private UniTask<IReadOnlyList<GameObject>> _charactersDefaultPrefabArray1;
+    private UniTask<IReadOnlyList<GameObject>> _charactersDefaultPrefabArray2;
+    private UniTask<IReadOnlyList<Sprite>> _characterDefaultIconArray1;
+    private UniTask<IReadOnlyList<Sprite>> _characterDefaultIconArray2;
+
+    public Dictionary<string, string> equippedSkins = new Dictionary<string, string>();
+    
+    private async void Awake()
     {
         if (main == null)
         {
@@ -29,26 +34,63 @@ public class GameAssetManager : MonoBehaviour
         }
     }
 
-    private static async UniTask<IReadOnlyList<GameObject>> LoadCharacters(string[] key)
+    public static async UniTask<IReadOnlyList<GameObject>> LoadAddressableGameObjects(string[] key)
     {
         var handle = await Addressables.LoadAssetsAsync<GameObject>(new List<object>(key), null, Addressables.MergeMode.Intersection).Task;
         return handle.ToList();
     }
+    
+    public static async UniTask<IReadOnlyList<GameObject>> LoadAddressableGameObjects(string key)
+    {
+        var handle = await Addressables.LoadAssetsAsync<GameObject>(key, null).Task;
+        return handle.ToList();
+    }
 
-    private static async UniTask<IReadOnlyList<Sprite>> LoadCharacterIcons(string[] key)
+    public static async UniTask<IReadOnlyList<Sprite>> LoadAddressableSprites(string[] key)
     {
         var handle = await Addressables.LoadAssetsAsync<Sprite>(new List<object>(key), null, Addressables.MergeMode.Intersection).Task;
         return handle.ToList();
     }
-
-    public async UniTask<Tuple<IReadOnlyList<GameObject>, IReadOnlyList<GameObject>, IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>> LoadAllAsync()
+    
+    public static async UniTask<IReadOnlyList<Sprite>> LoadAddressableSprites(string key)
     {
-        _characters1Array = new UniTask<IReadOnlyList<GameObject>>(() => LoadCharacters(character1AssetLabels));
-        _characters2Array = new UniTask<IReadOnlyList<GameObject>>(() => LoadCharacters(character2AssetLabels));
-        _characterIcon1Array = new UniTask<IReadOnlyList<Sprite>>(() => LoadCharacterIcons(character1IconAssetLabels));
-        _characterIcon2Array = new UniTask<IReadOnlyList<Sprite>>(() => LoadCharacterIcons(character2IconAssetLabels));
+        var handle = await Addressables.LoadAssetsAsync<Sprite>(key, null).Task;
+        return handle.ToList();
+    }
+
+    public async  UniTask<IReadOnlyList<Sprite>> LoadDefaultCharacter1Icons()
+    {
+        _characterDefaultIconArray1 = new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player1Tag, iconTag, defaultTag}));
+        return await _characterDefaultIconArray1;
+    }
+    
+    public async  UniTask<IReadOnlyList<Sprite>> LoadAllCharacter1Icons()
+    {
+        _characterDefaultIconArray1 = new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player1Tag, iconTag}));
+        return await _characterDefaultIconArray1;
+    }
+    
+    public async  UniTask<IReadOnlyList<Sprite>> LoadAllSpecificCharacterIcons(string characterName)
+    {
+        return await new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player1Tag, iconTag, characterName}));
+    }
+    /*public async UniTask<Tuple<IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>> LoadAllDefaultCharacterIcons()
+    {
+        _characterDefaultIconArray1 = new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player1Tag, iconTag, defaultTag}));
+        _characterDefaultIconArray2 = new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player2Tag, iconTag, defaultTag}));
         
-        var (characters1, characters2, icons1, icons2) = await UniTask.WhenAll(_characters1Array, _characters2Array, _characterIcon1Array, _characterIcon2Array);
+        var (icons1, icons2) = await UniTask.WhenAll(_characterDefaultIconArray1, _characterDefaultIconArray2);
+        return new Tuple<IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>(icons1, icons2);
+    }*/
+    
+    public async UniTask<Tuple<IReadOnlyList<GameObject>, IReadOnlyList<GameObject>, IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>> LoadAllDefaultCharactersAndIcons()
+    {
+        _charactersDefaultPrefabArray1 = new UniTask<IReadOnlyList<GameObject>>(() => LoadAddressableGameObjects(new []{player1Tag, characterTag, defaultTag}));
+        _charactersDefaultPrefabArray2 = new UniTask<IReadOnlyList<GameObject>>(() => LoadAddressableGameObjects(new []{player2Tag, characterTag, defaultTag}));
+        _characterDefaultIconArray1 = new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player1Tag, iconTag, defaultTag}));
+        _characterDefaultIconArray2 = new UniTask<IReadOnlyList<Sprite>>(() => LoadAddressableSprites(new []{player2Tag, iconTag, defaultTag}));
+        
+        var (characters1, characters2, icons1, icons2) = await UniTask.WhenAll(_charactersDefaultPrefabArray1, _charactersDefaultPrefabArray2, _characterDefaultIconArray1, _characterDefaultIconArray2);
         return new Tuple<IReadOnlyList<GameObject>, IReadOnlyList<GameObject>, IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>(characters1, characters2, icons1, icons2);
     }
 }
