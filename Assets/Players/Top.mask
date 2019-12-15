@@ -14,11 +14,11 @@ AvatarMask:
   - m_Path: footman
     m_Weight: 0
   - m_Path: Skelly skeleton
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Skelly skeleton/IKRH
     m_Weight: 0
   - m_Path: Skelly skeleton/Root
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Skelly skeleton/Root/Foot.Controll.L
     m_Weight: 0
   - m_Path: Skelly skeleton/Root/Foot.Controll.L/Heel_main.L
