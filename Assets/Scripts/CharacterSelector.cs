@@ -23,39 +23,28 @@ public class CharacterSelector : MonoBehaviour
     public AssetReferenceSprite player1Flag;
     public AssetReferenceSprite player2Flag;
 
-    private async void Awake()
+    private async void Start()
     {
-        //var handle = await new UniTask<Tuple<IReadOnlyList<GameObject>, IReadOnlyList<GameObject>,IReadOnlyList<Sprite>, IReadOnlyList<Sprite>>>(GameAssetManager.main.LoadAllDefaultCharactersAndIcons);
-        //var (characters1, characters2, icons1, icons2) = handle;
+        var characters1 = new List<GameObject>();
+        var characters2 = new List<GameObject>();
+        var icons1 = new List<Sprite>();
+        var icons2 = new List<Sprite>();
 
-        var equippedSkins = GameAssetManager.main.equippedSkins;
-        List<GameObject> characters1 = new List<GameObject>();
-        List<GameObject> characters2 = new List<GameObject>();
-        List<Sprite> icons1 = new List<Sprite>();
-        List<Sprite> icons2 = new List<Sprite>();
+        foreach (var equippedAsset in AccountManager.currentAccount.equippedAssets)
+        {
+            var assetDetails1 = Database.GetIndexedAssetDetails(1, equippedAsset.Value);
+            var assetDetails2 = Database.GetIndexedAssetDetails(2, equippedAsset.Value);
 
-        foreach (var equippedSkin in equippedSkins)
-        {
-            var handle = await GameAssetManager.LoadAddressableGameObjects($"{equippedSkin.Key} 1 {equippedSkin.Value}");
-            characters1.Add(handle[0]);
-        }
-        
-        foreach (var equippedSkin in equippedSkins)
-        {
-            var handle = await GameAssetManager.LoadAddressableGameObjects($"{equippedSkin.Key} 2 {equippedSkin.Value}");
-            characters2.Add(handle[0]);
-        }
-        
-        foreach (var equippedSkin in equippedSkins)
-        {
-            var handle = await GameAssetManager.LoadAddressableSprites($"{equippedSkin.Key} 1 {equippedSkin.Value} {GameAssetManager.main.iconTag}");
-            icons1.Add(handle[0]);
-        }
-        
-        foreach (var equippedSkin in equippedSkins)
-        {
-            var handle = await GameAssetManager.LoadAddressableSprites($"{equippedSkin.Key} 2 {equippedSkin.Value} {GameAssetManager.main.iconTag}");
-            icons2.Add(handle[0]);
+            var iconHandle1 = new UniTask<IReadOnlyList<Sprite>>(() => GameAssetManager.LoadAddressableSprites(assetDetails1.iconTag));
+            var prefabHandle1 = new UniTask<IReadOnlyList<GameObject>>(() => GameAssetManager.LoadAddressableGameObjects(assetDetails1.assetTag));
+            var iconHandle2 = new UniTask<IReadOnlyList<Sprite>>(() => GameAssetManager.LoadAddressableSprites(assetDetails2.iconTag));
+            var prefabHandle2 = new UniTask<IReadOnlyList<GameObject>>(() => GameAssetManager.LoadAddressableGameObjects(assetDetails2.assetTag));
+
+            var (prefab1, prefab2, sprite1, sprite2) = await UniTask.WhenAll(prefabHandle1, prefabHandle2, iconHandle1, iconHandle2);
+            icons1.Add(sprite1[0]);
+            icons2.Add(sprite2[0]);
+            characters1.Add(prefab1[0]);
+            characters2.Add(prefab2[0]);
         }
 
         var images = characterIconsObject.GetComponentsInChildren<Image>();
@@ -86,10 +75,10 @@ public class CharacterSelector : MonoBehaviour
     {
         var flagButtons = buttonParent.GetComponentsInChildren<FlagButton>();
 
-        int index = 0;
+        var index = 0;
         for (; index < characters.Count; index++)
         {
-            int characterIndex = index;
+            var characterIndex = index;
             var character = characters[characterIndex];
             var flagButton = flagButtons[characterIndex];
             flagButton.image.sprite = playerFlag;
@@ -114,7 +103,7 @@ public class CharacterSelector : MonoBehaviour
                 CharacterSelectionManager.main.ConfirmSelection(character, new InstantiationParameters(spawnLocation.position, spawnLocation.rotation, null), playerIndex);
                 characterReadyText.gameObject.SetActive(true);
                 //characterReadyText.text = $"{character.name} Ready";
-                for (int i = 0; i < flagButtons.Length; i++)
+                for (var i = 0; i < flagButtons.Length; i++)
                 {
                     flagButtons[i].interactable = false;
                 }

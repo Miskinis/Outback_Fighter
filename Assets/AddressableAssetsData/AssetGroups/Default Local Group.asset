@@ -15,21 +15,23 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: b6db090ead9e36148a449dc19759b4fe
+  m_GUID: a12ea32a3c555a947bbc5d75f881b41d
   m_SerializeEntries:
-  - m_GUID: 07a4e73f9fe0bbb4f9786f280dbc502d
-    m_Address: Scarycrow
+  - m_GUID: 5468ae9770b036848ac6a2a380b216d4
+    m_Address: Assets/UI/Player2.png
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
-  - m_GUID: c4d4dadfeaba3a84dbfc8b9926343814
-    m_Address: Woody
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - m_GUID: f22e1901a1c20534d95e518f396fdc32
+    m_Address: Assets/UI/Player1.png
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Character
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 781b9d17877666843bc3f180ee214c24, type: 2}
-    - {fileID: 11400000, guid: 948f1a915f366cc49b165cb535bd4115, type: 2}
+    - {fileID: 11400000, guid: 42d7c36b5a7ac11488778c861fb87a0a, type: 2}
+    - {fileID: 11400000, guid: df376d27cf62ba8489ae4bc9a7ef447a, type: 2}

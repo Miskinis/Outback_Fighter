@@ -35,7 +35,16 @@ public class StoreItem : MonoBehaviour
         set
         {
             var colors = equipToggle.colors;
-            colors.normalColor = value ? Color.green : Color.white;
+            if (value)
+            {
+                colors.normalColor = Color.green;
+                equipToggle.GetComponentInChildren<TextMeshProUGUI>().text = "Equipped";
+            }
+            else
+            {
+                colors.normalColor = Color.white;
+                equipToggle.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
+            }
             equipToggle.colors = colors;
             _equipped = value;
         }
@@ -43,21 +52,9 @@ public class StoreItem : MonoBehaviour
 
     private void Awake()
     {
-        //equipToggle.group = GetComponentInParent<ToggleGroup>();
-
-        if (bought == false)
-        {
-            buyButton.onClick.AddListener(OnItemBuy);
-        }
-
         if (equipped)
         {
             equipToggle.isOn = true;
         }
-    }
-
-    private void OnItemBuy()
-    {
-        bought = true;
     }
 }

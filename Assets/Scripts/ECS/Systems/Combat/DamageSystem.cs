@@ -34,14 +34,14 @@ namespace ECS.Systems.Combat
                 Entities.WithAll<TimeFadeValue, TimeFadeClock>().ForEach((TimeFadeValue timeFadeValue, ref TimeFadeClock timeFadeClock) =>
                 {
                     var curve = timeFadeValue.value;
-                    Time.timeScale = curve.Evaluate(timeFadeClock.time);
+                    UnityEngine.Time.timeScale = curve.Evaluate(timeFadeClock.time);
                     if (timeFadeClock.time > curve[curve.length - 1].time)
                     {
                         timeFadeClock.time = curve[0].time;
                         PostUpdateCommands.DestroyEntity(GetSingletonEntity<TimeFadeValue>());
                     }
 
-                    timeFadeClock.time += Time.unscaledDeltaTime;
+                    timeFadeClock.time += UnityEngine.Time.unscaledDeltaTime;
                 });
             }
         }

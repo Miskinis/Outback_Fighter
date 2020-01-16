@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Edgelord 1
+  m_EditorClassIdentifier: 
+  m_GroupName: Edgelord 1
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1169f69363425f547a923bd821f68039
+  m_SerializeEntries:
+  - m_GUID: c3e667c66c46b7e40bc84ce0ad0834da
+    m_Address: Edgelord Icon 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - m_GUID: efe36ce86216a7042a155ca12ccea9bc
+    m_Address: Edgelord 1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 019b7e8d1a0be0a4b939646a1889b1a6, type: 2}
+    - {fileID: 11400000, guid: 9d033d565a52f7a468f4e648ad09cf3e, type: 2}
