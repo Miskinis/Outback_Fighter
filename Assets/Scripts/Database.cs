@@ -9,6 +9,7 @@ public class Database
     public static Database main;
     public List<Account> accounts;
     public Dictionary<string, List<AssetDetails>> skins;
+    public static string currency = "Gems";
 
     public static void InitializeDatabase()
     {

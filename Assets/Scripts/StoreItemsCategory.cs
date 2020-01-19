@@ -46,7 +46,7 @@ public class StoreItemsCategory : MonoBehaviour
                         }
                     }
                     storeItem.buyButton.onClick.AddListener(OnItemBuy);
-                    storeItem.GetComponentInChildren<TextMeshProUGUI>().text = $"{assetDetails.price.ToString()} Eur";
+                    storeItem.GetComponentInChildren<TextMeshProUGUI>().text = $"{assetDetails.price.ToString()} {Database.currency}";
                     
                     void OnEquip(bool value)
                     {
