@@ -355,7 +355,7 @@ namespace ECS.Systems.PlayerInputs
                 PostUpdateCommands.RemoveComponent<PlayerStartJump>(entity);
             });
             
-            float deltaTime = Time.DeltaTime;
+            float deltaTime = Time.deltaTime;
 
             Entities.With(_isLandingQuery)
                 .ForEach((Entity entity,
