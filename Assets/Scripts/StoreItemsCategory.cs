@@ -41,6 +41,7 @@ public class StoreItemsCategory : MonoBehaviour
                         {
                             if (Database.main.TryBuyAsset(AccountManager.currentAccount, assetDetails))
                             {
+                                StorePanel.main.UpdateBalance();
                                 storeItem.bought = true;
                             }
                         }
