@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 5c547835faff1264a850a1c69290512c
+  m_DefaultGroup: a13a0c1faedbdec4a832072d0602c7b3
   m_BuildRemoteCatalog: 0
   m_DisableCatalogUpdateOnStart: 0
   m_UniqueBundleIds: 0
@@ -22,17 +22,14 @@ MonoBehaviour:
     m_Id: d18055239fe263b4f92a704db1d6ae27
   m_overridePlayerVersion: 
   m_GroupAssets:
-  - {fileID: 11400000, guid: 4b739d773db407c498f721318038780e, type: 2}
-  - {fileID: 11400000, guid: 9c269df7d6e8ddb47ab21fa7ab2b6579, type: 2}
-  - {fileID: 11400000, guid: 1c781d84df510e543aff76243dfadccc, type: 2}
-  - {fileID: 11400000, guid: ca5a723ec76fe5e45a82b1ae5cb1fb67, type: 2}
-  - {fileID: 11400000, guid: 62641313b4cf388488dd4a273c5298a0, type: 2}
-  - {fileID: 11400000, guid: 696c55dde30964f4793001f4e29fef60, type: 2}
-  - {fileID: 11400000, guid: c24322224d6ac384892b0dc211ba5b28, type: 2}
   - {fileID: 11400000, guid: f416b2721839e584a94cb346912f9998, type: 2}
-  - {fileID: 11400000, guid: 36b3b5a208c8e104891fba372a76754b, type: 2}
-  - {fileID: 11400000, guid: f9d502b7159da3141999220dd789df85, type: 2}
-  - {fileID: 11400000, guid: ee50bfccc5f5baf42b7a4a963a69c399, type: 2}
+  - {fileID: 11400000, guid: 53fea871a986fa04d9905e7a346210cd, type: 2}
+  - {fileID: 11400000, guid: 7c45e1e6b1af70d4da2e32b647fe574d, type: 2}
+  - {fileID: 11400000, guid: d50e49be7e425af4c96fa74c0699a0ab, type: 2}
+  - {fileID: 11400000, guid: 6fbfe78965f0c6e49826f11ebd4c9277, type: 2}
+  - {fileID: 11400000, guid: d69aca725f3a86f4aafb7958684d8a95, type: 2}
+  - {fileID: 11400000, guid: 8fc39eef97f6dcd468b8aa90d04e3adb, type: 2}
+  - {fileID: 11400000, guid: e2f49b4daf3c5664ab27ea949060a51a, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1

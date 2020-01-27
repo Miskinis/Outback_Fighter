@@ -15,9 +15,23 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: b6db090ead9e36148a449dc19759b4fe
-  m_SerializeEntries: []
+  m_GUID: a13a0c1faedbdec4a832072d0602c7b3
+  m_SerializeEntries:
+  - m_GUID: 5468ae9770b036848ac6a2a380b216d4
+    m_Address: Assets/UI/Player2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - m_GUID: f22e1901a1c20534d95e518f396fdc32
+    m_Address: Assets/UI/Player1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: f73aa75efc0b19b41a34241c1684573c, type: 2}
+    - {fileID: 11400000, guid: aa2285ecde4fd2a418bd1486d029c1d4, type: 2}

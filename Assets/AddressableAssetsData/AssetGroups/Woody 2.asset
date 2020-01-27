@@ -15,23 +15,27 @@ MonoBehaviour:
   m_GroupName: Woody 2
   m_Data:
     m_SerializedData: []
-  m_GUID: 918a58485068aa441b00d9ee66d83134
+  m_GUID: 35d40012dc8ddb0449ea19769f412b61
   m_SerializeEntries:
   - m_GUID: 3510c6810ebbb024eb2b601987957f99
-    m_Address: Woody 2
+    m_Address: Assets/Prefabs/Players/Woody 2.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character
     - Player 2
+    m_mainAssetType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   - m_GUID: ee75a6dd3cc9db749abfd427cac58497
-    m_Address: Woody Icon 2
+    m_Address: Assets/UI/wooden2.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Character Icon
     - Player 2
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 575c9795af9cb1f489e32a9185c68fbd, type: 2}
-    - {fileID: 11400000, guid: 4d2c950dcb3159f4c971298599535dc3, type: 2}
+    - {fileID: 11400000, guid: 58d32e018847a1f41858efa696391b9a, type: 2}
+    - {fileID: 11400000, guid: af4dc2a79115c8b4eb4fb3a52ff9d5b8, type: 2}
