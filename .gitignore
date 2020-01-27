@@ -38,9 +38,6 @@ ExportedObj/
 *.pdb.meta
 *.mdb.meta
 
-# Unity3D Addressable assets auto generated
-[Aa]ssets/AddressableAssetsData/AssetGroups/Schemas/
-
 # Unity3D generated file on crash reports
 sysinfo.txt
 
