@@ -15,9 +15,9 @@ MonoBehaviour:
   m_GroupName: Edgelord 1
   m_Data:
     m_SerializedData: []
-  m_GUID: 1169f69363425f547a923bd821f68039
+  m_GUID: ac2b04215eb9bbd4a837699e42e100c1
   m_SerializeEntries:
-  - m_GUID: c3e667c66c46b7e40bc84ce0ad0834da
+  - m_GUID: 117659e1d0883df43ad9e3f56ff549c4
     m_Address: Edgelord Icon 1
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 019b7e8d1a0be0a4b939646a1889b1a6, type: 2}
-    - {fileID: 11400000, guid: 9d033d565a52f7a468f4e648ad09cf3e, type: 2}
+    - {fileID: 11400000, guid: 5ad9245ee7d91c9459acd6bda723c373, type: 2}
+    - {fileID: 11400000, guid: 5d0030ea584f39d45afd472b61c368a0, type: 2}

@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Woody 2
   m_Data:
     m_SerializedData: []
-  m_GUID: f804a47c096344c4da9626d2baf034e7
+  m_GUID: d9c62bb6ff417d340b68ce28056aa5c7
   m_SerializeEntries:
   - m_GUID: 3510c6810ebbb024eb2b601987957f99
-    m_Address: Woody Default 2
+    m_Address: Woody Default  2
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - m_GUID: ee75a6dd3cc9db749abfd427cac58497
-    m_Address: Woody Default Icon 2
+    m_Address: Woody Default  Icon 2
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: f98303ca25830e148b0a28d54b145826, type: 2}
-    - {fileID: 11400000, guid: 236623d3e9022504d9ad0ec16f01003e, type: 2}
+    - {fileID: 11400000, guid: f3b29658c05e5dc46a3cf5a0e1f28ecf, type: 2}
+    - {fileID: 11400000, guid: ccbf8d1be53531f498212b618a77719a, type: 2}

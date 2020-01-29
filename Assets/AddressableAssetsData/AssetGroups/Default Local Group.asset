@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: a12ea32a3c555a947bbc5d75f881b41d
+  m_GUID: ae9c68dc0da17294baf168e22dba267e
   m_SerializeEntries:
   - m_GUID: 5468ae9770b036848ac6a2a380b216d4
     m_Address: Assets/UI/Player2.png
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 42d7c36b5a7ac11488778c861fb87a0a, type: 2}
-    - {fileID: 11400000, guid: df376d27cf62ba8489ae4bc9a7ef447a, type: 2}
+    - {fileID: 11400000, guid: 9fc72f21bb6b14f4e8e0ea5ed33052bd, type: 2}
+    - {fileID: 11400000, guid: 09b7f3a46e06ea14d8b9cf0eeb7a24b3, type: 2}

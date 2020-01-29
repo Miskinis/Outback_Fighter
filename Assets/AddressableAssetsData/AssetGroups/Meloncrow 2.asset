@@ -15,23 +15,23 @@ MonoBehaviour:
   m_GroupName: Meloncrow 2
   m_Data:
     m_SerializedData: []
-  m_GUID: 348b13d06d8e4864aacd62b89366f1ef
+  m_GUID: fa50a905c26596f4883cd68b039ab0aa
   m_SerializeEntries:
-  - m_GUID: 28b17641963d92f47b58897a1f8a6235
-    m_Address: Meloncrow Icon 2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   - m_GUID: 413de239028ac39479232a5d368ceb3d
     m_Address: Meloncrow 2
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  - m_GUID: 9d10d193d72620841a08259693532033
+    m_Address: Meloncrow Icon 2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8897bd40638dca7418312e74d00cee6c, type: 2}
-    - {fileID: 11400000, guid: 434c028c6b7c806429a8d35d36c7b148, type: 2}
+    - {fileID: 11400000, guid: acceec32f29196c4eb080bbf16eaea6a, type: 2}
+    - {fileID: 11400000, guid: 49bde55f55241fd438ba1f852e0da2ba, type: 2}

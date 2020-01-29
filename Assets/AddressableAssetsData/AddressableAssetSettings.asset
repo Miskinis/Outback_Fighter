@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: a12ea32a3c555a947bbc5d75f881b41d
+  m_DefaultGroup: ae9c68dc0da17294baf168e22dba267e
   m_BuildRemoteCatalog: 0
   m_DisableCatalogUpdateOnStart: 0
   m_UniqueBundleIds: 0
@@ -24,18 +24,18 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: f416b2721839e584a94cb346912f9998, type: 2}
   - {fileID: 11400000, guid: 36b3b5a208c8e104891fba372a76754b, type: 2}
-  - {fileID: 11400000, guid: b758c97733991d44a9f13491604a0fbd, type: 2}
-  - {fileID: 11400000, guid: 9d6af55afd39b614d92b1f99114b52b4, type: 2}
-  - {fileID: 11400000, guid: f7f6b5a11b9cb7045a4ddca853d39317, type: 2}
-  - {fileID: 11400000, guid: 6ca816e43205f214ea103d30fcec2ef2, type: 2}
-  - {fileID: 11400000, guid: 96d77f26777da6544a772e2cb0f85239, type: 2}
-  - {fileID: 11400000, guid: 5491bf89c59db3a448b8a35cd5d3b6cd, type: 2}
-  - {fileID: 11400000, guid: 748b9d690342cb54980ad0c1732c8e3f, type: 2}
-  - {fileID: 11400000, guid: a606b15ad77e9ac44b5d61a71fa9d909, type: 2}
-  - {fileID: 11400000, guid: 7b0fb58af457adf42b4c341e19110bbc, type: 2}
-  - {fileID: 11400000, guid: 1a795ee5956e0284a9a0350960a7ed50, type: 2}
-  - {fileID: 11400000, guid: 14b6209ba0a44d945a5af065866cf734, type: 2}
-  - {fileID: 11400000, guid: ec89ee738b8ea6044a3ed50e8e44f9dd, type: 2}
+  - {fileID: 11400000, guid: ef7b3114555355a43a448f906bd7d0c8, type: 2}
+  - {fileID: 11400000, guid: 8c243c4b4bdc72f4a8821f41c5c606cb, type: 2}
+  - {fileID: 11400000, guid: 7bec64eaaf6c05a40af245f5aaaacbe6, type: 2}
+  - {fileID: 11400000, guid: 1146323a35923bf4f8c93fa8828ba788, type: 2}
+  - {fileID: 11400000, guid: be71783b1cfd474419083029c2ff6790, type: 2}
+  - {fileID: 11400000, guid: 3d3965f5128e43246b4ed6a65c701482, type: 2}
+  - {fileID: 11400000, guid: 2555480cb5f84574db91e9a9c2f8eee3, type: 2}
+  - {fileID: 11400000, guid: f9fcbdcf73bf9e943857e1e6044dcfab, type: 2}
+  - {fileID: 11400000, guid: 913eb0c73caf6bf4f9eddd5a1d7da6eb, type: 2}
+  - {fileID: 11400000, guid: 7da19ad9d2fb71d4ea3e35053b7ae6dc, type: 2}
+  - {fileID: 11400000, guid: c6117729e26ef3a4e94d94379f84bf92, type: 2}
+  - {fileID: 11400000, guid: 433dc567ed38f7844b082d92ba8ea832, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1

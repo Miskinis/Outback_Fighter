@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Swordy 2
   m_Data:
     m_SerializedData: []
-  m_GUID: 478edee38cf40bb478dbb1a36bad350f
+  m_GUID: 9b0535009a0a3504ca54b945f31aa7d6
   m_SerializeEntries:
   - m_GUID: 8d78d0b6e04ef154091892f28584b3e5
-    m_Address: Swordy Default Icon 2
+    m_Address: Swordy Default  Icon 2
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - m_GUID: b560004c7b5ce5243ac6167a9b4f5fe9
-    m_Address: Swordy Default 2
+    m_Address: Swordy Default  2
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 1633ffc7e5d8efb4cac29a5dfd084df4, type: 2}
-    - {fileID: 11400000, guid: f7c7e65e0274e044d9ad2fc7f77fe709, type: 2}
+    - {fileID: 11400000, guid: cfa11e90df3e8914ba97588dca548122, type: 2}
+    - {fileID: 11400000, guid: c2633a986bef2e143a11d87ae5ea3ecb, type: 2}

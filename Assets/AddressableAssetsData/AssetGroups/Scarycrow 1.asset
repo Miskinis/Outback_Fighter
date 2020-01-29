@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Scarycrow 1
   m_Data:
     m_SerializedData: []
-  m_GUID: 1fa7a6556184d9448816fd4511230821
+  m_GUID: d3256917f0b516c408568267f9b23764
   m_SerializeEntries:
   - m_GUID: 07a4e73f9fe0bbb4f9786f280dbc502d
-    m_Address: Scarycrow Default 1
+    m_Address: Scarycrow Default  1
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   - m_GUID: 6237eb233d21d644695727a64b51fceb
-    m_Address: Scarycrow Default Icon 1
+    m_Address: Scarycrow Default  Icon 1
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_mainAssetType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 0a913250cc1f64b4aa1bdb56de76fb07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 66845ef11ca52904fa99a9fdbf01e2d1, type: 2}
-    - {fileID: 11400000, guid: 4f1af18d461260343a64fb4b5a6653f8, type: 2}
+    - {fileID: 11400000, guid: de8a5bea5b952af4dbc6feaf68343aa7, type: 2}
+    - {fileID: 11400000, guid: 6e3a17dad96143041bf786ef777ee186, type: 2}
